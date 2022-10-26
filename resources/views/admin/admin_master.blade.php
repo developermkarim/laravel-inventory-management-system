@@ -11,7 +11,7 @@
     <meta name="robots" content="noindex, nofollow">
     <title>Dreams Pos admin template</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('backend/assets/img/favicon.png')}}">
 
     <link rel="stylesheet" href="{{asset('backend/assets/css/bootstrap.min.css')}}">
 
@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{asset('backend/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/plugins/fontawesome/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
+    <script src="https://kit.fontawesome.com/92d6c198cd.js" crossorigin="anonymous"></script>
 </head>
 
 <body>

@@ -1,57 +1,112 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<meta name="description" content="POS - Bootstrap Admin Template">
+<meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
+<meta name="author" content="Dreamguys - Bootstrap Admin Template">
+<meta name="robots" content="noindex, nofollow">
+<title>Login - Pos admin template</title>
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('backend/assets/img/favicon.png')}}">
 
-            <!-- username Address -->
-            <div>
-                <x-input-label for="username" :value="__('username')" />
+<link rel="stylesheet" href="{{asset('backend/assets/css/bootstrap.min.css')}}">
 
-                <x-text-input id="username" class="block mt-1 w-full" type="username" name="username" :value="old('username')" required autofocus />
+<link rel="stylesheet" href="{{asset('backend/assets/css/animate.css')}}">
 
-                <x-input-error :messages="$errors->get('username')" class="mt-2" />
-            </div>
+<link rel="stylesheet" href="{{asset('backend/assets/css/dataTables.bootstrap4.min.css')}}">
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
+<link rel="stylesheet" href="{{asset('backend/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('backend/assets/plugins/fontawesome/css/all.min.css')}}">
+<link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
+<script src="https://kit.fontawesome.com/92d6c198cd.js" crossorigin="anonymous"></script>
+</head>
+<body class="account-page">
 
-                <x-text-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+<div class="main-wrapper">
+<div class="account-content">
+<div class="login-wrapper">
+   
+<div class="login-content">
 
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
-            </div>
+<div class="login-userset">
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
+<div class="login-logo">
+<img src="{{asset('backend/assets/img/logo.png')}}" alt="img">
+</div>
+<div class="login-userheading">
+<h3>Sign In</h3>
+<h4>Please login to your account</h4>
+</div>
 
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
+<div class="form-login">
+{{-- <label>Full Name</label> --}}
+<div class="form-addons">
+<input type="text" id="username" name="username" placeholder="Enter your user name">
+<img src="{{asset('backend/assets/img/icons/users1.svg')}}" alt="img">
+</div>
+<x-input-error :messages="$errors->get('username')" class="mt-2 text-danger" />
+</div>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+<div class="form-login">
+{{-- <label>Password</label> --}}
+<div class="pass-group">
+<input type="password" id="password" class="pass-input" name="password" placeholder="Enter your password">
+<span class="fas toggle-password fa-eye-slash"></span>
+</div>
 
-                <x-primary-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-primary-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+<x-input-error :messages="$errors->get('password')" class="mt-2 text-danger" />
+</div>
+
+<div class="flex items-center justify-end mt-4">
+    @if (Route::has('password.request'))
+        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+            {{ __('Forgot your password?') }}
+        </a>
+    @endif
+
+
+</div>
+
+<div class="form-login">
+<button type="submit" class="btn btn-login">Sign Up</button>
+</div>
+<div class="signinform text-center">
+<h4>Don’t have an account? <a href="{{route('register')}}" class="hover-a">Sign Up</a></h4>
+</div>
+<div class="form-setlogin">
+<h4>Or sign In with</h4>
+</div>
+<div class="form-sociallink">
+<ul>
+<li>
+<a href="javascript:void(0);">
+<img src="{{asset('backend/assets/img/icons/google.png')}}" class="me-2" alt="google">
+Sign In using Google
+</a>
+</li>
+<li>
+ <a href="javascript:void(0);">
+<img src="{{asset('backend/assets/img/icons/facebook.png')}}" class="me-2" alt="google">
+Sign In using Facebook
+</a>
+</li>
+</ul>
+</div>
+</form>
+
+</div> 
+</div>
+
+   
+<div class="login-img">
+<img src="{{asset('backend/assets/img/login.jpg')}}" alt="img">
+</div>
+</div>
+</div>
+</div>
+
+
