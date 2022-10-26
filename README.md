@@ -10,9 +10,9 @@
 ## About Inventory Management System
 
 The technology includes with this proejct, here are--
-1. Laravel Breeze [Click Here](https://laravel.com/docs/9.x/starter-kits#laravel-breeze)
-2. 
-
+1. Laravel Breeze [CLICK](https://laravel.com/docs/9.x/starter-kits#laravel-breeze)
+2. Mail Trip Email API [CLICK](https://mailtrap.io/inboxes/)
+3. 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
