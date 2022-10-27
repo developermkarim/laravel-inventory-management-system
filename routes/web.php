@@ -22,9 +22,14 @@ Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-/* Admin Controller in grouping system */
+/* Admin Routes Controller in grouping system */
 Route::controller(AdminController::class)->group(function(){
 Route::get('admin/signout','destroy')->name('admin.logout');
+Route::get('admin/profile/','profile')->name('admin.profile');
+Route::get('admin/edit/{id}','profileEdit')->name('admin.profile.edit');
+
+Route::put('admin/update/{id}','profileUpdate')->name('admin.profile.update');
+
 });
 
 

@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{asset('backend/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/plugins/fontawesome/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/92d6c198cd.js" crossorigin="anonymous"></script>
 </head>
 
@@ -45,7 +46,7 @@
         </div>
     </div>
 
-
+@stack('customIs')
     <script src="{{asset('backend/assets/js/jquery-3.6.0.min.js')}}"></script>
 
     <script src="{{asset('backend/assets/js/feather.min.js')}}"></script>

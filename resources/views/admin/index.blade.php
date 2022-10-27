@@ -38,9 +38,8 @@
                 </div>
             </div>
          </div>
-
+         
           {{--{{asset('backend/')}} --}}
-          
         <div class="col-lg-3 col-sm-6 col-12">
             <div class="dash-widget dash3">
                 <div class="dash-widgetimg">

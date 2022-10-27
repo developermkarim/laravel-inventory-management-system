@@ -8,7 +8,7 @@
                             Dashboard</span> </a>
                 </li>
                 <li class="submenu">
-                    <a href="javascript:void(0);"><img src="assets/img/icons/product.svg" alt="img"><span>
+                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/product.svg')}}" alt="img"><span>
                             Product</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="productlist.html">Product List</a></li>
@@ -24,7 +24,7 @@
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="javascript:void(0);"><img src="assets/img/icons/sales1.svg" alt="img"><span>
+                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
                             Sales</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="saleslist.html">Sales List</a></li>
@@ -35,7 +35,7 @@
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="javascript:void(0);"><img src="assets/img/icons/purchase1.svg" alt="img"><span>
+                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/purchase1.svg')}}" alt="img"><span>
                             Purchase</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="purchaselist.html">Purchase List</a></li>
@@ -44,7 +44,7 @@
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="javascript:void(0);"><img src="assets/img/icons/expense1.svg" alt="img"><span>
+                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/expense1.svg')}}" alt="img"><span>
                             Expense</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="expenselist.html">Expense List</a></li>
