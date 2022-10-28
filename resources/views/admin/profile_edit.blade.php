@@ -69,7 +69,7 @@
     <input type="file" id="profile" name="profile_image">
     
     </div>
-    <img  id="showImage" src="{{asset('backend/assets/img/profiles/mkarim.png')}}" width="100" height="100" alt="img">
+    <img  id="showImage" src="{{!empty($userData->profile_image) ? url('uploads/admin_images/'.$userData->profile_image) : url('uploads/default-user.png')}}" width="100" height="100" alt="img">
     </div>
     {{-- <div class="col-lg-6 col-sm-12">
     <div class="form-group">
@@ -93,7 +93,7 @@
     </div>
     </div> --}}
     <div class="col-12">
-    <button type="submit" class="btn btn-submit me-2">Submit</button>
+    <button type="submit" class="btn btn-submit me-2">Update Profile</button>
     <a href="{{route('admin.profile')}}" class="btn btn-cancel">Cancel</a>
     </div>
     </div>

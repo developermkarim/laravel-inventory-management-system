@@ -12,9 +12,10 @@ class AdminController extends Controller
     public function profile()
     {
         $id = Auth::user()->id;
-        // dd($id);
+    //   $profile_image = Auth::user()->profile_image;
+    //   dd($profile_image);
         $adminModel = User::find($id);
-        //  dd($adminModel);
+       
         return view('admin.admin_profile',compact('adminModel'));
     }
 
@@ -52,19 +53,40 @@ class AdminController extends Controller
         }
 
         $userModel->update();
-        return redirect()->route('admin.profile');
 
+        /* toaster Message Notification */
+
+        $notification = [
+            'message' => 'Admin Profile Updated Successfully',
+            'alert-type'=>'success',
+             
+        ];
+
+        return redirect()->route('admin.profile')->with($notification);
+
+    }
+
+    public function passwordChange()
+    {
+        // return 'this is password change';
+        return view('admin.changePass');
     }
 
     public function destroy(Request $request)
     {
+        $notification = [
+            'message' => 'User logged out successfully',
+            'alert-type'=>'success',
+             
+        ];
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/login')->with($notification);
 
         /* End Method */
     }

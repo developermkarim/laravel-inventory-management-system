@@ -32,7 +32,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $notification = [
+            'message' => 'User Login successfully',
+            'alert-type'=>'success',
+             
+        ];
+        return redirect()->intended(RouteServiceProvider::HOME)->with($notification);
     }
 
     /**
@@ -43,6 +48,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
+        
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

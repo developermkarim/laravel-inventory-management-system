@@ -11,13 +11,14 @@
             <div class="card p-3 py-4">
                 
                 <div class="text-center">
-                    <img src="{{asset('uploads/admin_images/profile-2022-10-27-1654.png')}}" width="100" class="rounded-circle">
+                    <img src="{{$adminModel->profile_image ? url('uploads/admin_images/'. $adminModel->profile_image) : url('uploads/default-user.png')}}" width="100" class="rounded-circle">
                 </div>
                {{--  {{asset('uploads/admin_images/{{$adminModel->profile_image}}')}} --}}
+               {{-- {{asset('uploads/admin_images/profile-2022-10-27-1654.png')}} --}}
                 <div class="text-center mt-3">
                     <span class="bg-secondary p-1 px-4 rounded text-white">User Profile</span>
-                    <h5 class="mt-2 mb-0">Alexender Schidmt</h5>
-                    <span>UI/UX Designer</span>
+                    <h5 class="mt-2 mb-0">{{$adminModel->name}}</h5>
+                    <span>{{$adminModel->email}}</span>
                     
                     <div class="px-4 mt-1">
                         <p class="fonts">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
@@ -32,11 +33,11 @@
                         <li><i class="fa fa-google"></i></li>
                     </ul>
                     
-                    <div class="buttons">
+                    
                         
                         {{-- <button class="btn btn-outline-primary px-4">Message</button> --}}
-                       <a href="{{route('admin.profile.edit',$adminModel->id)}}"> <button class="btn btn-primary px-4 ms-3">Edit Profile</button></a>
-                    </div>
+                       <a href="{{route('admin.profile.edit',$adminModel->id)}}"> <button class="btn btn-submit me-2">Edit Profile</button></a>
+                    
                     
                 </div>
                 

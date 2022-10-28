@@ -1,7 +1,11 @@
 <div class="header">
-
+@php
+    $id = Auth::user()->id;
+    $admindata = App\Models\User::find($id);
+    // dd($admindata);
+@endphp
     <div class="header-left active">
-        <a href="index.html" class="logo">
+        <a href="{{url('dashboard/')}}" class="logo">
 
             <img src="{{asset('backend/assets/img/logo.png')}}" alt="">
         </a>
@@ -93,7 +97,7 @@
 
         <li class="nav-item dropdown has-arrow main-drop">
            <a href="#" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
-                <span class="user-img"><img src="{{asset('backend/assets/img/profiles/avator1.jpg')}}" alt="">
+                <span class="user-img"><img src="{{Auth::user()->profile_image ? url('uploads/admin_images/'.Auth::user()->profile_image) : url('uploads/default-user.png')}}" alt="">
                     <span class="status online"></span></span>
             </a>
             <div class="dropdown-menu menu-drop-user">
@@ -102,13 +106,16 @@
                         <span class="user-img"><img src="assets/img/profiles/avator1.jpg" alt="">
                             <span class="status online"></span></span>
                         <div class="profilesets">
-                            <h6>John Doe</h6>
+                            <h6>{{Auth::user()->name}}</h6>
                             <h5>Admin</h5>
                         </div>
                     </div>
                     <hr class="m-0">
                     <a class="dropdown-item" href="{{route('admin.profile')}}"> <i class="me-2" data-feather="user"></i> My
                         Profile</a>
+
+                    <a class="dropdown-item" href="{{route('admin.password.change')}}"> <i class="fa fa-lock" aria-hidden="true"></i>&nbsp; &nbsp;Change Password</a>
+
                     <a class="dropdown-item" href="generalsettings.html"><i class="me-2"
                             data-feather="settings"></i>Settings</a>
                     <hr class="m-0">
