@@ -13,7 +13,8 @@ The technology includes with this proejct, here are--
 1. Laravel Breeze [CLICK](https://laravel.com/docs/9.x/starter-kits#laravel-breeze)
 2. Mail Trip Email API [CLICK](https://mailtrap.io/inboxes/)
 3. jquery Toast notification
-4.
+4. Bootstrap 5
+5. 
 
 
 

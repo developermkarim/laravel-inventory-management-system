@@ -31,6 +31,7 @@ Route::get('admin/edit/{id}','profileEdit')->name('admin.profile.edit');
 Route::put('admin/update/{id}','profileUpdate')->name('admin.profile.update');
 Route::get('admin/passwordChange/','passwordChange')->name('admin.password.change');
 
+Route::post('admin/passwordUpdate','passwordUpdate')->name('admin.password.updated');
 });
 
 
