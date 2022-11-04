@@ -25,6 +25,21 @@
                 </li>
                 <li class="submenu">
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
+                            Manage Supplier</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('supplier.all') }}">Supplier List</a></li>
+
+                        <li><a href="{{ route('supplier.add') }}">Add Supplier</a></li>
+                        <li><a href="pos.html">POS</a></li>
+                        <li><a href="pos.html">New Sales</a></li>
+                        <li><a href="salesreturnlists.html">Sales Return List</a></li>
+                        <li><a href="createsalesreturns.html">New Sales Return</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="submenu">
+                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
                             Sales</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="saleslist.html">Sales List</a></li>

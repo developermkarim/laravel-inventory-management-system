@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Pos\SupplierController;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +34,23 @@ Route::put('admin/update/{id}','profileUpdate')->name('admin.profile.update');
 Route::get('admin/passwordChange/','passwordChange')->name('admin.password.change');
 
 Route::post('admin/passwordUpdate','passwordUpdate')->name('admin.password.updated');
+
 });
+
+Route::controller(SupplierController::class)->group(function(){
+
+   Route::get('allSupliers/', 'supplierAll')->name('supplier.all');
+
+   Route::get('supplyForm/','supplyAdd')->name('supplier.add');
+
+   Route::post('addSupliers/', 'supplierStore')->name('supplier.store');
+
+   Route::get('supplyEdit/{id}','supplyEdit')->name('supplier.edit');
+
+   Route::put('updateSupliers/', 'supplierUpdate')->name('supplier.update');
+   Route::get('deleteSupliers/{id}', 'supplierDelete')->name('supplier.delete');
+});
+
 
 
 

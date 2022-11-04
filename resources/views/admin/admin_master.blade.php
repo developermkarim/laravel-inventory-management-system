@@ -25,7 +25,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     {{-- Toastes Css CDN --}}
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/toast-notify.css') }}" >
+
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
     <script src="https://kit.fontawesome.com/92d6c198cd.js" crossorigin="anonymous"></script>
 </head>
@@ -63,6 +65,10 @@
 
     <script src="{{ asset('backend/assets/js/bootstrap.bundle.min.js') }}"></script>
 
+    {{-- Sweet alert CDN --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script src="{{ asset('backend/assets/js/sweet-alert.js') }}"></script>
     {{-- <script src="assets/plugins/apexchart/apexcharts.min.js"></script> --}}
 
     <script src="{{ asset('backend/assets/plugins/apexchart/apexcharts.min.js') }}"></script>
@@ -74,8 +80,11 @@
 
     <script src="{{ asset('backend/assets/js/script.js') }}"></script>
 
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     {{-- This blade syntex for custom js to call view files --}}
+    <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
     @stack('customJs')
 
     <script>
