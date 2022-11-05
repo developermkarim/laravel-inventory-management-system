@@ -7,6 +7,7 @@ use App\Models\Customer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CustomerController extends Controller
 {
@@ -41,8 +42,8 @@ class CustomerController extends Controller
          'name'=>$request->name,
          'mobile_no'=>$request->mobile_no,
          'email'=>$request->email,
-         'customer_image' => $storeImage['imageName'] ,
-         'customer_img_uri' => $storeImage['imageUri'] ,
+         'customer_image' => $storeImage['imageName'],
+         'customer_img_uri' => $storeImage['imageUri'],
          'address'=> $request->address,
          'created_by'=>Auth::user()->id,
          'created_at'=> Carbon::now(),
@@ -66,10 +67,18 @@ class CustomerController extends Controller
  
     public function customerUpdate(Request $request)
     {
-     $updateId = $request->id;
+    //  $updateId = $request->id;
      $customer_id = $request->id;
+     $deleteImg = Customer::findOrFail($customer_id);
+     $path = 'customer/' . $deleteImg->customer_image;
+   
      if ($request->file('customer_image')) {
-$storeImage = $this->uploadImage($request);
+        if(Storage::disk('public')->exists($path)){
+        Storage::disk('public')->delete($path);
+        
+         }
+
+     $storeImage = $this->uploadImage($request);
      Customer::findOrFail($customer_id)->update([
          'name' => $request->name,
          'mobile_no' => $request->mobile_no,
@@ -113,8 +122,18 @@ $storeImage = $this->uploadImage($request);
  
     public function customerDelete($id)
     {
-      Customer::findOrFail($id)->delete();
-      $deleteMsg = ['message'=>'Delete Successfully'];
-      return redirect('/allCustomers')->with($deleteMsg);
+       /*  $img = $customers->customer_image;
+        unlink($img); */
+        $deleteid = Customer::findOrFail($id);
+        $path = 'customer/' . $deleteid->customer_image;
+        if(Storage::disk('public')->exists($path)){
+        Storage::disk('public')->delete($path);
+        Customer::findOrFail($id)->delete();
+        
+     }
+
+     $deleteMsg = ['message'=>'Delete Successfully','alert-type'=>'success'];
+     
+     return redirect()->back()->with($deleteMsg);
     }
 }
