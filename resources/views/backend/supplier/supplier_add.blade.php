@@ -58,6 +58,15 @@
                                     <input name="address" value="{{ $editSupply->address }}" class="form-control" type="text">
                                 </div>
                             </div>
+
+                            {{-- <div class="row mb-3">
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Supplier Image
+                                </label>
+                                <div class="form-group col-sm-10">
+                                   <img src="{{ $editSupply->customer_image }}" alt="">
+                                    <input name="customer_image" class="form-control" type="file">
+                                </div>
+                            </div> --}}
                             <!-- end row -->
                             <div class="col-lg-12">
                                 <label class="col-sm-2 col-form-label"> </label>
@@ -109,6 +118,14 @@
                                     <input name="address" class="form-control" type="text">
                                 </div>
                             </div>
+
+                            {{-- <div class="row mb-3">
+                                <label for="example-text-input" class="col-sm-2 col-form-label">Supplier Address
+                                </label>
+                                <div class="form-group col-sm-10">
+                                    <input name="customer_image" class="form-control" type="file">
+                                </div>
+                            </div> --}}
                             <!-- end row -->
                             <div class="col-lg-12">
                                 <label class="col-sm-2 col-form-label"> </label>

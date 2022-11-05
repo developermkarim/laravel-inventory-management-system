@@ -37,6 +37,18 @@
                     </ul>
                 </li>
 
+                <li class="submenu">
+                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
+                            Manage Customer</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('customer.all') }}">Customer List</a></li>
+
+                        <li><a href="{{ route('customer.add') }}">Add Customer</a></li>
+                        
+                        <li><a href="#">New Sales Return</a></li>
+                    </ul>
+                </li>
+
 
                 <li class="submenu">
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>

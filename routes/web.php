@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\SupplierController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +51,20 @@ Route::controller(SupplierController::class)->group(function(){
    Route::put('updateSupliers/', 'supplierUpdate')->name('supplier.update');
    Route::get('deleteSupliers/{id}', 'supplierDelete')->name('supplier.delete');
 });
+
+Route::controller(CustomerController::class)->group(function(){
+
+    Route::get('allCustomers/', 'customerAll')->name('customer.all');
+ 
+    Route::get('customerForm/','customerAdd')->name('customer.add');
+ 
+    Route::post('addCustomers/', 'customerStore')->name('customer.store');
+ 
+    Route::get('customerEdit/{id}','customerEdit')->name('customer.edit');
+ 
+    Route::put('updateCustomers/', 'customerUpdate')->name('customer.update');
+    Route::get('deleteCustomers/{id}', 'customerDelete')->name('customer.delete');
+ });
 
 
 

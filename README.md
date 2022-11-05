@@ -16,7 +16,8 @@ The technology includes with this proejct, here are--
 4. Bootstrap 5
 5. validate.min.js jquery plugin for input live validation
 6. Sweet Alert of jQuery Plugin by just calling id in <a></a> tag;
-7. 
+7. Image Live Show in insert or update while Uploading.
+8. 
 
 
 
