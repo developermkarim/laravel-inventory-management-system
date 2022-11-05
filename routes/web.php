@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\SupplierController;
+use App\Http\Controllers\Pos\UnitController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +66,37 @@ Route::controller(CustomerController::class)->group(function(){
  
     Route::put('updateCustomers/', 'customerUpdate')->name('customer.update');
     Route::get('deleteCustomers/{id}', 'customerDelete')->name('customer.delete');
+ });
+
+ Route::controller(UnitController::class)->group(function(){
+
+  Route::get('allUnits/', 'unitAll')->name('unit.all');
+ 
+Route::get('unitForm/','unitAdd')->name('unit.add');
+
+Route::post('addUnits/', 'unitStore')->name('unit.store');
+
+Route::get('unitEdit/{id}','unitEdit')->name('unit.edit');
+
+Route::put('updateUnits/', 'unitUpdate')->name('unit.update');
+Route::get('deleteUnits/{id}', 'unitDelete')->name('unit.delete');
+Route::get('unit/status/{status}/{id}','status')->name('unit.status');
+ });
+
+ Route::controller(CategoryController::class)->group(function(){
+Route::get('allCategories/', 'categoryAll')->name('category.all');
+ 
+Route::get('categoryForm/','categoryAdd')->name('category.add');
+
+Route::post('addCategories/', 'categoryStore')->name('category.store');
+
+Route::get('categoryEdit/{id}','categoryEdit')->name('category.edit');
+
+Route::put('updateCategories/', 'categoryUpdate')->name('category.update');
+Route::get('deleteCategories/{id}', 'categoryDelete')->name('category.delete');
+
+Route::get('category/status/{status}/{id}','status')->name('category.status');
+
  });
 
 

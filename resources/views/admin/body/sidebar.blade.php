@@ -36,7 +36,6 @@
                         <li><a href="createsalesreturns.html">New Sales Return</a></li>
                     </ul>
                 </li>
-
                 <li class="submenu">
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
                             Manage Customer</span> <span class="menu-arrow"></span></a>
@@ -48,6 +47,34 @@
                         <li><a href="#">New Sales Return</a></li>
                     </ul>
                 </li>
+                <li class="submenu">
+                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
+                            Manage Unit</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('unit.all') }}">Unit List</a></li>
+
+                        <li><a href="{{ route('unit.add') }}">Add Supplier</a></li>
+                        <li><a href="#">POS</a></li>
+                        <li><a href="pos.html">New Sales</a></li>
+                       
+                       
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
+                            Manage Category</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('category.all') }}">Category List</a></li>
+
+                        <li><a href="{{ route('category.add') }}">Add Category</a></li>
+                        <li><a href="pos.html">POS</a></li>
+                        <li><a href="pos.html">New Sales</a></li>
+                        <li><a href="salesreturnlists.html">Sales Return List</a></li>
+                        <li><a href="createsalesreturns.html">New Sales Return</a></li>
+                    </ul>
+                </li>
+
+               
 
 
                 <li class="submenu">
