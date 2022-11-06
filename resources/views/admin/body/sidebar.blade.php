@@ -11,12 +11,9 @@
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/product.svg')}}" alt="img"><span>
                             Product</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="productlist.html">Product List</a></li>
-                        <li><a href="addproduct.html">Add Product</a></li>
-                        <li><a href="categorylist.html">Category List</a></li>
-                        <li><a href="addcategory.html">Add Category</a></li>
-                        <li><a href="subcategorylist.html">Sub Category List</a></li>
-                        <li><a href="subaddcategory.html">Add Sub Category</a></li>
+                        <li><a href="{{ route('product.all') }}">Product List</a></li>
+                        <li><a href="{{ route('product.add') }}">Add Product</a></li>
+                       
                         <li><a href="brandlist.html">Brand List</a></li>
                         <li><a href="addbrand.html">Add Brand</a></li>
                         <li><a href="importproduct.html">Import Products</a></li>
@@ -64,7 +61,7 @@
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
                             Manage Category</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="{{ route('category.all') }}">Category List</a></li>
+                        <li><a href="{{ url('allCategories/') }}">Category List</a></li>
 
                         <li><a href="{{ route('category.add') }}">Add Category</a></li>
                         <li><a href="pos.html">POS</a></li>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\CustomerController;
+use App\Http\Controllers\Pos\ProductController;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\UnitController;
 use Faker\Guesser\Name;
@@ -84,7 +85,8 @@ Route::get('unit/status/{status}/{id}','status')->name('unit.status');
  });
 
  Route::controller(CategoryController::class)->group(function(){
-Route::get('allCategories/', 'categoryAll')->name('category.all');
+
+Route::get('allCategories/','categoryAll')->name('category.all');
  
 Route::get('categoryForm/','categoryAdd')->name('category.add');
 
@@ -100,7 +102,20 @@ Route::get('category/status/{status}/{id}','status')->name('category.status');
  });
 
 
+/* Product Controller Routes */
+Route::controller(ProductController::class)->group(function(){
+    Route::get('allProducts','productAll')->name('product.all');
+    Route::get('productForm/','productAdd')->name('product.add');
 
+Route::post('addProducts/', 'productStore')->name('product.store');
+
+Route::get('productEdit/{id}','productEdit')->name('product.edit');
+
+Route::put('updateproducts/', 'productUpdate')->name('product.update');
+Route::get('deleteProducts/{id}', 'productDelete')->name('product.delete');
+
+Route::get('product/status/{status}/{id}','status')->name('product.status');
+});
 
 
 require __DIR__.'/auth.php';

@@ -64,11 +64,10 @@
                                 <td> {{ $item->email }} </td>
                                 <td> {{ $item->address }} </td>
                                 <td>
-                                    <a href="{{ route('supplier.edit',$item->id) }}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i>
+                                    <a href="{{ route('supplier.edit',$item->id) }}" class="btn  sm" title="Edit Data"> <img src="{{ asset('backend/assets/img/icons/edit.svg') }}" alt="img">
                                     </a>
 
-                                    <a  href="{{ route('supplier.delete',$item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete"> <i
-                                            class="fas fa-trash-alt"></i> </a>
+                                    <a  href="{{ route('supplier.delete',$item->id) }}" class="btn sm" title="Delete Data" id="delete"> <img src="{{ asset('backend/assets/img/icons/delete.svg') }}" alt="img"> </a>
 
                                 </td>
 

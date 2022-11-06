@@ -17,7 +17,17 @@
 
     <link rel="stylesheet" href="{{ asset('backend/assets/css/animate.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/dataTables.bootstrap4.min.css') }}">
+ {{--  <!-- DataTables -->
+  <link href="{{ asset('backend/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+
+  <!-- Responsive datatable examples -->
+  <link href="{{ asset('backend/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />   --}}
+  {{-- https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css
+https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css --}}
+
+  <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"> --}}
 
     <link rel="stylesheet" href="{{ asset('backend/assets/plugins/fontawesome/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/plugins/fontawesome/css/all.min.css') }}">
@@ -27,7 +37,10 @@
     {{-- Toastes Css CDN --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/assets/css/toast-notify.css') }}" >
 
-    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    {{-- <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"> --}}
+    {{-- https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css
+    https://cdn.datatables.net/scroller/2.0.7/css/scroller.dataTables.min.css --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
     <script src="https://kit.fontawesome.com/92d6c198cd.js" crossorigin="anonymous"></script>
 </head>
@@ -54,14 +67,18 @@
 
     @stack('customIs')
     <script src="{{ asset('backend/assets/js/jquery-3.6.0.min.js') }}"></script>
-
+{{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
     <script src="{{ asset('backend/assets/js/feather.min.js') }}"></script>
 
     <script src="{{ asset('backend/assets/js/jquery.slimscroll.min.js') }}"></script>
 
-    <script src="{{ asset('backend/assets/js/jquery.dataTables.min.js') }}"></script>
+   {{--  <script src="{{ asset('backend/assets/js/jquery.dataTables.min.js') }}"></script> --}}
+       <!-- Datatable init js -->
+       <script src="{{ asset('backend/assets/libs/datatables.init.js') }}"></script>
+    {{-- <script src="{{ asset('backend/assets/js/dataTables.bootstrap4.min.js') }}"></script> --}}
 
-    <script src="{{ asset('backend/assets/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+{{-- <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script> --}}
 
     <script src="{{ asset('backend/assets/js/bootstrap.bundle.min.js') }}"></script>
 
@@ -79,8 +96,10 @@
     {{-- <script src="assets/js/script.js"></script> --}}
 
     <script src="{{ asset('backend/assets/js/script.js') }}"></script>
+      
+    <script src="{{ asset('backend/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 
-    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     {{-- This blade syntex for custom js to call view files --}}
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>

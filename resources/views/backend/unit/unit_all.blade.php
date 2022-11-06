@@ -47,6 +47,8 @@
                                 <th>Sl</th>
                                 <th>Name</th>
                                <th>Status</th>
+                               <th> &nbsp;</th>
+                               <th> &nbsp;</th>
                                 <th>Action</th>
 
                         </thead>
@@ -66,6 +68,8 @@
                                     <a href="{{ url('unit/status') }}/1/{{ $item->id }}"><span class="badges bg-lightgreen">Activated</span></a>
                                     @endif
                                 </td>
+                                <td></td>
+                                <td></td>
 
                                 <td>
                                     <a href="{{ route('unit.edit',$item->id) }}" class="btn  sm" title="Edit Data">  <img src="{{ asset('backend/assets/img/icons/edit.svg') }}" alt="img">
