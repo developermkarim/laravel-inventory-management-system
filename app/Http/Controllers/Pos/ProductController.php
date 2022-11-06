@@ -40,9 +40,9 @@ class ProductController extends Controller
 
    public function productAdd()
    {
-    $units = Unit::all();
-    $categories = Category::all();
-    $suppliers = Supplier::all();
+    $units = Unit::where(['status'=>1])->get();
+    $categories = Category::where(['status'=>1])->get();
+    $suppliers = Supplier::where(['status'=>1])->get();
 
     return view('backend.product.product_add', compact('units','categories','suppliers'));
    }
@@ -74,9 +74,9 @@ public function productStore(Request $request)
 
 public function productEdit($id)
 {
-    $units = Unit::all();
-    $categories = Category::all();
-    $suppliers = Supplier::all();
+    $units = Unit::where(['status'=>1])->get();
+    $categories = Category::where(['status'=>1])->get();
+    $suppliers = Supplier::where(['status'=>1])->get();
     $editProducts = Product::findOrFail($id);
 
     return view('backend.product.product_add',compact('units','categories','suppliers','editProducts'));
@@ -129,5 +129,16 @@ public function productDelete($id)
 return redirect()->back()->with($notice);
 
 }
+
+public function status($status,$id)
+    {
+        $model = Product::findOrFail($id);
+        $model->status = $status;
+        if($model->save()){
+
+            $notice = ['message'=>'You Have Changed Status','alert-type'=>'warning'];
+        }
+        return redirect()->back()->with($notice);
+    }
 
 }

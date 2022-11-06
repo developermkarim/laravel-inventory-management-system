@@ -49,6 +49,7 @@
                                 <th>Mobile Number </th>
                                 <th>Email</th>
                                 <th>Address</th>
+                                <th>Status</th>
                                 <th>Action</th>
 
                         </thead>
@@ -63,6 +64,19 @@
                                 <td> {{ $item->mobile_no }} </td>
                                 <td> {{ $item->email }} </td>
                                 <td> {{ $item->address }} </td>
+
+                                <td>
+                                    @if ($item->status == 1)
+                                        <a href="{{ url('supplier/status') }}/0/{{ $item->id }}">
+                                            <span class="badges bg-lightgreen">unblock</span>
+                                        </a>
+                                    @elseif ($item->status == 0)
+                                    <a href="{{ url('supplier/status') }}/1/{{ $item->id }}"><span class="badges bg-lightred">block</span></a>
+                                        
+                                    @endif
+                                </td>
+
+
                                 <td>
                                     <a href="{{ route('supplier.edit',$item->id) }}" class="btn  sm" title="Edit Data"> <img src="{{ asset('backend/assets/img/icons/edit.svg') }}" alt="img">
                                     </a>

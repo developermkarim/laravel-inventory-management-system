@@ -60,12 +60,17 @@
                             <tr>
                                 <td> {{ $key+1}} </td>
                                 <td> {{ $item->name }} </td>
-                               
+                     
+
+                                {{-- <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" /> --}}
                                 <td>
                                     @if ($item->status == 1)
-                                        <a href="{{ url('unit/status') }}/0/{{ $item->id }}"><span class="badges bg-lightred">Deactivated</span></a>
+                                        <a href="{{ url('unit/status') }}/0/{{ $item->id }}">
+                                            <span class="badges bg-lightgreen">Activated</span>
+                                        </a>
                                     @elseif ($item->status == 0)
-                                    <a href="{{ url('unit/status') }}/1/{{ $item->id }}"><span class="badges bg-lightgreen">Activated</span></a>
+                                    <a href="{{ url('unit/status') }}/1/{{ $item->id }}"><span class="badges bg-lightred">Deactivated</span></a>
+                                        
                                     @endif
                                 </td>
                                 <td></td>

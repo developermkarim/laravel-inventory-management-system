@@ -136,4 +136,15 @@ class CustomerController extends Controller
      
      return redirect()->back()->with($deleteMsg);
     }
+
+    public function status($status,$id)
+    {
+        $model = Customer::findOrFail($id);
+        $model->status = $status;
+        if($model->save()){
+
+            $notice = ['message'=>'You Have Changed Status','alert-type'=>'warning'];
+        }
+        return redirect()->back()->with($notice);
+    }
 }

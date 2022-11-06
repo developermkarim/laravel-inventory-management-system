@@ -74,4 +74,15 @@ $suppliers = Supplier::latest()->get();
      $deleteMsg = ['message'=>'Delete Successfully'];
      return redirect('/allSupliers')->with($deleteMsg);
    }
+
+   public function status($status,$id)
+    {
+        $model = Supplier::findOrFail($id);
+        $model->status = $status;
+        if($model->save()){
+
+            $notice = ['message'=>'You Have Changed Status','alert-type'=>'warning'];
+        }
+        return redirect()->back()->with($notice);
+    }
 }

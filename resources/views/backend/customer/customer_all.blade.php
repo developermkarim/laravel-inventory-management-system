@@ -47,6 +47,7 @@
                                 <th>Mobile Number </th>
                                 <th>Email</th>
                                 <th>Address</th>
+                                <th>Status</th>
                                 <th>Action</th>
 
                         </thead>
@@ -58,15 +59,26 @@
                             <tr>
                                 <td> {{ ++$key}} </td>
                                 <td> {{ $item->name }} </td>
-                                <td> <img src="{{$item->customer_img_uri}}" alt="{{ $item->name }}">  </td>
+                                <td> <img src="{{$item->customer_img_uri}}" alt="{{ $item->name }}" width="60" height="60">  </td>
                                 <td> {{ $item->mobile_no }} </td>
                                 <td> {{ $item->email }} </td>
                                 <td> {{ $item->address }} </td>
+
                                 <td>
-                                    <a href="{{ route('customer.edit',$item->id) }}" class="btn btn-info sm" title="Edit Data"> <i class="fas fa-edit"></i>
+                                    @if ($item->status == 1)
+                                        <a href="{{ url('customer/status') }}/0/{{ $item->id }}">
+                                            <span class="badges bg-lightgreen">unblock</span>
+                                        </a>
+                                    @elseif ($item->status == 0)
+                                    <a href="{{ url('customer/status') }}/1/{{ $item->id }}"><span class="badges bg-lightred">block</span></a>
+                                        
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{ route('customer.edit',$item->id) }}" class="btn text-primary sm" title="Edit Data"> <i class="fas fa-edit"></i>
                                     </a>
 
-                                    <a  href="{{ route('customer.delete',$item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete"> <i
+                                    <a  href="{{ route('customer.delete',$item->id) }}" class="btn text-danger sm" title="Delete Data" id="delete"> <i
                                             class="fas fa-trash-alt"></i> </a>
 
                                 </td>

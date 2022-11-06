@@ -53,6 +53,7 @@ Route::controller(SupplierController::class)->group(function(){
 
    Route::put('updateSupliers/', 'supplierUpdate')->name('supplier.update');
    Route::get('deleteSupliers/{id}', 'supplierDelete')->name('supplier.delete');
+   Route::get('supplier/status/{status}/{id}','status')->name('supplier.status');
 });
 
 Route::controller(CustomerController::class)->group(function(){
@@ -67,6 +68,7 @@ Route::controller(CustomerController::class)->group(function(){
  
     Route::put('updateCustomers/', 'customerUpdate')->name('customer.update');
     Route::get('deleteCustomers/{id}', 'customerDelete')->name('customer.delete');
+    Route::get('customer/status/{status}/{id}','status')->name('customer.status');
  });
 
  Route::controller(UnitController::class)->group(function(){

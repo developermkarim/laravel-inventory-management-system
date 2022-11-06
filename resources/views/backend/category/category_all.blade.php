@@ -62,9 +62,10 @@
 
                                 <td>
                                     @if ($item->status == 1)
-                                        <a href="{{ url('category/status') }}/0/{{ $item->id }}"><span class="badges bg-lightred">Deactivated</span></a>
+                                        <a href="{{ url('category/status') }}/0/{{ $item->id }}"><span class="badges bg-lightgreen">Activated</span></a>
                                     @elseif ($item->status == 0)
-                                    <a href="{{ url('category/status') }}/1/{{ $item->id }}"><span class="badges bg-lightgreen">Activated</span></a>
+                                    <a href="{{ url('category/status') }}/1/{{ $item->id }}"><span class="badges bg-lightred">Deactivated</span></a>
+                                        
                                     @endif
                                 </td>
 
