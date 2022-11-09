@@ -78,7 +78,8 @@
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
                             Sales</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="saleslist.html">Sales List</a></li>
+                        <li><a href="">Purchase List</a></li>
+                        <li><a href="">Purchase Add</a></li>
                         <li><a href="pos.html">POS</a></li>
                         <li><a href="pos.html">New Sales</a></li>
                         <li><a href="salesreturnlists.html">Sales Return List</a></li>
@@ -89,8 +90,8 @@
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/purchase1.svg')}}" alt="img"><span>
                             Purchase</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="purchaselist.html">Purchase List</a></li>
-                        <li><a href="addpurchase.html">Add Purchase</a></li>
+                        <li><a href="{{ route('purchase.all') }}">Purchase List</a></li>
+                        <li><a href="{{ route('purchase.add') }}">Add Purchase</a></li>
                         <li><a href="importpurchase.html">Import Purchase</a></li>
                     </ul>
                 </li>

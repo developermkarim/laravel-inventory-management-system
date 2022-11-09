@@ -104,6 +104,10 @@ https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css --}}
     {{-- This blade syntex for custom js to call view files --}}
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
     <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+
+
     @stack('customJs')
 
     <script>

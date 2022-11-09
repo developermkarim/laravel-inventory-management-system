@@ -3,7 +3,9 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\CustomerController;
+use App\Http\Controllers\Pos\DefaultController;
 use App\Http\Controllers\Pos\ProductController;
+use App\Http\Controllers\Pos\PurchaseController;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\UnitController;
 use Faker\Guesser\Name;
@@ -119,5 +121,27 @@ Route::get('deleteProducts/{id}', 'productDelete')->name('product.delete');
 Route::get('product/status/{status}/{id}','status')->name('product.status');
 });
 
+/* Manage Purchase Routes */
+Route::controller(PurchaseController::class)->group(function(){
+
+    Route::get('allPurchases/', 'purchaseAll')->name('purchase.all');
+     
+    Route::get('purchaseForm/','purchaseAdd')->name('purchase.add');
+    
+    Route::post('addPurchases/', 'purchaseStore')->name('purchase.store');
+    
+    Route::get('purchaseEdit/{id}','purchaseEdit')->name('purchase.edit');
+    
+    Route::put('updatePurchases/', 'purchaseUpdate')->name('purchase.update');
+    Route::get('deletePurchases/{id}', 'purchaseDelete')->name('purchase.delete');
+    Route::get('purchase/status/{status}/{id}','status')->name('purchase.status');
+     });
+
+
+     /* Default Controller Here for ajax request and Others*/
+     Route::controller(DefaultController::class)->group(function(){
+        Route::get('get-category','getCategory')->name('get-category');
+        Route::get('get-product','getProduct')->name('get-product');
+     });
 
 require __DIR__.'/auth.php';
