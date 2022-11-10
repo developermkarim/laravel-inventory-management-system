@@ -134,7 +134,7 @@ Route::controller(PurchaseController::class)->group(function(){
     
     Route::put('updatePurchases/', 'purchaseUpdate')->name('purchase.update');
     Route::get('deletePurchases/{id}', 'purchaseDelete')->name('purchase.delete');
-    Route::get('purchase/status/{status}/{id}','status')->name('purchase.status');
+    Route::get('purchasePending/{id}','purchasePending')->name('purchase.pending');
      });
 
 

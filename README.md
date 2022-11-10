@@ -18,7 +18,8 @@ The technology includes with this proejct, here are--
 6. Sweet Alert of jQuery Plugin by just calling id in <a></a> tag;
 7. Image Live Show in insert or update while Uploading.
 8. Handlebars.js jquery plugin for live typing
-
+9. Notify.min.js plugin for live notify if empty input is submitted.
+10.
 
 
 

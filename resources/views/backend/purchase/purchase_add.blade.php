@@ -118,6 +118,7 @@
                                     <tr>
                                         <td colspan="5"></td>
                                         <td>
+                                            <label for="">Esmitated Amount : </label>
                                             <input type="text" name="estimated_amount" value="0" id="estimated_amount"
                                                 class="form-control estimated_amount" readonly
                                                 style="background-color: #ddd;">
@@ -159,6 +160,7 @@
 
     </div>
 </div>
+
 <script id="document-template" type="text/x-handlebars-template">
 
     <tr class="delete_add_more_item" id="delete_add_more_item">
@@ -247,7 +249,8 @@
                  $("#addRow").append(html); 
         });
         $(document).on('click','.removeeventmore',function(){
-            $(this).closest('.delete_add_more_item').remove()
+            $(this).closest('.delete_add_more_item').remove();
+            totalAmountPrice();
         })
 
          $(document).on('keyup click','.unit_price','.buying_qty', function(){
@@ -255,7 +258,22 @@
             var buying_qty = $(this).closest("tr").find("input.buying_qty").val();
             var total = buying_qty * unit_price;
             $(this).closest('tr').find('input.buying_price').val(total);
-         })
+            totalAmountPrice();
+         });
+
+         /* Calculate Sum of amount in Invoice */
+         function totalAmountPrice(){
+            let sum = 0;
+            $(".buying_price").each(function(){
+              
+                let totalValue = $(this).val();
+               
+                if(!isNaN(totalValue) && totalValue.length != 0){
+                    sum += parseFloat(totalValue);
+                }
+            })
+            $('#estimated_amount').val(sum);
+         }
     })
 </script>
 

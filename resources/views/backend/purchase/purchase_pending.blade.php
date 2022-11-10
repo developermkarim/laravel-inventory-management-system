@@ -57,19 +57,18 @@
  <td> {{ $item['product']['name'] }} </td> 
  <td>
     @if ($item->status == 0)
-    <a href="{{ url('purchasePending') }}/{{ $item->id }}"> <span class="badges bg-lightyellow">Pending</span> </a>
+    <span class="badges bg-lightyellow">Pending</span> 
     @elseif($item->status == 1)
-    <a href="#"> <span class="badges bg-lightgreen">Approved</span> </a>
-    
+    <span class="badges bg-lightgreen">Approved</span> 
     @endif
-     
-    
     </td> 
 
 <td> 
 
-<a href="{{ route('purchase.delete',$item->id) }}" class="btn btn-danger text-white sm {{ $item->status == 1 ? 'd-none':'' }}" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a>
+{{-- <a href="{{ route('purchase.delete',$item->id) }}" class="btn btn-danger text-white sm {{ $item->status == 1 ? 'd-none':'' }}" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a> --}}
 
+@if($item->status == '0')
+<a href="" class=""></a>
 </td>
 
 </tr>

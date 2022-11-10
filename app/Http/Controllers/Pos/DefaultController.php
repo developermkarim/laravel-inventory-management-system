@@ -26,8 +26,8 @@ $supplier_id = $request->supplier_id;
 
     $allProducts = Product::select('id','name')->where('category_id',$category_id)->get();
     // dd($allProducts);
-    $data = response($allProducts);
-    dd($data);
+    return response($allProducts);
+    // dd($data);
     }
 
 }
