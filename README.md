@@ -19,7 +19,8 @@ The technology includes with this proejct, here are--
 7. Image Live Show in insert or update while Uploading.
 8. Handlebars.js jquery plugin for live typing
 9. Notify.min.js plugin for live notify if empty input is submitted.
-10.
+10. Select2 jquery plugin for select option with search Engine.
+11. 
 
 
 

@@ -12,7 +12,7 @@
     <title>Dreams Pos admin template</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('backend/assets/img/favicon.png') }}">
-
+    <link href="{{ asset('backend/assets/css/select2.min.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('backend/assets/css/bootstrap.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('backend/assets/css/animate.css') }}">
@@ -104,6 +104,10 @@ https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css --}}
     {{-- This blade syntex for custom js to call view files --}}
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
     <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
+    {{--Select Combobox with search Engine --}}
+    <script src="{{ asset('backend/assets/js/select2.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/form-advanced.init.js') }}"></script>
+    {{-- Select Combobox with search Engine End --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
 

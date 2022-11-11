@@ -57,7 +57,7 @@
  <td> {{ $item['product']['name'] }} </td> 
  <td>
     @if ($item->status == 0)
-    <a href="{{ url('purchasePending') }}/{{ $item->id }}"> <span class="badges bg-lightyellow">Pending</span> </a>
+    <a id="approve" href="{{ url('purchasePending') }}/{{ $item->id }}"> <span class="badges bg-lightyellow">Pending</span> </a>
     @elseif($item->status == 1)
     <a href="#"> <span class="badges bg-lightgreen">Approved</span> </a>
     
@@ -88,6 +88,38 @@
     </div> <!-- container-fluid -->
 </div>
 
+@push('customIs')
+<script>
+$(function(){
+    $(document).on('click','#approve',function(e){
+        e.preventDefault();
+        var link = $(this).attr("href");
 
+  
+                  Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Approved This Data?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#1B2850',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, approve it!'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.href = link
+                      Swal.fire(
+                        'Approved!',
+                        'Your file has been Approved.',
+                        'success'
+                      )
+                    }
+                  }) 
+
+
+    });
+
+  });
+</script>
+@endpush
 
 @endsection
