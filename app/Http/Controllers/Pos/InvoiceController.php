@@ -6,9 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Invoice;
+use App\Models\InvoiceDetail;
+use App\Models\Payment;
+use App\Models\PaymentDetail;
 use App\Models\Supplier;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
 {
@@ -38,6 +43,136 @@ class InvoiceController extends Controller
 $date = date('Y-m-d');
 // dd($invoice_no);
 return view('backend.invoice.invoice_add', compact('invoice_no','date','category','customers'));
-    
+
    }
+
+   public function invoiceStore(Request $request)
+   {
+    if($request->category_id == null){
+$notification = [
+    'message'=>'Sorry You do not select any item',
+    'alert-type'=>'error',
+];
+return redirect()->back()->with($notification);
+
+
+}
+else{
+
+    if($request->paid_amount  > $request->estimated_amount){
+
+        $notification = [
+            'message'=>'Sorry, Paid Amount can\'t be max than Estimated amount',
+            'alert-type'=>'error',
+        ];
+
+        return redirect()->back()->with($notification);
+
+    }
+    else{
+
+        /* This is for INvoice data inserting from new */
+
+        $invoice = new Invoice();
+        $invoice->invoice_no = $request->invoice;
+        $invoice->date = date('Y-m-d', strtotime($request->date));
+        $invoice->description = $request->description;
+        $invoice->status = '0';
+        $invoice->created_by = Auth::user()->id;
+
+        /* data inserting by DB transaction becuse no error show while not injecting data in db table, it just return rollback the table if not inserted data */
+
+        DB::transaction(function () use($request,$invoice) {
+
+            if($invoice->save()){
+                $count_category = count($request->category_id);
+
+                for ($i=0; $i < $count_category; $i++) {
+
+                    /*  There are many invoiceDetail record will be inserted based on one invoice , That's why loop is used here.It depends of multiple add on multiple category*/
+
+                    $invoiceDetail = new InvoiceDetail();
+
+                    $invoiceDetail->date = date('Y-m-d', strtotime($request->date));
+
+                    $invoiceDetail->invoice_id = $invoice->id;
+                    $invoiceDetail->category_id = $request->category_id[$i];
+                    $invoiceDetail->product_id = $request->product_id[$i];
+                    $invoiceDetail->selling_qty = $request->selling_qty[$i];
+                    $invoiceDetail->unit_price = $request->unit_price[$i];
+                    $invoiceDetail->selling_price = $request->selling_price[$i];
+                    $invoiceDetail->status = '0';
+                    $invoiceDetail->save();
+
+                }
+
+                /* This is For New Customer when no customers are found in previus */
+                if($request->customer_id == '0'){
+
+                    $customer = new Customer();
+                    $customer->name = $request->name;
+                    $customer->mobile = $request->mobile;
+                    $customer->email = $request->email;
+                    $customer->save();
+
+                    $customer_id = $customer->id;
+                }else{
+
+                    /* This id collected from previous customer Data */
+
+                    $customer_id = $request->customer_id;
+                }
+
+// payments =	invoice_id	customer_id	paid_status	paid_amount	due_amount	total_amount	discount_amount
+
+// payment_details Table ---  invoice_id	current_paid_amount	date	updated_by
+
+       /*  New Payment data will be stored by this way */
+
+                $payment = new Payment();
+                $payment_details = new PaymentDetail();
+                $payment->invoice_id = $invoice->id;
+                $payment->customer_id  = $customer_id;
+                $payment->paid_status = $request->paid_status;
+                $payment->total_amount =  $request->estimated_amount;
+                $payment->discount_amount = $request->discount_amount;
+
+                if($request->paid_status == 'full_paid'){
+                    $payment->paid_amount = $request->estimated_amount;
+                    $payment->due_amount = '0';
+                    $payment_details->current_paid_amount = $request->estimated_amount;
+                }
+
+                elseif($request->paid_status == 'full_due'){
+                    $payment->paid_amount = '0';
+                    $payment->due_amount = $request->estimated_amount;
+                    $payment_details->current_paid_amount = '0';
+                }
+                elseif($request->paid_status == 'partial_paid'){
+                    $payment->paid_amount = $request->paid_amount;
+                    $payment->due_amount = $request->estimated_amount - $request->paid_amount;
+                    $payment_details->current_paid_amount = $request->paid_amount;
+                }
+
+                $payment->save();
+
+
+                $payment_details->invoice_id = $invoice->id;
+                $payment_details->date = date('Y-m-d', strtotime($request->date));
+                $payment_details->save();
+
+
+            }
+
+        });
+
+
+    }
+
+}
+
+   }
+
+
+
 }
