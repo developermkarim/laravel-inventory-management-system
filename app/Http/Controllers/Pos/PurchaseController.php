@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PurchaseController extends Controller
 {
-    
+
     public function purchaseAdd(){
 
         $supplier = Supplier::all();
@@ -35,13 +35,13 @@ class PurchaseController extends Controller
         }
         else{
             $count_category = count($request->category_id);
-            for ($i=0; $i < $count_category; $i++) { 
+            for ($i=0; $i < $count_category; $i++) {
                 $purchase = new Purchase();
                 $purchase->date = date('Y-m-d', strtotime($request->date[$i]));
                 $purchase->purchase_no = $request->purchase_no[$i];
                 $purchase->supplier_id = $request->supplier_id[$i];
                 $purchase->category_id = $request->category_id[$i];
-    
+
                 $purchase->product_id = $request->product_id[$i];
                 $purchase->buying_qty = $request->buying_qty[$i];
                 $purchase->unit_price = $request->unit_price[$i];
@@ -50,13 +50,13 @@ class PurchaseController extends Controller
                 $purchase->created_by = Auth::user()->id;
                 $purchase->status = '0';
                 $purchase->save();
-               
+
             }
             $notification = array(
-                'message' => 'Data Save Successfully', 
+                'message' => 'Data Save Successfully',
                 'alert-type' => 'success'
             );
-            return redirect()->route('purchase.all')->with($notification); 
+            return redirect()->route('purchase.all')->with($notification);
         }
     }
 
@@ -96,7 +96,7 @@ class PurchaseController extends Controller
 
     public function purchaseApproved($id)
     {
-     
+
       $purchase = Purchase::findOrFail($id);
       $product = Product::where('id',$purchase->product_id)->first();
       $purchase_qty = ((float)($purchase->buying_qty))+((float) ($product->quantity));

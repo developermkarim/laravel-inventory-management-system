@@ -9,28 +9,28 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-            
+
                         <h4 class="card-title">Add Invoice  </h4><br><br>
-            
-            
+
+
                 <div class="row">
-            
+
                      <div class="col-md-1">
                         <div class="md-3">
                             <label for="example-text-input" class="form-label">Inv No</label>
                              <input class="form-control example-date-input" value="{{ $invoice_no }}" name="invoice_no" type="text"  id="invoice_no" readonly style="background-color:#ddd" >
                         </div>
                     </div>
-            
-            
+
+
                     <div class="col-md-2">
                         <div class="md-3">
                             <label for="example-text-input" class="form-label">Date</label>
                              <input class="form-control example-date-input" name="date" value="{{ $date }}" type="date"  id="date">
                         </div>
                     </div>
-            
-            
+
+
                    <div class="col-md-3">
                         <div class="md-3">
                             <label for="example-text-input" class="form-label">Category Name </label>
@@ -42,8 +42,8 @@
                             </select>
                         </div>
                     </div>
-            
-            
+
+
                      <div class="col-md-3">
                         <div class="md-3">
                             <label for="example-text-input" class="form-label">Product Name </label>
@@ -52,16 +52,16 @@
                             </select>
                         </div>
                     </div>
-            
-            
+
+
                        <div class="col-md-1">
                         <div class="md-3">
                             <label for="example-text-input" class="form-label">Stock(Pic/Kg)</label>
                              <input class="form-control example-date-input" name="current_stock_qty" type="text"  id="current_stock_qty" readonly style="background-color:#ddd" >
                         </div>
                     </div>
-            
-            
+
+
             <div class="col-md-2">
                 <div class="md-3">
                     <label for="example-text-input" class="form-label" style="margin-top:43px;">  </label>
@@ -76,7 +76,7 @@
 {{-- Only This Form Inputs wil be called in controller to store data in tables . The body data with of tbody tag is injected by add more button javascript .It is increment by array sign name --}}
 
                     <div class="card-body">
-                        <form method="post" action="{{ route('invoice.store') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('purchase.store') }}">
                             @csrf
                             <table class="table-sm table-bordered" width="100%" style="border-color: #ddd;">
                                 <thead>
@@ -134,8 +134,8 @@
                                         <option value="full_paid">Full Paid </option>
                                         <option value="full_due">Full Due </option>
                                         <option value="partial_paid">Partial Paid </option>
+                
                                     </select>
-
                         <input type="text" name="paid_amount" class="form-control paid_amount" placeholder="Enter Paid Amount" style="display:none;">
                          </div>
 
@@ -145,11 +145,12 @@
                                         <option value="">Select One Customer </option>
                                        @foreach ($customers as $customer)
                                            
+                                      
                                         <option value="{{ $customer->id }}">{{ $customer->name }} - {{ $customer->mobile_no }}</option>
                                         @endforeach
                                         <option value="0">New  Customer </option>
                                     </select>
-                      
+
                                 </div>
                             </div>
 
@@ -178,13 +179,14 @@
     </div>
 
 </div>
+
 {{-- Hide Add Customer  Form End Here--}}
 
 
                             <br>
 
                             <div class="form-group">
-                               <a href=""><button type="submit" class="btn btn-submit me-2" id="storeButton"> Invoice Store</button></a> 
+                               <a href=""><button type="submit" class="btn btn-submit me-2" id="storeButton"> Invoice Store</button></a>
                                <a href="{{ route('invoice.all') }}" class="btn btn-cancel">Cancel</a>
 
                             </div>
@@ -216,26 +218,26 @@
         <input type="hidden" name="product_id[]" value="@{{product_id}}">
         @{{ product_name }}
     </td>
-    
-         
+
+
          <td>
             <input type="number" min="1" class="form-control selling_qty text-right" name="selling_qty[]" value="">
         </td>
-    
+
         <td>
-            <input type="number" class="form-control unit_price text-right" name="unit_price[]" value=""> 
+            <input type="number" class="form-control unit_price text-right" name="unit_price[]" value="">
         </td>
 
         <td>
-            <input type="number" class="form-control selling_price text-right" name="selling_price[]" value=""> 
+            <input type="number" class="form-control selling_price text-right" name="selling_price[]" value="">
         </td>
-    
+
          <td>
             <i class="btn btn-danger btn-sm fas fa-window-close removeeventmore"></i>
         </td>
-    
+
         </tr>
-    
+
     </script>
 
 
@@ -260,14 +262,14 @@
                         if(product_id == ''){
                             $.notify("Product is required",{globalPosition:'top right',className:'error'});
                             return false;
-                        }                  
-                                    
+                        }
+
                       if(category_id == ''){
                     $.notify("Category is Required" ,  {globalPosition: 'top right', className:'error' });
                     return false;
                      }
-                     
-                    
+
+
                  var source = $("#document-template").html();
                  var tamplate = Handlebars.compile(source);
                  var data = {
@@ -277,11 +279,11 @@
                     category_name:category_name,
                     product_id: product_id,
                     product_name: product_name,
-              
+
                  };
 
                  var html = tamplate(data);
-                 $("#addRow").append(html); 
+                 $("#addRow").append(html);
         });
         $(document).on('click','.removeeventmore',function(){
             $(this).closest('.delete_add_more_item').remove();
@@ -305,9 +307,9 @@
          function totalAmountPrice(){
             let sum = 0;
             $(".selling_price").each(function(){
-              
+
                 let totalValue = $(this).val();
-               
+
                 if(!isNaN(totalValue) && totalValue.length != 0){
                     sum += parseFloat(totalValue);
                 }
@@ -342,7 +344,7 @@
             })
         }) */
 
-        /* Show Product By Category id by live aajax */
+        /* Show Product By Category */
          
         $(document).on('change','#category_id', function(){
             let category_id = $(this).val();
@@ -374,6 +376,11 @@
                 success:(response)=>{
                     $('#current_stock_qty').val(response)
                   
+                   /*  let html ='<option value="">Select Category</option>';
+                    $.each(response,function(key,value){
+
+
+                    }) */
                 }
             })
         })
@@ -388,7 +395,7 @@
             $('.paid_amount').show()
         }else{
             $('.paid_amount').hide();
-        }                                                     
+        }
     });
 
 </script>

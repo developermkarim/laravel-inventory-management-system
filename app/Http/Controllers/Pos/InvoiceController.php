@@ -10,10 +10,10 @@ use App\Models\InvoiceDetail;
 use App\Models\Payment;
 use App\Models\PaymentDetail;
 use App\Models\Product;
+use Illuminate\Notifications\Notification;
 use App\Models\Supplier;
 use App\Models\Unit;
 use Illuminate\Http\Request;
-use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -215,9 +215,18 @@ public function pendingList()
 public function invoiceDelete($id)
 {
     $invoice = Invoice::findOrFail($id);
-    $invoice->delete();
-    $Notification = ['messae'=>'Invouce add','alert-type'=>'success'];
+   $result =  $invoice->delete();
+   if($result){
+
+    $Notification = ['message'=>'Invoice deleted successfully','alert-type'=>'success'];
     return redirect()->back()->with($Notification);
+
+   }else{
+    $Notification = ['message'=>'Sorry! Invoice ot deleted','alert-type'=>'error'];
+    return redirect()->back()->with($Notification);
+   }
+    
+    
 }
 
 }

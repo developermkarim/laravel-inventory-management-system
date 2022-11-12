@@ -56,7 +56,7 @@
                  <td>{{-- {{ $item['payment']['total_amount'] }} --}}</td>
 
                 <td>  
-<a href="{{ route('invoice.delete',$item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a> 
+<a href="{{ url('invoiceDelete',$item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a> 
                 </td>
                
             </tr>
