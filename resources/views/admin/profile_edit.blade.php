@@ -71,27 +71,7 @@
     </div>
     <img  id="showImage" src="{{!empty($userData->profile_image) ? url('uploads/admin_images/'.$userData->profile_image) : url('uploads/default-user.png')}}" width="100" height="100" alt="img">
     </div>
-    {{-- <div class="col-lg-6 col-sm-12">
-    <div class="form-group">
-    <label>Phone</label>
-    <input type="text" placeholder="+1452 876 5432">
-    </div>
-    </div> --}}
-    {{-- <div class="col-lg-6 col-sm-12">
-    <div class="form-group">
-    <label>User Name</label>
-    <input type="text" placeholder="+1452 876 5432">
-    </div>
-    </div> --}}
-    {{-- <div class="col-lg-6 col-sm-12">
-    <div class="form-group">
-    <label>Password</label>
-    <div class="pass-group">
-    <input type="password" class=" pass-input">
-    <span class="fas toggle-password fa-eye-slash"></span>
-    </div>
-    </div>
-    </div> --}}
+   
     <div class="col-12">
     <button type="submit" class="btn btn-submit me-2">Update Profile</button>
     <a href="{{route('admin.profile')}}" class="btn btn-cancel">Cancel</a>

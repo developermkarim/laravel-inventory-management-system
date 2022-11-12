@@ -69,17 +69,14 @@
                 </div>
             </div>
             
-            
-            
-            
-            
                 </div> <!-- // end row  --> 
             
                     </div> <!-- End card-body -->
                     <!--  --------------------------------- -->
+{{-- Only This Form Inputs wil be called in controller to store data in tables . The body data with of tbody tag is injected by add more button javascript .It is increment by array sign name --}}
 
                     <div class="card-body">
-                        <form method="post" action="{{ route('purchase.store') }}">
+                        <form method="post" action="{{ route('invoice.store') }}" enctype="multipart/form-data">
                             @csrf
                             <table class="table-sm table-bordered" width="100%" style="border-color: #ddd;">
                                 <thead>
@@ -131,13 +128,14 @@
                             <div class="row">
                                 <div class="form-group col-md-4">
                                     <label> Paid Status </label>
+
                                     <select name="paid_status" id="paid_status" class="form-select">
                                         <option value="">Select Status </option>
                                         <option value="full_paid">Full Paid </option>
                                         <option value="full_due">Full Due </option>
                                         <option value="partial_paid">Partial Paid </option>
-                
                                     </select>
+
                         <input type="text" name="paid_amount" class="form-control paid_amount" placeholder="Enter Paid Amount" style="display:none;">
                          </div>
 
@@ -147,7 +145,6 @@
                                         <option value="">Select One Customer </option>
                                        @foreach ($customers as $customer)
                                            
-                                      
                                         <option value="{{ $customer->id }}">{{ $customer->name }} - {{ $customer->mobile_no }}</option>
                                         @endforeach
                                         <option value="0">New  Customer </option>
@@ -171,6 +168,15 @@
     <div class="form-group col-md-4">
         <input type="email" name="email" id="email" class="form-control" placeholder="Write Customer Email">
     </div>
+
+    <div class="form-group col-md-8">
+        <input type="text" name="address" id="address" class="form-control" placeholder="Write address">
+    </div>
+    <div class="form-group col-md-4">
+        <input type="file" name="customer_image" id="customer_image" class="form-control">
+        <img  id="showImage" src=https://png.pngitem.com/pimgs/s/506-5067022_sweet-shap-profile-placeholder-hd-png-download.png width="100" height="100" alt="img">
+    </div>
+
 </div>
 {{-- Hide Add Customer  Form End Here--}}
 
@@ -197,8 +203,10 @@
 <script id="document-template" type="text/x-handlebars-template">
 
     <tr class="delete_add_more_item" id="delete_add_more_item">
-            <input type="hidden" name="date[]" value="@{{date}}">
-            <input type="hidden" name="invoice_no[]" value="@{{invoice_no}}">
+            <input type="hidden" name="date" value="@{{date}}">
+            @{{ date }}
+            <input type="hidden" name="invoice_no" value="@{{invoice_no}}">
+            @{{ invoice_no }}
         <td>
             <input type="hidden" name="category_id[]" value="@{{category_id}}">
             @{{ category_name }}
@@ -293,6 +301,7 @@
          });
 
          /* Calculate Sum of amount in Invoice */
+
          function totalAmountPrice(){
             let sum = 0;
             $(".selling_price").each(function(){
@@ -314,10 +323,10 @@
     })
 </script>
 
-
 <script>
     $(function(){
-        $(document).on('change','#supplier_id', function(){
+
+        /* $(document).on('change','#supplier_id', function(){
             let supplier_id = $(this).val();
             $.ajax({
                 url:"{{ route('get-category') }}",
@@ -331,9 +340,9 @@
                     $('#category_id').html(html);
                 }
             })
-        })
+        }) */
 
-        /* Show Product By Category */
+        /* Show Product By Category id by live aajax */
          
         $(document).on('change','#category_id', function(){
             let category_id = $(this).val();
@@ -354,7 +363,7 @@
 </script>
 
 <script>
-
+/* this is for selecting product stock based on product id selection,Dynamic Comobox */
     $(function(){
         $(document).on('change','#product_id',function(){
             let product_id = $(this).val();
@@ -365,18 +374,13 @@
                 success:(response)=>{
                     $('#current_stock_qty').val(response)
                   
-                   /*  let html ='<option value="">Select Category</option>';
-                    $.each(response,function(key,value){
-
-
-                    }) */
                 }
             })
         })
 
     })
 </script>
-
+{{-- this is for payment paid status of partials when user want to pay as his willing --}}
 <script>
     $(document).on('change','#paid_status',function(){
         var status = $(this).val()
@@ -389,6 +393,7 @@
 
 </script>
 
+{{-- this is for new customer form show when old customer is not selected from options --}}
 <script>
      $(document).on('change','#customer_id',function(){
         let oldCustomer = $(this).val();
@@ -399,4 +404,19 @@
         }
     })
 </script>
+
+{{-- This is for imnage changing live show --}}
+<script type="text/javascript">
+        
+    $(document).ready(function(){
+     $('#customer_image').change(function(e){
+    e.preventDefault();
+    var reader = new FileReader();
+    reader.onload = function(e){
+        $('#showImage').attr('src',e.target.result);
+    }
+    reader.readAsDataURL(e.target.files['0']);
+                })
+            })
+        </script>
 @endsection
