@@ -76,7 +76,7 @@
 {{-- Only This Form Inputs wil be called in controller to store data in tables . The body data with of tbody tag is injected by add more button javascript .It is increment by array sign name --}}
 
                     <div class="card-body">
-                        <form method="post" action="{{ route('purchase.store') }}">
+                        <form method="post" action="{{ route('invoice.store') }}" enctype="multipart/form-data">
                             @csrf
                             <table class="table-sm table-bordered" width="100%" style="border-color: #ddd;">
                                 <thead>

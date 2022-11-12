@@ -209,8 +209,18 @@ return redirect()->route('invoice.pending_list')->with($notification);
 /* Pending list method here */
 public function pendingList()
 {
-    return view('backend.invoice.invoice_all');
+    $allData = Customer::orderBy('id','desc')->where(['status'=>0])->get();
+    return view('backend.invoice.pending_list',compact('allData'));
 }
+
+/* Invoice approval section here */
+public function invoiceApprove($id)
+{
+    
+}
+
+
+
 
 public function invoiceDelete($id)
 {

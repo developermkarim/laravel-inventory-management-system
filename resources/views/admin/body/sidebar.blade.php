@@ -81,6 +81,7 @@
                         <li><a href="{{ route('invoice.all') }}">All Invoice</a></li>
 
                         <li><a href="{{ route('invoice.add') }}">Add Invoice</a></li>
+                        <li><a href="{{ route('invoice.pending_list') }}">Pending Invoice</a></li>
                         <li><a href="">Approval Invoice</a></li>
 
                         <li><a href="">POS</a></li>
