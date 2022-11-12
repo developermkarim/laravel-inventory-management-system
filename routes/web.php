@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\DefaultController;
+use App\Http\Controllers\Pos\InvoiceController;
 use App\Http\Controllers\Pos\ProductController;
 use App\Http\Controllers\Pos\PurchaseController;
 use App\Http\Controllers\Pos\SupplierController;
@@ -134,7 +135,13 @@ Route::controller(PurchaseController::class)->group(function(){
     
     Route::put('updatePurchases/', 'purchaseUpdate')->name('purchase.update');
     Route::get('deletePurchases/{id}', 'purchaseDelete')->name('purchase.delete');
-    Route::get('purchasePending/{id}','purchasePending')->name('purchase.pending');
+    Route::get('purchasePending/','purchasePending')->name('purchase.pending');
+    Route::get('purchaseApproved/{id}','purchaseApproved')->name('purchase.approved');
+     });
+
+     Route::controller(InvoiceController::class)->group(function(){
+        Route::get('allInvoice/','invoiceAll')->name('invoice.all');
+        Route::get('addInvoice/','invoiceAdd')->name('invoice.add');
      });
 
 
@@ -142,6 +149,7 @@ Route::controller(PurchaseController::class)->group(function(){
      Route::controller(DefaultController::class)->group(function(){
         Route::get('get-category','getCategory')->name('get-category');
         Route::get('get-product','getProduct')->name('get-product');
+        Route::get('checkProductStock','getStock')->name('check-product-stock');
      });
 
 require __DIR__.'/auth.php';

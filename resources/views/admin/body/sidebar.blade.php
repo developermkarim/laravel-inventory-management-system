@@ -67,7 +67,7 @@
                         <li><a href="pos.html">POS</a></li>
                         <li><a href="pos.html">New Sales</a></li>
                         <li><a href="salesreturnlists.html">Sales Return List</a></li>
-                        <li><a href="createsalesreturns.html">New Sales Return</a></li>
+                        <li><a href="createsalesreturns.html"></a></li>
                     </ul>
                 </li>
 
@@ -76,12 +76,15 @@
 
                 <li class="submenu">
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
-                            Sales</span> <span class="menu-arrow"></span></a>
+                        Manage Invoice   </span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="">Purchase List</a></li>
-                        <li><a href="">Purchase Add</a></li>
-                        <li><a href="pos.html">POS</a></li>
-                        <li><a href="pos.html">New Sales</a></li>
+                        <li><a href="{{ route('invoice.all') }}">All Invoice</a></li>
+
+                        <li><a href="{{ route('invoice.add') }}">Add Invoice</a></li>
+                        <li><a href="">Approval Invoice</a></li>
+
+                        <li><a href="">POS</a></li>
+                        <li><a href="">New Sales</a></li>
                         <li><a href="salesreturnlists.html">Sales Return List</a></li>
                         <li><a href="createsalesreturns.html">New Sales Return</a></li>
                     </ul>
@@ -92,6 +95,7 @@
                     <ul>
                         <li><a href="{{ route('purchase.all') }}">Purchase List</a></li>
                         <li><a href="{{ route('purchase.add') }}">Add Purchase</a></li>
+                        <li><a href="{{ route('purchase.pending') }}">Pending Purchase</a></li>
                         <li><a href="importpurchase.html">Import Purchase</a></li>
                     </ul>
                 </li>

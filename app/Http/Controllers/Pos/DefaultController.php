@@ -30,4 +30,11 @@ $supplier_id = $request->supplier_id;
     // dd($data);
     }
 
+    public function getStock(Request $request)
+    {
+        $product_id = $request->product_id;
+        $stock = Product::where('id', $product_id)->first()->quantity;
+        return response($stock);
+    }
+
 }

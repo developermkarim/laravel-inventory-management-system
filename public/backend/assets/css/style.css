@@ -529,7 +529,16 @@ blockquote,
 q {
     quotes: none
 }
-
+.custom-btn{
+    background-color: #092c4c;
+}
+.hover-btn{
+    background-color: #f36c01;
+}
+.hover-btn:hover{
+    background-color: #092c4c;
+    border: none;
+}
 blockquote:before,
 blockquote:after {
     content: "";
@@ -662,6 +671,7 @@ a {
     -ms-transition: all .2s ease;
     transition: all .2s ease
 }
+
 
 a:hover {
     color: #fe820e;

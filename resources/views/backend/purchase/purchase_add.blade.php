@@ -130,7 +130,7 @@
                             </table><br>
                             <div class="form-group">
                                <a href=""><button type="submit" class="btn btn-submit me-2" id="storeButton"> Purchase Store</button></a> 
-                               <a href="" class="btn btn-cancel">Cancel</a>
+                               <a href="{{ route('purchase.all') }}" class="btn btn-cancel">Cancel</a>
 
                             </div>
 

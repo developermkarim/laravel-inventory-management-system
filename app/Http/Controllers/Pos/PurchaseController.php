@@ -88,10 +88,15 @@ class PurchaseController extends Controller
         }
     }
 
-    public function purchasePending($id)
+    public function purchasePending()
     {
-      /*  $allData = Purchase::orderBy('date','desc')->orderBy('id','desc')->where('status','0')->get(); */
+        $allData = Purchase::orderBy('date','desc')->orderBy('id','desc')->where('status','0')->get();
+        return view('backend.purchase.purchase_pending', compact('allData'));
+    }
 
+    public function purchaseApproved($id)
+    {
+     
       $purchase = Purchase::findOrFail($id);
       $product = Product::where('id',$purchase->product_id)->first();
       $purchase_qty = ((float)($purchase->buying_qty))+((float) ($product->quantity));

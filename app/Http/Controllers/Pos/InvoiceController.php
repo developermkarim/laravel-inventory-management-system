@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Http\Controllers\Pos;
+
+use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Customer;
+use App\Models\Invoice;
+use App\Models\Supplier;
+use App\Models\Unit;
+use Illuminate\Http\Request;
+
+class InvoiceController extends Controller
+{
+   public function InvoiceAll()
+   {
+    $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->get();
+    return view('backend.invoice.invoice_all', compact('allData'));
+   }
+
+   public function invoiceAdd()
+   {
+
+    /* $supplier = Supplier::all();
+    $unit = Unit::all(); */
+    $category = Category::all();
+ $customers = Customer::orderBy('id','desc')->where(['status'=>1])->get();
+//  dd($customer);
+    $invoice_data = Invoice::orderBy('id','desc')->first();
+    if($invoice_data == null){
+        $firstReg = 0;
+    $invoice_no = $firstReg + 1;
+    }else{
+        $invoice_data = Invoice::orderBy('id','desc')->first()->invoice_no;
+        $invoice_no = $invoice_data + 1;
+    }
+
+$date = date('Y-m-d');
+// dd($invoice_no);
+return view('backend.invoice.invoice_add', compact('invoice_no','date','category','customers'));
+    
+   }
+}

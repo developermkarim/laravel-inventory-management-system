@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Purchase All</h4>
+                    <h4 class="mb-sm-0">Purchase All Pending Data</h4>
 
 
 
@@ -23,9 +23,9 @@
 <div class="card">
 <div class="card-body">
 
-<a href="{{ route('purchase.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;">Add Purchase </a> <br>  <br>               
+<a href="{{ route('purchase.all') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;"> <i class=" fas fa-plus-circle"></i> &nbsp;Purchase List</a> <br>  <br>               
 
-    <h4 class="card-title">Purchase All Data </h4>
+    <h4 class="card-title">Purchase Pending Data </h4>
 
 
     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -57,18 +57,22 @@
  <td> {{ $item['product']['name'] }} </td> 
  <td>
     @if ($item->status == 0)
-    <span class="badges bg-lightyellow">Pending</span> 
-    @elseif($item->status == 1)
-    <span class="badges bg-lightgreen">Approved</span> 
+   <span class="badges bg-lightyellow">Pending</span> </a>
+  @elseif ($item->status ==1) 
+  <span class="badges bg-lightgreen">Approved</span> </a>
+    
     @endif
+     
+    
     </td> 
 
 <td> 
 
 {{-- <a href="{{ route('purchase.delete',$item->id) }}" class="btn btn-danger text-white sm {{ $item->status == 1 ? 'd-none':'' }}" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a> --}}
-
-@if($item->status == '0')
-<a href="" class=""></a>
+@if ($item->status == 0)
+<a href="{{ route('purchase.approved',$item->id) }}" class="btn btn-danger text-white sm" title="Approved" id="ApproveBtn">  <i class="fas fa-check-circle"></i> </a>
+    
+@endif
 </td>
 
 </tr>
@@ -86,7 +90,6 @@
 
     </div> <!-- container-fluid -->
 </div>
-
 
 
 @endsection

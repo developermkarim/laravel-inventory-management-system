@@ -9,6 +9,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    
                     <h4 class="mb-sm-0">Purchase All</h4>
 
 
@@ -23,7 +24,9 @@
 <div class="card">
 <div class="card-body">
 
-<a href="{{ route('purchase.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;">Add Purchase </a> <br>  <br>               
+    
+<a href="{{ route('purchase.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;"> <i class=" fas fa-plus-circle"></i> &nbsp; Add Purchase </a> <br>  <br>    
+<a href="{{ route('purchase.pending') }}" class="btn btn-dark btn-rounded waves-effect" style="float:right;"> <i class="fas fa-file-download"></i> &nbsp; Pending Purchase </a>           
 
     <h4 class="card-title">Purchase All Data </h4>
 
@@ -57,9 +60,9 @@
  <td> {{ $item['product']['name'] }} </td> 
  <td>
     @if ($item->status == 0)
-    <a id="approve" href="{{ url('purchasePending') }}/{{ $item->id }}"> <span class="badges bg-lightyellow">Pending</span> </a>
+    <span class="badges bg-lightyellow">Pending</span> 
     @elseif($item->status == 1)
-    <a href="#"> <span class="badges bg-lightgreen">Approved</span> </a>
+   <span class="badges bg-lightgreen">Approved</span>
     
     @endif
      
@@ -67,8 +70,10 @@
     </td> 
 
 <td> 
+@if ($item->status == 0)
 
 <a href="{{ route('purchase.delete',$item->id) }}" class="btn btn-danger text-white sm {{ $item->status == 1 ? 'd-none':'' }}" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a>
+@endif
 
 </td>
 
