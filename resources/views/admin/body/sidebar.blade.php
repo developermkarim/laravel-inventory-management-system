@@ -82,7 +82,7 @@
 
                         <li><a href="{{ route('invoice.add') }}">Add Invoice</a></li>
                         <li><a href="{{ route('invoice.pending_list') }}">Pending Invoice</a></li>
-                        <li><a href="">Approval Invoice</a></li>
+                        <li><a href="{{ route('invoice.print.list') }}">Print Invoice List</a></li>
 
                         <li><a href="">POS</a></li>
                         <li><a href="">New Sales</a></li>

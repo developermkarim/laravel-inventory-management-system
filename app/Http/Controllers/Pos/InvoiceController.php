@@ -264,11 +264,25 @@ public function invoiceApproveStore(Request $request,$id)
         'message' => 'Invoice Approve Successfully', 
         'alert-type' => 'success'
     );
-    
+
     return redirect()->route('invoice.pending_list')->with($notification);
   
 }
 
+public function printInvoiceList()
+{
+    $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->where('status','1')->get();
+    // dd($allData);
+    return view('backend.invoice.print_invoice_list',compact('allData'));
+    
+}
+
+public function printInvoice($id)
+{
+    $invoice = Invoice::with('invoice_details')->findOrFail($id)->first();
+    
+    return view('pdf.invoice_pdf',compact('invoice'));
+}
 
 public function invoiceDelete($id)
 {

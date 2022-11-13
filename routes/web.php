@@ -147,7 +147,9 @@ Route::controller(PurchaseController::class)->group(function(){
         Route::get('invoiceApprove/{id}','invoiceApprove')->name('invoice.approve');
 
         Route::post('invoiceApproveStore/{id}','invoiceApproveStore')->name('invoice.approve.store');
+        Route::get('printInvoiceList/','printInvoiceList')->name('invoice.print.list');
 
+        Route::get('printInvoice/{id}','printInvoice')->name('invoice.print');
         Route::get('invoiceDelete/{id}','invoiceDelete')->name('invoice.delete');
      });
 

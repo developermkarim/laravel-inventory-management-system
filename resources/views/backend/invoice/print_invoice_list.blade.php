@@ -1,7 +1,5 @@
 @extends('admin.admin_master')
-
 @section('admin-content')
-
 
  <div class="page-content">
                     <div class="container-fluid">
@@ -10,7 +8,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">Inovice All</h4>
+                                    <h4 class="mb-sm-0">Print Inovice All</h4>
 
                                      
 
@@ -24,9 +22,11 @@
             <div class="card">
                 <div class="card-body">
 
-    <a href="{{ route('invoice.add') }}" class="btn btn-dark btn-rounded waves-effect  hover-btn" style="float:right;"><i class="fas fa-plus-circle"> Add Inovice </i></a> <br>  <br>  
+    <a href="{{ route('invoice.add') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;"><i class="fas fa-plus-circle"> Add Inovice </i></a> <br>  <br>               
+
                     <h4 class="card-title">Inovice All Data </h4>
                     
+
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
@@ -35,12 +35,15 @@
                             <th>Invoice No </th>
                             <th>Date </th>
                             <th>Desctipion</th>  
-                            <th>Total Amount</th>  
-                           
+                            <th>Amount</th>
+                             <th>Action</th>
+                            
                         </thead>
+
+
                         <tbody>
                         	 
-                    @foreach($allData as $key => $item)
+                        	@foreach($allData as $key => $item)
             <tr>
                 <td> {{ $key+1}} </td>
                 <td> {{ $item->payment ? $item->payment->customer->name : 'No Name is customer' }}</td> 
@@ -50,11 +53,9 @@
                   
                  <td>  {{ $item->description }} </td> 
                  <td>  {{ $item->payment ? number_format($item->payment->total_amount,2)  : 'no amount found' }}৳ </td> 
-
-                
-               {{--  <td>  
-<a href="{{ url('invoiceDelete',$item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a> 
-                </td> --}}
+                <td>
+     <a href="{{ route('invoice.print',$item->id) }}" class="btn btn-danger text-white sm" title="Print Invoice" >  <i class="fa fa-print"></i> </a>
+                </td>
                
             </tr>
                         @endforeach
