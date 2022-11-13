@@ -25,7 +25,7 @@ class InvoiceController extends Controller
         $extension = $requestImage->customer_image->extension();
         $imageName = 'customer-' . time() . '.'. $extension;
         $imagePath = $requestImage->customer_image->storeAs('customer/',$imageName,'public');
-        $image_uri = env('APP_URL') . '/storage/' . $imagePath; 
+        $image_uri = env('APP_URL') . '/storage/' . $imagePath;
         return ['imageName'=>$imageName,'imageUri'=>$image_uri];
     }
 
@@ -210,6 +210,7 @@ return redirect()->route('invoice.pending_list')->with($notification);
 public function pendingList()
 {
     $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->where('status','0')->get();
+    // dd($allData);
 
     return view('backend.invoice.pending_list',compact('allData'));
 }
@@ -217,10 +218,56 @@ public function pendingList()
 /* Invoice approval section here */
 public function invoiceApprove($id)
 {
-    
+
+$invoice = Invoice::with('invoice_details')->findOrFail($id);
+//  dd($invoice);
+
+return view('backend.invoice.approve_list',compact('invoice'));
+
+
 }
 
+public function invoiceApproveStore(Request $request,$id)
+{
+    foreach ($request->selling_qty as $key => $value) {
+        $invoiceDetail = InvoiceDetail::where('id',$key)->first();
+        $product = Product::where('id',$invoiceDetail->product_id)->first();
 
+        if($product->quantity < $request->selling_qty[$key]){
+
+            $notification = [
+                'message'=>'SOrry, You approved maximum  quantity Value',
+                'alert-type'=>'error',
+            ];
+
+            return redirect()->back()->with($notification);
+        }
+        
+    } // End Foreach Loop
+
+    $invoice = Invoice::findOrFail($id)->first();
+    $invoice->updated_by = Auth::user()->id;
+    $invoice->status = '1';
+    DB::transaction(function() use($request,$invoice,$id){
+
+        foreach ($request->selling_qty as $key => $value) {
+            $invoiceDetails = InvoiceDetail::where('id',$key)->first();
+            $product = Product::where('id',$invoiceDetails->product_id)->first();
+            $product->quantity = ((float)$product->quantity) - $request->selling_qty[$key];
+            $product->save();
+
+        } // End Foreach Loop
+        $invoice->save();
+        
+    });
+    $notification = array(
+        'message' => 'Invoice Approve Successfully', 
+        'alert-type' => 'success'
+    );
+    
+    return redirect()->route('invoice.pending_list')->with($notification);
+  
+}
 
 
 public function invoiceDelete($id)
@@ -239,8 +286,8 @@ public function invoiceDelete($id)
     $Notification = ['message'=>'Sorry! Invoice ot deleted','alert-type'=>'error'];
     return redirect()->back()->with($Notification);
    }
-    
-    
+
+
 }
 
 }

@@ -13,7 +13,7 @@
                     <ul>
                         <li><a href="{{ route('product.all') }}">Product List</a></li>
                         <li><a href="{{ route('product.add') }}">Add Product</a></li>
-                       
+
                         <li><a href="brandlist.html">Brand List</a></li>
                         <li><a href="addbrand.html">Add Brand</a></li>
                         <li><a href="importproduct.html">Import Products</a></li>
@@ -40,7 +40,7 @@
                         <li><a href="{{ route('customer.all') }}">Customer List</a></li>
 
                         <li><a href="{{ route('customer.add') }}">Add Customer</a></li>
-                        
+
                         <li><a href="#">New Sales Return</a></li>
                     </ul>
                 </li>
@@ -53,8 +53,8 @@
                         <li><a href="{{ route('unit.add') }}">Add Supplier</a></li>
                         <li><a href="#">POS</a></li>
                         <li><a href="pos.html">New Sales</a></li>
-                       
-                       
+
+
                     </ul>
                 </li>
                 <li class="submenu">
@@ -71,7 +71,7 @@
                     </ul>
                 </li>
 
-               
+
 
 
                 <li class="submenu">
