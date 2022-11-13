@@ -37,6 +37,7 @@
                             <th>Invoice No </th>
                             <th>Date </th>
                             <th>Desctipion</th>  
+                            <th>Total Amount</th>  
                             <th>Action</th>
                             
                         </thead>
@@ -47,14 +48,15 @@
                     @foreach($allData as $key => $item)
             <tr>
                 <td> {{ $key+1}} </td>
-                <td>Customer Id</td> 
+                <td> {{ $item->payment ? $item->payment->customer->name : 'No Name is customer' }}</td> 
                 <td> {{ $item->invoice_no }} </td> 
                 <td> {{ date('d-m-Y',strtotime($item->date))  }} </td> 
                  
                   
                  <td>  {{ $item->description }} </td> 
-                 <td>{{-- {{ $item['payment']['total_amount'] }} --}}</td>
+                 <td>  {{ $item->payment ? number_format($item->payment->total_amount,2)  : 'no amount found' }}৳ </td> 
 
+                
                 <td>  
 <a href="{{ url('invoiceDelete',$item->id) }}" class="btn btn-danger sm" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a> 
                 </td>

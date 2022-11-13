@@ -48,14 +48,14 @@
                         	@foreach($allData as $key => $item)
             <tr>
                 <td> {{ $key+1}} </td>
-                <td> {{-- {{ $item['payment']['customer']['name'] }} --}} </td> 
+                <td> {{ $item->payment->customer ? $item->payment->customer->name :'no Name found' }} </td> 
                 <td> #{{ $item->invoice_no }} </td> 
                 <td> {{ date('d-m-Y',strtotime($item->date))  }} </td> 
                  
                   
                  <td>  {{ $item->description }} </td> 
 
-                <td>  $ {{-- {{ $item['payment']['total_amount'] }} --}} </td>
+                <td>  BTD {{ $item->payment ? number_format($item->payment->total_amount,2)  :number_format(000,2)}}৳ </td>
 
                  <td> @if($item->status == '0')
                     <span class="btn btn-warning">Pending</span>
