@@ -150,6 +150,11 @@ Route::controller(PurchaseController::class)->group(function(){
         Route::get('printInvoiceList/','printInvoiceList')->name('invoice.print.list');
 
         Route::get('printInvoice/{id}','printInvoice')->name('invoice.print');
+
+        
+        Route::get('invoice/dailyReport/','dailyInvoiceReport')->name('invoice.daily.report');
+        Route::get('invoiceReport/pdf','invoiceReportPdf')->name('invoice.daily.report.pdf');
+
         Route::get('invoiceDelete/{id}','invoiceDelete')->name('invoice.delete');
      });
 

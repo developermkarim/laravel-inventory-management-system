@@ -269,6 +269,21 @@ public function invoiceApproveStore(Request $request,$id)
   
 }
 
+public function dailyInvoiceReport()
+{
+   
+    return view('backend.invoice.daily_invoice_report');
+}
+
+public function invoiceReportPdf(Request $request)
+{
+   $startDate = date('Y-m-d',strtotime($request->start_date));
+   $endDate = date('Y-m-d', strtotime($request->end_date));
+   $allData = Invoice::whereBetween('date',[$startDate,$endDate])->get();
+
+    return view('backend.pdf.invoiceReportPdf',compact('allData','startDate','endDate'));
+}
+
 public function printInvoiceList()
 {
     $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->where('status','1')->get();
@@ -277,11 +292,14 @@ public function printInvoiceList()
     
 }
 
+
+
+
 public function printInvoice($id)
 {
     $invoice = Invoice::with('invoice_details')->findOrFail($id)->first();
     
-    return view('pdf.invoice_pdf',compact('invoice'));
+    return view('backend.pdf.invoice_pdf',compact('invoice'));
 }
 
 public function invoiceDelete($id)

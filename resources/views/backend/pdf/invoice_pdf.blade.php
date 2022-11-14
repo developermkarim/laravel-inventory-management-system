@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin-content')
 
- <div class="page-content">
+ <div class="page-content print-container">
                     <div class="container-fluid">
 
                         <!-- start page title -->

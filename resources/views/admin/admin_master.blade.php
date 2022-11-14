@@ -43,8 +43,21 @@ https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
     <script src="https://kit.fontawesome.com/92d6c198cd.js" crossorigin="anonymous"></script>
-</head>
+    <style>
+        @media print{
+            /* Hide Every Other Element */
+            body *{
+                visibility: hidden;
+            }
+            /* Then Displaying print container element */
+            .print-container, .print-container *{
+                visibility: visible;
+            }
+        }
 
+    </style>
+
+</head>
 <body>
     <div id="global-loade">
         <div class="whirly-loader"> </div>
