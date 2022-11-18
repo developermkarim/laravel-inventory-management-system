@@ -83,7 +83,7 @@
                                     <tr>
                                         <th>Category</th>
                                        <th>Product Name</th>
-                                        <th width="7%">PSC/KG</th>
+                                        <th width="7%">PSC/KG/Liter</th>
                                         <th width="10%">Unit Price </th>
                                        <th width="15%">Total Price</th>
                                         <th width="7%">Action</th>

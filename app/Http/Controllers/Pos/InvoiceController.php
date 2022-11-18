@@ -252,6 +252,8 @@ public function invoiceApproveStore(Request $request,$id)
 
         foreach ($request->selling_qty as $key => $value) {
             $invoiceDetails = InvoiceDetail::where('id',$key)->first();
+            $invoiceDetails->status = '1';
+            $invoiceDetails->save();
             $product = Product::where('id',$invoiceDetails->product_id)->first();
             $product->quantity = ((float)$product->quantity) - $request->selling_qty[$key];
             $product->save();

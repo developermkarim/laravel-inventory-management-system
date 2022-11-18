@@ -28,6 +28,8 @@
                         <li><a class="{{ Request::routeis('supplier.all') ? 'active':'' }}"  href="{{ route('supplier.all') }}">Supplier List</a></li>
 
                         <li><a class="{{ Request::routeis('supplier.add') ? 'active':'' }}"  href="{{ route('supplier.add') }}">Add Supplier</a></li>
+                        
+
                         <li><a href="pos.html">POS</a></li>
                         <li><a href="pos.html">New Sales</a></li>
                         <li><a href="salesreturnlists.html">Sales Return List</a></li>
@@ -95,12 +97,14 @@
                 </li>
                 <li class="submenu">
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/purchase1.svg')}}" alt="img"><span>
-                            Purchase</span> <span class="menu-arrow"></span></a>
+                          Manage Purchase</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a class="{{ Request::routeis('purchase.all') ? 'active':'' }}"  href="{{ route('purchase.all') }}">Purchase List</a></li>
                         <li><a class="{{ Request::routeis('purchase.add') ? 'active':'' }}"  href="{{ route('purchase.add') }}">Add Purchase</a></li>
                         <li><a class="{{ Request::routeis('purchase.pending') ? 'active':'' }}"  href="{{ route('purchase.pending') }}">Pending Purchase</a></li>
-                        <li><a href="importpurchase.html">Import Purchase</a></li>
+
+                        <li><a class="{{ Request::routeis('purchase.daily.report') ? 'active':'' }}"  href="{{ route('purchase.daily.report') }}">Purchase Daily Report</a></li>
+                        
                     </ul>
                 </li>
                 <li class="submenu">
@@ -108,7 +112,7 @@
                             Manage Stock</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="{{ route('stock.report') }}">Stock Report</a></li>
-                        <li><a href="#">Spplier/Product Wise Report</a></li>
+                        <li><a href="{{ route('stock.supplier.wise') }}">Spplier/Product Wise Report</a></li>
                         <li><a href="expensecategory.html">Expense Category</a></li>
                     </ul>
                 </li>

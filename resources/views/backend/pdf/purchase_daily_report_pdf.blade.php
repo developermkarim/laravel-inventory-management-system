@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="text-center">Stock Report</h4>
+                    <h4 class="text-center">Daily Invoice Report</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
@@ -47,14 +47,14 @@
     </address>
 </div>
 
-{{-- <div class="p-2 col-4 mt-4">
+<div class="p-2 col-4 mt-4">
     <h5><span>From : </span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<span>To</span></h5>
     
         <span class="p-1 text-white custom-btn">{{ date('d-m-Y',strtotime($startDate)) }}</span> --
         <span class="p-1 text-white custom-btn">{{ date('d-m-Y',strtotime($endDate)) }}</span>
-       
+ {{--   allData,startDate,endDate     --}}
 
-</div> --}}
+</div>
 
 </div>
 </div>
@@ -77,42 +77,43 @@
 <thead>
 <tr>
 <td><strong>Sl </strong></td>
-<td class="text-center"><strong>Supplier Name</strong></td>
-<td class="text-center"><strong>Unit</strong></td>
-<td class="text-center"><strong>Category</strong></td>
+<td class="text-center"><strong>Purchase No:</strong></td>
+<td class="text-center"><strong>Date</strong></td>
 <td class="text-center"><strong>Product Name</strong>
 </td>
-<td class="text-center"><strong>In Quantity</strong>
-</td>
-<td class="text-center"><strong>Out Quantity</strong>
-</td>
+<td class="text-center"><strong>Quantity</strong></td>
+<td class="text-center"><strong>Unit Price</strong></td>
+<td class="text-center"><strong>Total Price</strong></td>
 
-<td class="text-center"><strong>Stock (Current)</strong>
-</td>
 
 </tr>
 </thead>
 <tbody>
 <!-- foreach ($order->lineItems as $line) or some such thing here -->
 
-                       @foreach($allData as $key => $item)
-                  
-                   @php
-                       $buying_qty = App\Models\Purchase::where('category_id',$item->category_id)->where('product_id',$item->id)->where('status','1')->sum('buying_qty');
-                       $selling_qty = App\Models\InvoiceDetail::where('category_id', $item->category_id)->where('product_id',$item->id)->where('status',1)->sum('selling_qty');
-                   @endphp    
-                            <tr>
-                                <td> {{ $key+1}} </td>
-                                <td> {{ $item->name }} </td>
-                                <td>{{ $item['supplier']['name'] }} </td>
-                                <td> {{ $item['unit']['name'] }}</td>
-                                <td> {{ $item['category']['name'] }} </td>
-                                <td>{{ $buying_qty }}</td>
-                                <td>{{  $selling_qty }}</td>
-                                <td>{{ $item->quantity }}</td>
-                            </tr>
-                            @endforeach
-{{-- <tr>
+@php
+$total_sum = '0';
+@endphp
+@foreach($allData as $key => $details)
+<tr>
+<td class="text-center">{{ $key+1 }}</td>
+<td class="text-center">{{ $details->purchase_no  }}</td>
+<td class="text-center">{{ date('d-m-Y',strtotime($details->created_at))  }}</td>
+<td class="text-center">{{ $details->product->name  }}</td>
+<td class="text-center">{{ $details->buying_qty  }}</td>
+
+
+<td class="text-center">{{ $details->unit_price }} {{ $details->product->unit->name }}</td>
+
+<td class="text-center">{{ number_format($details->buying_price,0)  }}</td>
+
+
+</tr>
+@php
+$total_sum += $details->payment ? $details->payment->total_amount:0;
+@endphp
+@endforeach
+<tr>
 <td class="no-line"></td>
  <td class="no-line"></td>
   <td class="no-line"></td>
@@ -121,16 +122,11 @@
    <td class="no-line text-center">
     <strong>Grand Amount</strong></td>
 <td class="no-line text-end"><h4 class="m-0">${{ $total_sum }}</h4></td>
-</tr> --}}
+</tr>
             </tbody>
         </table>
     </div>
 
-    @php
-        $date = new Datetime('now',new DatetimeZone('Asia/Dhaka'));
-        $formattedDate =   $date->format('F j, Y, g:i a');
-    @endphp
-    <i> <b> Printing Time : {{  $formattedDate }}</b></i>
     <div class="d-print-none">
         <div class="float-end">
             <a href="javascript:window.print()" class="btn text-white custom-btn waves-effect waves-light"><i class="fa fa-print"></i></a>

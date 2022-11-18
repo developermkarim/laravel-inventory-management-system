@@ -101,7 +101,7 @@
                                     <tr>
                                         <th>Category</th>
                                         <th>Product Name </th>
-                                        <th>PSC/KG</th>
+                                        <th>PSC/KG/Liter</th>
                                         <th>Unit Price </th>
                                         <th>Description</th>
                                         <th>Total Price</th>

@@ -32,7 +32,11 @@ Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+Route::middleware('auth')->group(function(){
+
 /* Admin Routes Controller in grouping system */
+
 Route::controller(AdminController::class)->group(function(){
 Route::get('admin/signout','destroy')->name('admin.logout');
 Route::get('admin/profile/','profile')->name('admin.profile');
@@ -45,6 +49,7 @@ Route::post('admin/passwordUpdate','passwordUpdate')->name('admin.password.updat
 
 });
 
+/* Supplier Routes here */
 Route::controller(SupplierController::class)->group(function(){
 
    Route::get('allSupliers/', 'supplierAll')->name('supplier.all');
@@ -60,6 +65,7 @@ Route::controller(SupplierController::class)->group(function(){
    Route::get('supplier/status/{status}/{id}','status')->name('supplier.status');
 });
 
+/* Customer Routes here */
 Route::controller(CustomerController::class)->group(function(){
 
     Route::get('allCustomers/', 'customerAll')->name('customer.all');
@@ -75,6 +81,7 @@ Route::controller(CustomerController::class)->group(function(){
     Route::get('customer/status/{status}/{id}','status')->name('customer.status');
  });
 
+ /* Units Routes here */
  Route::controller(UnitController::class)->group(function(){
 
   Route::get('allUnits/', 'unitAll')->name('unit.all');
@@ -138,8 +145,12 @@ Route::controller(PurchaseController::class)->group(function(){
     Route::get('deletePurchases/{id}', 'purchaseDelete')->name('purchase.delete');
     Route::get('purchasePending/','purchasePending')->name('purchase.pending');
     Route::get('purchaseApproved/{id}','purchaseApproved')->name('purchase.approved');
+
+    Route::get('purchase/dailyReport','purchasedailyReport')->name('purchase.daily.report');
+    Route::get('purchase/dailyReportPdf','purchasedailyReportPdf')->name('purchase.daily.report.pdf');
      });
 
+     /* INvoice Routes HEre */
      Route::controller(InvoiceController::class)->group(function(){
         Route::get('allInvoice/','invoiceAll')->name('invoice.all');
         Route::get('addInvoice/','invoiceAdd')->name('invoice.add');
@@ -163,7 +174,16 @@ Route::controller(PurchaseController::class)->group(function(){
 Route::controller(StockController::class)->group(function(){
 Route::get('stock/report','stockReport')->name('stock.report');
 Route::get('stock/reportPdf','stockReportPdf')->name('stock.report.pdf');
+
+Route::get('stock/supplier/wise','stockSupplierWise')->name('stock.supplier.wise');
+Route::get('supplier/wise/pdf','supplierWisePdf')->name('supplier.wise.pdf');
+Route::get('product/wise/pdf','productWisePdf')->name('product.wise.pdf');
+
 });
+
+});
+
+
      /* Default Controller Here for ajax request and Others*/
      Route::controller(DefaultController::class)->group(function(){
         Route::get('get-category','getCategory')->name('get-category');

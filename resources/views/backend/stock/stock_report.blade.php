@@ -1,11 +1,10 @@
 @extends('admin.admin_master')
 
 @section('admin-content')
-
 <div class="content">
     <div class="page-header">
         <div class="page-title">
-            <h4>Stoc list</h4>
+            <h4>Stock list</h4>
             <h6>supplier/Product Stock</h6>
         </div>
         <div class="page-btn">
@@ -40,7 +39,7 @@
                     <h4 class="card-title">Category All Data </h4> --}}
 
 
-                    <table id="datatable" class="table table-striped nowrap" style="width:100%">
+                    <table id="datatable" class="table-striped nowrap table" style="width:100%">
                         <thead>
                             <tr>
                                 <th>Sl</th>
@@ -48,20 +47,34 @@
                                 <th>Supplier Name </th>
                                 <th>Unit</th>
                                 <th>Category</th>
-                               
 
-                                <th>Stock</th>
+                                <th>In Quantity</th>
+                                <th>Out Quantity</th>
+                                <th>Stock(current)</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            @foreach($allData as $key => $item)
+                            @foreach ($allData as $key => $item)
+                            @php
+                            $buying_qty = App\Models\Purchase::where('category_id', $item->category_id)
+                            ->where('product_id', $item->id)
+                            ->where(['status' => '1'])
+                            ->sum('buying_qty');
+
+                            $selling_qty = App\Models\InvoiceDetail::where('category_id', $item->category_id)
+                            ->where('product_id', $item->id)
+                            ->where('status', 1)
+                            ->sum('selling_qty');
+                            @endphp
                             <tr>
-                                <td> {{ $key+1}} </td>
+                                <td> {{ $key + 1 }} </td>
                                 <td> {{ $item->name }} </td>
                                 <td>{{ $item['supplier']['name'] }} </td>
                                 <td> {{ $item['unit']['name'] }}</td>
                                 <td> {{ $item['category']['name'] }} </td>
+                                <td> {{ $buying_qty }} </td>
+                                <td> {{ $selling_qty }} </td>
                                 <td>{{ $item->quantity }}</td>
                             </tr>
                             @endforeach
@@ -83,5 +96,4 @@
     });
 </script>
 @endpush
-
 @endsection
