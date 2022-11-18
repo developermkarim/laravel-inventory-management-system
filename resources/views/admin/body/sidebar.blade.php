@@ -2,8 +2,9 @@
     <div class="sidebar-inner slimscroll">
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
-                <li class="active">
-                    <a href="index.html"><img src="{{asset('backend/assets/img/icons/dashboard.svg')}}"
+                <li class="{{ Request::routeis('dashboard') ? 'active':'' }}">
+                    <a href="{{ route('dashboard') }}">
+                        <img src="{{asset('backend/assets/img/icons/dashboard.svg')}}"
                             alt="img"><span>
                             Dashboard</span> </a>
                 </li>
@@ -11,8 +12,8 @@
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/product.svg')}}" alt="img"><span>
                             Product</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="{{ route('product.all') }}">Product List</a></li>
-                        <li><a href="{{ route('product.add') }}">Add Product</a></li>
+                        <li><a class="{{ Request::routeis('product.add') ? 'active':''}}"  href="{{ route('product.all') }}">Product List</a></li>
+                        <li><a  class="{{ Request::routeis('product.add') ? 'active':'' }}"  href="{{ route('product.add') }}">Add Product</a></li>
 
                         <li><a href="brandlist.html">Brand List</a></li>
                         <li><a href="addbrand.html">Add Brand</a></li>
@@ -24,9 +25,9 @@
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
                             Manage Supplier</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="{{ route('supplier.all') }}">Supplier List</a></li>
+                        <li><a class="{{ Request::routeis('supplier.all') ? 'active':'' }}"  href="{{ route('supplier.all') }}">Supplier List</a></li>
 
-                        <li><a href="{{ route('supplier.add') }}">Add Supplier</a></li>
+                        <li><a class="{{ Request::routeis('supplier.add') ? 'active':'' }}"  href="{{ route('supplier.add') }}">Add Supplier</a></li>
                         <li><a href="pos.html">POS</a></li>
                         <li><a href="pos.html">New Sales</a></li>
                         <li><a href="salesreturnlists.html">Sales Return List</a></li>
@@ -37,9 +38,9 @@
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
                             Manage Customer</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="{{ route('customer.all') }}">Customer List</a></li>
+                        <li><a class="{{ Request::routeis('customer.all') ? 'active':'' }}"  href="{{ route('customer.all') }}">Customer List</a></li>
 
-                        <li><a href="{{ route('customer.add') }}">Add Customer</a></li>
+                        <li><a class="{{ Request::routeis('customer.add') ? 'active':'' }}"  href="{{ route('customer.add') }}">Add Customer</a></li>
 
                         <li><a href="#">New Sales Return</a></li>
                     </ul>
@@ -48,10 +49,10 @@
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
                             Manage Unit</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="{{ route('unit.all') }}">Unit List</a></li>
+                        <li><a class="{{ Request::routeis('unit.all') ? 'active':'' }}"  href="{{ route('unit.all') }}">Unit List</a></li>
 
-                        <li><a href="{{ route('unit.add') }}">Add Supplier</a></li>
-                        <li><a href="#">POS</a></li>
+                        <li><a class="{{ Request::routeis('unit.add') ? 'active':'' }}"  href="{{ route('unit.add') }}">Add Supplier</a></li>
+                        <li><a  {{-- {{ Request::routeis('') ? 'active':'' }} --}}href="#">POS</a></li>
                         <li><a href="pos.html">New Sales</a></li>
 
 
@@ -61,9 +62,9 @@
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
                             Manage Category</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="{{ url('allCategories/') }}">Category List</a></li>
+                        <li><a class="{{ Request::routeis('category.all') ? 'active':'' }}"  href="{{ url('allCategories/') }}">Category List</a></li>
 
-                        <li><a href="{{ route('category.add') }}">Add Category</a></li>
+                        <li><a class="{{ Request::routeis('category.add') ? 'active':'' }}"  href="{{ route('category.add') }}">Add Category</a></li>
                         <li><a href="pos.html">POS</a></li>
                         <li><a href="pos.html">New Sales</a></li>
                         <li><a href="salesreturnlists.html">Sales Return List</a></li>
@@ -78,13 +79,13 @@
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
                         Manage Invoice   </span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="{{ route('invoice.all') }}">All Invoice</a></li>
+                        <li><a class="{{ Request::routeis('invoice.all') ? 'active':'' }}"  href="{{ route('invoice.all') }}">All Invoice</a></li>
 
-                        <li><a href="{{ route('invoice.add') }}">Add Invoice</a></li>
-                        <li><a href="{{ route('invoice.pending_list') }}">Pending Invoice</a></li>
-                        <li><a href="{{ route('invoice.print.list') }}">Print Invoice List</a></li>
+                        <li><a class="{{ Request::routeis('invoice.add') ? 'active':'' }}"  href="{{ route('invoice.add') }}">Add Invoice</a></li>
+                        <li><a class="{{ Request::routeis('invoice.pending_list') ? 'active':'' }}"  href="{{ route('invoice.pending_list') }}">Pending Invoice</a></li>
+                        <li><a class="{{ Request::routeis('invoice.print.list') ? 'active':'' }}"  href="{{ route('invoice.print.list') }}">Print Invoice List</a></li>
 
-                        <li><a href="{{ route('invoice.daily.report') }}">Print Daily Invoice</a></li>
+                        <li><a class="{{ Request::routeis('invoice.daily.report') ? 'active':'' }}"  href="{{ route('invoice.daily.report') }}">Print Daily Invoice</a></li>
 
                         <li><a href="">POS</a></li>
                         <li><a href="">New Sales</a></li>
@@ -96,18 +97,18 @@
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/purchase1.svg')}}" alt="img"><span>
                             Purchase</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="{{ route('purchase.all') }}">Purchase List</a></li>
-                        <li><a href="{{ route('purchase.add') }}">Add Purchase</a></li>
-                        <li><a href="{{ route('purchase.pending') }}">Pending Purchase</a></li>
+                        <li><a class="{{ Request::routeis('purchase.all') ? 'active':'' }}"  href="{{ route('purchase.all') }}">Purchase List</a></li>
+                        <li><a class="{{ Request::routeis('purchase.add') ? 'active':'' }}"  href="{{ route('purchase.add') }}">Add Purchase</a></li>
+                        <li><a class="{{ Request::routeis('purchase.pending') ? 'active':'' }}"  href="{{ route('purchase.pending') }}">Pending Purchase</a></li>
                         <li><a href="importpurchase.html">Import Purchase</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/expense1.svg')}}" alt="img"><span>
-                            Expense</span> <span class="menu-arrow"></span></a>
+                            Manage Stock</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="expenselist.html">Expense List</a></li>
-                        <li><a href="createexpense.html">Add Expense</a></li>
+                        <li><a href="{{ route('stock.report') }}">Stock Report</a></li>
+                        <li><a href="#">Spplier/Product Wise Report</a></li>
                         <li><a href="expensecategory.html">Expense Category</a></li>
                     </ul>
                 </li>

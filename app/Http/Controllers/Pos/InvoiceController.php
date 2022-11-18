@@ -245,7 +245,7 @@ public function invoiceApproveStore(Request $request,$id)
         
     } // End Foreach Loop
 
-    $invoice = Invoice::findOrFail($id)->first();
+    $invoice = Invoice::findOrFail($id);
     $invoice->updated_by = Auth::user()->id;
     $invoice->status = '1';
     DB::transaction(function() use($request,$invoice,$id){

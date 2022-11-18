@@ -7,6 +7,7 @@ use App\Http\Controllers\Pos\DefaultController;
 use App\Http\Controllers\Pos\InvoiceController;
 use App\Http\Controllers\Pos\ProductController;
 use App\Http\Controllers\Pos\PurchaseController;
+use App\Http\Controllers\Pos\StockController;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\UnitController;
 use Faker\Guesser\Name;
@@ -158,7 +159,11 @@ Route::controller(PurchaseController::class)->group(function(){
         Route::get('invoiceDelete/{id}','invoiceDelete')->name('invoice.delete');
      });
 
-
+/* Routes Of stock */
+Route::controller(StockController::class)->group(function(){
+Route::get('stock/report','stockReport')->name('stock.report');
+Route::get('stock/reportPdf','stockReportPdf')->name('stock.report.pdf');
+});
      /* Default Controller Here for ajax request and Others*/
      Route::controller(DefaultController::class)->group(function(){
         Route::get('get-category','getCategory')->name('get-category');
