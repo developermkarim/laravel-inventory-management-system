@@ -75,6 +75,18 @@
                 </li>
 
 
+                <li class="submenu">
+                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/purchase1.svg')}}" alt="img"><span>
+                          Manage Purchase</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a class="{{ Request::routeis('purchase.all') ? 'active':'' }}"  href="{{ route('purchase.all') }}">Purchase List</a></li>
+                        <li><a class="{{ Request::routeis('purchase.add') ? 'active':'' }}"  href="{{ route('purchase.add') }}">Add Purchase</a></li>
+                        <li><a class="{{ Request::routeis('purchase.pending') ? 'active':'' }}"  href="{{ route('purchase.pending') }}">Pending Purchase</a></li>
+
+                        <li><a class="{{ Request::routeis('purchase.daily.report') ? 'active':'' }}"  href="{{ route('purchase.daily.report') }}">Purchase Daily Report</a></li>
+                        
+                    </ul>
+                </li>
 
 
                 <li class="submenu">
@@ -89,30 +101,19 @@
 
                         <li><a class="{{ Request::routeis('invoice.daily.report') ? 'active':'' }}"  href="{{ route('invoice.daily.report') }}">Print Daily Invoice</a></li>
 
-                        <li><a href="">POS</a></li>
+                        {{-- <li><a href="">POS</a></li> --}}
                         <li><a href="">New Sales</a></li>
                         <li><a href="salesreturnlists.html">Sales Return List</a></li>
                         <li><a href="createsalesreturns.html">New Sales Return</a></li>
                     </ul>
                 </li>
-                <li class="submenu">
-                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/purchase1.svg')}}" alt="img"><span>
-                          Manage Purchase</span> <span class="menu-arrow"></span></a>
-                    <ul>
-                        <li><a class="{{ Request::routeis('purchase.all') ? 'active':'' }}"  href="{{ route('purchase.all') }}">Purchase List</a></li>
-                        <li><a class="{{ Request::routeis('purchase.add') ? 'active':'' }}"  href="{{ route('purchase.add') }}">Add Purchase</a></li>
-                        <li><a class="{{ Request::routeis('purchase.pending') ? 'active':'' }}"  href="{{ route('purchase.pending') }}">Pending Purchase</a></li>
-
-                        <li><a class="{{ Request::routeis('purchase.daily.report') ? 'active':'' }}"  href="{{ route('purchase.daily.report') }}">Purchase Daily Report</a></li>
-                        
-                    </ul>
-                </li>
+               
                 <li class="submenu">
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/expense1.svg')}}" alt="img"><span>
                             Manage Stock</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="{{ route('stock.report') }}">Stock Report</a></li>
-                        <li><a href="{{ route('stock.supplier.wise') }}">Spplier/Product Wise Report</a></li>
+                        <li><a class="{{ Request::routeis('stock.report') ? 'active':'' }}" href="{{ route('stock.report') }}">Stock Report</a></li>
+                        <li><a class="{{ Request::routeis('stock.supplier.wise') ? 'active':'' }}" href="{{ route('stock.supplier.wise') }}">Spplier/Product Wise Report</a></li>
                         <li><a href="expensecategory.html">Expense Category</a></li>
                     </ul>
                 </li>

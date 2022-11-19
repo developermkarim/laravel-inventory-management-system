@@ -7,7 +7,7 @@
     <div class="header-left active">
         <a href="{{url('dashboard/')}}" class="logo">
 
-            <img src="{{asset('backend/assets/img/logo.png')}}" alt="">
+            <img src="{{asset('backend/assets/img/logo.png')}}" height="80"  alt="">
         </a>
         <a href="index.html" class="logo-small">
             <img src="assets/img/logo-small.png" alt="">
