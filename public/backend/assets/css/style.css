@@ -4901,6 +4901,25 @@ span.select2-container.select2-container--default.select2-container--open {
         width: 260px
     }
 
+    .header .header-left .logo img {
+        width: 115px;
+    }
+    
+    .header {
+        background: #ff9f43;
+        background: #fff;
+        border-bottom: 1px solid transparent;
+        height: 70px;
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, .05);
+        -moz-box-shadow: 0 0 15px 0 rgba(0, 0, 0, .05);
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, .05);
+    }
+
     #toggle_btn {
         display: flex;
         align-items: center;

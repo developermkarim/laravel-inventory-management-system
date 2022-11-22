@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\DefaultController;
@@ -28,9 +29,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard',[DashboardController::class,'dashboard'])->middleware(['auth','verified'])->name('dashboard');
+/* Route::get('/dashboard', function () {
     return view('admin.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard'); */
 
 
 Route::middleware('auth')->group(function(){
@@ -79,6 +81,9 @@ Route::controller(CustomerController::class)->group(function(){
     Route::put('updateCustomers/', 'customerUpdate')->name('customer.update');
     Route::get('deleteCustomers/{id}', 'customerDelete')->name('customer.delete');
     Route::get('customer/status/{status}/{id}','status')->name('customer.status');
+
+    Route::get('creditCustomer/','creditCustomer')->name('customer.credit');
+    Route::get('creditCustomer/pdf','creditCustomerPdf')->name('customer.credit.pdf');
  });
 
  /* Units Routes here */

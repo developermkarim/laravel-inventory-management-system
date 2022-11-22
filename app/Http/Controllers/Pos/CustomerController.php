@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pos;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\Payment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -146,5 +147,19 @@ class CustomerController extends Controller
             $notice = ['message'=>'You Have Changed Status','alert-type'=>'warning'];
         }
         return redirect()->back()->with($notice);
+    }
+
+    public function creditCustomer()
+    {
+        $allData = Payment::has('invoice')->whereIn('paid_status',['full_due','partial_paid'])->get();
+        // dd($allData);
+       RETURN view('backend.customer.customer_credit',compact('allData'));
+    }
+
+    public function creditCustomerPdf()
+    {
+        $allData = Payment::has('invoice')->whereIn('paid_status',['full_due','partial_paid'])->get();
+        // dd($allData);
+       RETURN view('backend.pdf.customer_credit_pdf',compact('allData'));
     }
 }

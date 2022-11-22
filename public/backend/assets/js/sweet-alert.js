@@ -14,7 +14,9 @@ $(function(){
                     confirmButtonText: 'Yes, delete it!'
                   }).then((result) => {
                     if (result.isConfirmed) {
+                      
                       window.location.href = link
+
                       Swal.fire(
                         'Deleted!',
                         'Your file has been deleted.',

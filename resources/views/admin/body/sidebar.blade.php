@@ -44,6 +44,8 @@
 
                         <li><a class="{{ Request::routeis('customer.add') ? 'active':'' }}"  href="{{ route('customer.add') }}">Add Customer</a></li>
 
+                        <li><a class="{{ Request::routeis('customer.credit') ? 'active':'' }}"  href="{{ route('customer.credit') }}">Credit Customer List</a></li>
+
                         <li><a href="#">New Sales Return</a></li>
                     </ul>
                 </li>
