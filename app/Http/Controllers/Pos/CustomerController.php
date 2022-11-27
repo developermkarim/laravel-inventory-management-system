@@ -209,6 +209,8 @@ $paymentDetails->current_paid_amount = $request->paid_amount;
 $payment->save();
 $paymentDetails->invoice_id = $invoice_id;
 $paymentDetails->date = date('Y-m-d',strtotime($request->date));
+$paymentDetails->updated_by = Auth::user()->id;
+$paymentDetails->updated_at = Carbon::now();
 $paymentDetails->save();
 $notification = array(
     'message'=>'Invoice Update Successfully',
@@ -217,26 +219,34 @@ $notification = array(
 
 
 
-           /*  $payment = Payment::where('invoice_id',$invoice_id)->first();
-            // dd($payment);
-            $latestAmount = $request->old_amount - $request->new_amount;
-            // dd($latestAmount); $latestAmount +  $request->new_amount;
-             $payment->due_amount = $latestAmount;
-            $payment->paid_amount = $request->new_amount + $latestAmount;
-            $payment->total_amount =  $request->new_amount + $request->old_amount;
-             if($payment->update()){
-                $notice = ['message'=>'You Have updated payment','alert-type'=>'success'];
-             } */
-
-
+          
         }
 
         return redirect()->back()->with($notification);
     }
 
-    public function customerInvoiceDelete($id)
+    public function customerInvoiceDetailsPdf($invoice_id)
     {
-       
+       $payment = Payment::where('invoice_id',$invoice_id)->first();
+    //    dd($customerInvoice);
+    return view('backend.pdf.customer_invoice_pdf',compact('payment'));
+
+    }
+
+
+    public function customerInvoicePaid()
+    {
+        $paidCustomers = Payment::where('paid_status','!=','full_due')->get();
+        // dd($paidCustomers);
+
+        return view('backend.customer.customer_paid',compact('paidCustomers'));
+    }
+
+    public function customerInvoicePaidPdf()
+    {
+       $payment = Payment::where('paid_status','!=','full_due')->get();
+
+       return view('backend.pdf.customer_invoice_pdf',compact('payment'));
     }
 
 }

@@ -6,21 +6,23 @@
 
     </div>
         <!-- start page title -->
-        <div class="row">
+         <!-- start page title -->
+         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="text-center">Credit Customer Report</h4>
+                    <h4 class="mb-sm-0"> Customer Payment Report </h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);"> </a></li>
-                            <li class="breadcrumb-item active">Customer Report</li>
+                            <li class="breadcrumb-item active">Customer Payment Report</li>
                         </ol>
                     </div>
 
                 </div>
             </div>
         </div>
+        <!-- end page title -->
         <!-- end page title -->
 
         <div class="row">

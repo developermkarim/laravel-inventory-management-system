@@ -87,7 +87,10 @@ Route::controller(CustomerController::class)->group(function(){
     Route::get('customerCreditEdit/{id}','customerInvoiceEdit')->name('customer.invoice.edit');
     Route::PUT('customerCreditUpdate/{invoice_id}','customerInvoiceUpdate')->name('customer.credit.update');
 
-    Route::get('customerCreditDelete/{id}','customerInvoiceDelete')->name('customer.invoice.delete');
+    Route::get('customerInvoicePaid/','customerInvoicePaid')->name('customer.paid');
+    Route::get('customerInvoicePaid/pdf','customerInvoicePaidPdf')->name('customer.paid.pdf');
+
+Route::get('customerInvoiceDetails/pdf/{invoice_id}','customerInvoiceDetailsPdf')->name('customer.invoice.details.pdf');
 
 
  });

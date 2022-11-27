@@ -57,10 +57,10 @@
                 <td class="text-center">
 
    
-                    <a href="{{ route('customer.invoice.edit',$item->invoice_id) }}" class="btn  sm" title="Edit Data">  <img src="{{ asset('backend/assets/img/icons/edit.svg') }}" alt="img">
+                    <a href="{{ route('customer.invoice.edit',$item->invoice_id) }}" class="btn" title="Edit Data">  <img src="{{ asset('backend/assets/img/icons/edit.svg') }}" alt="img">
                     </a>
 
-                    <a  href="{{ route('customer.invoice.delete',$item->id) }}" class="btn  sm" title="Delete Data" id="delete">  <img src="{{ asset('backend/assets/img/icons/delete.svg') }}" alt="img"> </a>
+                    <a  href="{{ route('customer.invoice.details.pdf',$item->invoice_id) }}" class="btn " title="View Customer Invoice" >  <i class="fas fa-eye"></i> </a>
 
 
                </td>
