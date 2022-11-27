@@ -11,9 +11,9 @@
         <div class="card-body">
 
             <h4 class="card-title">Add Product Page </h4><br><br>
-            
+
   @if (!isset($editProducts))
-      
+
  <form method="post" action="{{ route('product.store') }}" id="myForm" >
                 @csrf
 
@@ -49,7 +49,7 @@
                @endforeach
                 </select>
         </div>
-    </div> 
+    </div>
   <!-- end row -->
 
 
@@ -65,18 +65,34 @@
                 </select>
         </div>
     </div>
+
+    <div class="row mb-3">
+
+        <label class="col-sm-2 col-form-label"> Product Image</label>
+        <div class="col-sm-6">
+        <div class="image-upload">
+        <input type="file">
+        <div class="image-uploads">
+            <i class="fa fa-upload" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-upload" aria-label="fa fa-upload"></i>
+        {{-- <img src="{{ asset('backend/assets/img/icons/upload.svg') }}" height="20" alt="img"> --}}
+        <h4>Drag and drop a file to upload</h4>
+       
+        </div>
+        </div>
+        </div>
+    </div>
   <!-- end row -->
- 
-        
+
+
   <div class="col-lg-12">
     <label class="col-sm-2 col-form-label"> </label>
     <button type="submit" class="btn btn-submit me-2">Submit</button>
 
     <a href="{{ route('product.all') }}" class="btn btn-cancel">Cancel</a>
     </div>
-    
+
     </form>
-             
+
            @else
 
            <form method="post" action="{{ route('product.update') }}" id="myForm" >
@@ -116,7 +132,7 @@
            @endforeach
             </select>
     </div>
-</div> 
+</div>
 <!-- end row -->
 
 
@@ -134,7 +150,7 @@
 </div>
 <!-- end row -->
 
-    
+
 <div class="col-lg-12">
 <label class="col-sm-2 col-form-label"> </label>
 <button type="submit" class="btn btn-submit me-2">Update</button>
@@ -144,13 +160,13 @@
 
 </form>
 @endif
-           
+
         </div>
     </div>
 
 </div> <!-- end col -->
 </div>
- 
+
 
 
 </div>
@@ -162,7 +178,7 @@
             rules: {
                 name: {
                     required : true,
-                }, 
+                },
                  supplier_id: {
                     required : true,
                 },
@@ -187,7 +203,7 @@
                     required : 'Please Select One Category',
                 },
             },
-            errorElement : 'span', 
+            errorElement : 'span',
             errorPlacement: function (error,element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
@@ -200,9 +216,9 @@
             },
         });
     });
-    
+
 </script>
 
 
- 
-@endsection 
+
+@endsection

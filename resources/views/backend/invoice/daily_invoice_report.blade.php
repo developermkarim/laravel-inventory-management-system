@@ -38,12 +38,12 @@
                  search
                 </button>
             </div>
-           
+
         </div>
 
 
 
-    </div> <!-- // end row  --> 
+    </div> <!-- // end row  -->
 
     </form>
 
@@ -65,11 +65,11 @@
             rules: {
                 start_date: {
                     required : true,
-                }, 
+                },
                  end_date: {
                     required : true,
                 },
-                 
+
             },
             messages :{
                 start_date: {
@@ -79,7 +79,7 @@
                     required : 'Please Enter End Date',
                 },
             },
-            errorElement : 'span', 
+            errorElement : 'span',
             errorPlacement: function (error,element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);

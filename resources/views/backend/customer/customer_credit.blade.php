@@ -44,15 +44,26 @@
             <tr>
                 <td> {{ $key+1}} </td>
                 <td> {{  $item->customer->name  }}</td> 
-                <td> # {{  $item->invoice->invoice_no }} </td> 
+                <td> # {{  $item->invoice->id}} </td> 
                 <td> {{  date('d-m-Y',strtotime($item->invoice->date))  }} </td> 
                  
                   
               
                  <td>  {{ $item->due_amount }}৳ </td> 
-                <td>
+              {{--   <td>
      <a href="{{ route('invoice.print',$item->id) }}" class="btn btn-danger text-white sm" title="Print Invoice" >  <i class="fa fa-print"></i> </a>
-                </td>
+                </td> --}}
+
+                <td class="text-center">
+
+   
+                    <a href="{{ route('customer.invoice.edit',$item->invoice_id) }}" class="btn  sm" title="Edit Data">  <img src="{{ asset('backend/assets/img/icons/edit.svg') }}" alt="img">
+                    </a>
+
+                    <a  href="{{ route('customer.invoice.delete',$item->id) }}" class="btn  sm" title="Delete Data" id="delete">  <img src="{{ asset('backend/assets/img/icons/delete.svg') }}" alt="img"> </a>
+
+
+               </td>
                
             </tr>
                         @endforeach

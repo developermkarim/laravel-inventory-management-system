@@ -82,6 +82,7 @@
 <td class="text-center"><strong>Date</strong></td>
 
 <td class="text-center"><strong>Due Amount</strong>
+{{-- <td class="text-center"><strong>Action</strong> --}}
 </td>
 
 </tr>
@@ -95,10 +96,12 @@ $total_sum = '0';
 @foreach($allData as $key => $details)
 <tr>
 <td class="text-center">{{ $key+1 }}</td>
-<td class="text-center">{{ $details->customer->name  }}</td>
-<td class="text-center">#{{ $details->invoice->invoice_no }}</td>
-<td class="text-center">{{ date('d-m-Y',strtotime($details->invoice->date))  }}</td>
+<td class="text-center">{{ $details->customer->name ?? 'No Customer'  }}</td>
+<td class="text-center">#{{ $details->invoice->invoice_no ?? 'No Invoice' }}</td>
+<td class="text-center">{{ $details->invoice->date ?? 'no date' }}</td>
 <td class="text-center">{{ $details->due_amount }}</td>
+
+
 
 
 </tr>

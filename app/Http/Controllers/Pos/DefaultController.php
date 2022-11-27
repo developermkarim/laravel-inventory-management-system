@@ -10,7 +10,7 @@ class DefaultController extends Controller
 {
     public function getCategory(Request $request)
     {
- 
+
 $supplier_id = $request->supplier_id;
 // dd($supplier_id);
        $allCategories = Product::with(['category'])->select('category_id')->where('supplier_id',$supplier_id)->groupBy('category_id')->get();

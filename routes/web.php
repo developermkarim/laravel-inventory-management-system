@@ -82,8 +82,14 @@ Route::controller(CustomerController::class)->group(function(){
     Route::get('deleteCustomers/{id}', 'customerDelete')->name('customer.delete');
     Route::get('customer/status/{status}/{id}','status')->name('customer.status');
 
-    Route::get('creditCustomer/','creditCustomer')->name('customer.credit');
-    Route::get('creditCustomer/pdf','creditCustomerPdf')->name('customer.credit.pdf');
+    Route::get('creditCustomer/','customerCredit')->name('customer.credit');
+    Route::get('creditCustomerPdf/','customerCreditPdf')->name('customer.credit.pdf');
+    Route::get('customerCreditEdit/{id}','customerInvoiceEdit')->name('customer.invoice.edit');
+    Route::PUT('customerCreditUpdate/{invoice_id}','customerInvoiceUpdate')->name('customer.credit.update');
+
+    Route::get('customerCreditDelete/{id}','customerInvoiceDelete')->name('customer.invoice.delete');
+
+
  });
 
  /* Units Routes here */

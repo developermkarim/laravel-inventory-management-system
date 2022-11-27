@@ -22,13 +22,13 @@
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
+                    <a href="javascript:void(0);"><i class="fa fa-ship" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-ship" aria-label="fa fa-ship"></i><span>
                             Manage Supplier</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a class="{{ Request::routeis('supplier.all') ? 'active':'' }}"  href="{{ route('supplier.all') }}">Supplier List</a></li>
 
                         <li><a class="{{ Request::routeis('supplier.add') ? 'active':'' }}"  href="{{ route('supplier.add') }}">Add Supplier</a></li>
-                        
+
 
                         <li><a href="pos.html">POS</a></li>
                         <li><a href="pos.html">New Sales</a></li>
@@ -37,20 +37,18 @@
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
+                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/users1.svg')}}" alt="img"><span>
                             Manage Customer</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a class="{{ Request::routeis('customer.all') ? 'active':'' }}"  href="{{ route('customer.all') }}">Customer List</a></li>
 
                         <li><a class="{{ Request::routeis('customer.add') ? 'active':'' }}"  href="{{ route('customer.add') }}">Add Customer</a></li>
 
-                        <li><a class="{{ Request::routeis('customer.credit') ? 'active':'' }}"  href="{{ route('customer.credit') }}">Credit Customer List</a></li>
-
                         <li><a href="#">New Sales Return</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
+                    <a href="javascript:void(0);"><i class="fa fa-balance-scale" aria-hidden="true"></i><span>
                             Manage Unit</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a class="{{ Request::routeis('unit.all') ? 'active':'' }}"  href="{{ route('unit.all') }}">Unit List</a></li>
@@ -63,7 +61,8 @@
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"><span>
+                    <a href="javascript:void(0);"><i class=" fa fa-th-list"></i>
+                        {{-- <img src="{{asset('backend/assets/img/icons/sales1.svg')}}" alt="img"> --}}<span>
                             Manage Category</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a class="{{ Request::routeis('category.all') ? 'active':'' }}"  href="{{ url('allCategories/') }}">Category List</a></li>
@@ -86,7 +85,7 @@
                         <li><a class="{{ Request::routeis('purchase.pending') ? 'active':'' }}"  href="{{ route('purchase.pending') }}">Pending Purchase</a></li>
 
                         <li><a class="{{ Request::routeis('purchase.daily.report') ? 'active':'' }}"  href="{{ route('purchase.daily.report') }}">Purchase Daily Report</a></li>
-                        
+
                     </ul>
                 </li>
 
@@ -109,7 +108,7 @@
                         <li><a href="createsalesreturns.html">New Sales Return</a></li>
                     </ul>
                 </li>
-               
+
                 <li class="submenu">
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/expense1.svg')}}" alt="img"><span>
                             Manage Stock</span> <span class="menu-arrow"></span></a>

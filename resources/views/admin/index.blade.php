@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 
 @section('admin-content')
-    
+
 
 <div class="content">
     <div class="row">
@@ -11,8 +11,8 @@
                     <span><img src="{{ asset('backend/assets/img/icons/dash1.svg') }}" alt="img"></span>
                 </div>
                 <div class="dash-widgetcontent">
-                    <h5>$<span class="counters" data-count="307144.00">$307,144.00</span></h5>
-                    <h6>Total Purchase Due</h6>
+                    <h5>$<span class="counters" data-count="{{ $purchase->sum('buying_price') }}">$ {{ $purchase->sum('buying_price') }}</span></h5>
+                    <h6>Total Purchase not due</h6>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
                     <span><img src="{{ asset('backend/assets/img/icons/dash2.svg') }}" alt="img"></span>
                 </div>
                 <div class="dash-widgetcontent">
-                    <h5>$<span class="counters" data-count="4385.00">$4,385.00</span></h5>
+                    <h5>$<span class="counters" data-count="{{ $customerPayment->sum('due_amount') }}">${{ $customerPayment->sum('due_amount') }}</span></h5>
                     <h6>Total Sales Due</h6>
                 </div>
             </div>
@@ -33,12 +33,15 @@
                     <span><img src="{{ asset('backend/assets/img/icons/dash3.svg') }}" alt="img"></span>
                 </div>
                 <div class="dash-widgetcontent">
-                    <h5>$<span class="counters" data-count="385656.50">385,656.50</span></h5>
+
+                    <h5>$<span class="counters" data-count="{{ $customerPayment->sum('paid_amount') }}">$ {{ $customerPayment->sum('paid_amount') }}</span></h5>
+                   {{--  <h5>$<span class="counters" data-count="{{ $customerPayment->sum('paid_amount') }}">{{ $customerPayment->sum('paid_amount') }}</span></h5> --}}
+
                     <h6>Total Sale Amount</h6>
                 </div>
             </div>
          </div>
-         
+
           {{--{{asset('backend/')}} --}}
         <div class="col-lg-3 col-sm-6 col-12">
             <div class="dash-widget dash3">
@@ -46,11 +49,15 @@
                     <span><img src="{{asset('backend/assets/img/icons/dash4.svg')}}" alt="img"></span>
                 </div>
                 <div class="dash-widgetcontent">
-                    <h5>$<span class="counters" data-count="40000.00">400.00</span></h5>
-                    <h6>Total Sale Amount</h6>
+
+                    <h5>$<span class="counters" data-count="{{ $purchase->sum('buying_price') }}">$ {{ $purchase->sum('buying_price') }}</span></h5>
+                   {{--  <h5>$<span class="counters" data-count="{{ $purchase->sum('buying_price') }}">{{ $purchase->sum('buying_price') }}</span></h5>
+ --}}
+                    <p style="font-size: 12px;">Total Purchase Amount</p>
                 </div>
             </div>
         </div>
+       {{--  'totalCustomers','totalSuppliers','totalPurchase','totalInvoice' --}}
         <div class="col-lg-3 col-sm-6 col-12 d-flex">
             <div class="dash-count">
                 <div class="dash-counts">
@@ -65,7 +72,7 @@
         <div class="col-lg-3 col-sm-6 col-12 d-flex">
             <div class="dash-count das1">
                 <div class="dash-counts">
-                    <h4>100</h4>
+                    <h4>{{ $totalSuppliers }}</h4>
                     <h5>Suppliers</h5>
                 </div>
                 <div class="dash-imgs">
@@ -76,7 +83,7 @@
         <div class="col-lg-3 col-sm-6 col-12 d-flex">
             <div class="dash-count das2">
                 <div class="dash-counts">
-                    <h4>100</h4>
+                    <h4>{{ $purchase->count() }}</h4>
                     <h5>Purchase Invoice</h5>
                 </div>
                 <div class="dash-imgs">
@@ -87,7 +94,7 @@
         <div class="col-lg-3 col-sm-6 col-12 d-flex">
             <div class="dash-count das3">
                 <div class="dash-counts">
-                    <h4>105</h4>
+                    <h4>{{ $totalInvoice }}</h4>
                     <h5>Sales Invoice</h5>
                 </div>
                 <div class="dash-imgs">
@@ -165,16 +172,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($products as $product)
+
+
                                 <tr>
                                     <td>1</td>
                                     <td class="productimgname">
                                         <a href="productlist.html" class="product-img">
                                             <img src="{{ asset('backend/assets/img/product/product22.jpg') }}" alt="product">
                                         </a>
-                                        <a href="productlist.html">Apple Earpods</a>
+                                        <a href="productlist.html">{{ $product->name }}</a>
                                     </td>
-                                    <td>$891.2</td>
+                                    <td>${{ $product->purchase->buying_price }}</td>
                                 </tr>
+                                @endforeach
                                 <tr>
                                     <td>2</td>
                                     <td class="productimgname">
@@ -185,26 +196,8 @@
                                     </td>
                                     <td>$668.51</td>
                                 </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td class="productimgname">
-                                        <a href="productlist.html" class="product-img">
-                                            <img src="{{ asset('backend/assets/img/product/product24.jpg') }}" alt="product">
-                                        </a>
-                                        <a href="productlist.html">samsung</a>
-                                    </td>
-                                    <td>$522.29</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td class="productimgname">
-                                        <a href="productlist.html" class="product-img">
-                                            <img src="{{ asset('backend/assets/img/product/product6.jpg') }}" alt="product">
-                                        </a>
-                                        <a href="productlist.html">Macbook Pro</a>
-                                    </td>
-                                    <td>$291.01</td>
-                                </tr>
+
+
                             </tbody>
                         </table>
                     </div>
