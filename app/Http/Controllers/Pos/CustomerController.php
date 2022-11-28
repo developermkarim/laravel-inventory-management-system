@@ -249,4 +249,38 @@ $notification = array(
        return view('backend.pdf.customer_invoice_pdf',compact('payment'));
     }
 
+
+    /* Customer Wise Credit or Paid Report Method HEre */
+
+    public function customerWiseCreditPaid()
+    {
+       /*  $paidCustomers = Payment::where(['paid_status'=>'full_paid'])->get();
+        $creditCustomers = Payment::where('paid_status',['partial_paid','full_due'])->get(); */
+// $customers = Customer::all();
+$credit_customer = Payment::has('customer')->where('paid_status',['partial_paid','full_due'])->get();
+$paid_customer = Payment::has('customer')->where('paid_status','=','full_paid')->get();
+
+//    dd($paid_customer);
+
+        return view('backend.customer.customer_credit_paid',compact('credit_customer','paid_customer'));
+    }
+
+
+    /* Customer Wise Credit Paid Report */
+
+    public function customerWisePaidReport(Request $request)
+    {
+       $customer = Payment::where('customer_id',$request->paid_customer_id)->where('paid_status','=','full_paid')->first();
+       dd($customer);
+        return view('backend.customer.customer_wise_paid_report');
+    }
+
+    public function customerWiseCreditReport(Request $request)
+    {
+       $customer = Payment::where('customer_id',$request->paid_customer_id)->whereIn('paid_status',['full_due','partial_paid'])->first();
+       dd($customer);
+        return view('backend.customer.customer_wise_paid_report');
+    }
+
+
 }

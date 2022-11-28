@@ -46,6 +46,8 @@
 
                         <li><a class="{{ Request::routeis('customer.paid') ? 'active':'' }}"  href="{{ route('customer.paid') }}">Paid Customers</a></li>
 
+                        <li><a class="{{ Request::routeis('customer.wise.credit.paid') ? 'active':'' }}"  href="{{ route('customer.wise.credit.paid') }}">Customer Wise Report</a></li>
+
                         {{-- <li><a href="#">New Sales Return</a></li> --}}
                     </ul>
                 </li>
