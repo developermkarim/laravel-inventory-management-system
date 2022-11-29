@@ -174,7 +174,9 @@
         </td>
     
          <td>
+            input
             <input type="hidden" name="product_id[]" value="@{{product_id}}">
+            <input type="hidden" name="product_name" value="@{{ product_name }}">
             @{{ product_name }}
         </td>
     

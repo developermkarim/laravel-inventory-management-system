@@ -11,6 +11,7 @@ return new class extends Migration
      *
      * @return void
      */
+    /* This is for Database notification to admin notice board */
     public function up()
     {
         Schema::create('notifications', function (Blueprint $table) {

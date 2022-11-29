@@ -61,7 +61,14 @@
         <li class="nav-item dropdown">
             <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
                 <img src="{{asset('backend/assets/img/icons/notification-bing.svg')}}" alt="img"> <span
-                    class="badge rounded-pill">4</span>
+                    class="badge rounded-pill">
+
+                    @php
+                        $noticCount = Auth::user()->unreadNotifications->count();
+                    @endphp
+                  {{ $noticCount }}
+                
+                </span>
             </a>
             <div class="dropdown-menu notifications">
                 <div class="topnav-dropdown-header">
@@ -70,23 +77,32 @@
                 </div>
                 <div class="noti-content">
                     <ul class="notification-list">
+                        @php
+                            $user = Auth::user();
+
+                        @endphp
+                        @foreach ($user->notifications  as $notification)
+                            
+                     
                         <li class="notification-message">
-                            <a href="activities.html">
+                            <a href="#">
                                 <div class="media d-flex">
                                     <span class="avatar flex-shrink-0">
                                         <img alt="" src="{{asset('backend/assets/img/profiles/avatar-02.jpg')}}">
                                     </span>
                                     <div class="media-body flex-grow-1">
-                                        <p class="noti-details"><span class="noti-title">John Doe</span> added
-                                            new task <span class="noti-title">Patient appointment booking</span>
+                                        <p class="noti-details">{{-- <span class="noti-title">John Doe</span> added
+                                            new task --}} 
+                                            <span class="noti-title">{{ $notification->data['message'] }}</span>
                                         </p>
-                                        <p class="noti-time"><span class="notification-time">4 mins ago</span>
+                                        <p class="noti-time"><span class="notification-time">{{ Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}</span>
                                         </p>
                                     </div>
                                 </div>
                             </a>
                         </li>
                      
+                        @endforeach
                     </ul>
                 </div>
                 <div class="topnav-dropdown-footer">
