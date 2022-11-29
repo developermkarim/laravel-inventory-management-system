@@ -43,7 +43,7 @@
                             <div class="row">
                                 <div class="col-sm-8 form-group">
                                     <label>Credit Wise Customer Report</label>
-                              <select name="credit_customer_id" class="form-select select2"  >
+                              <select name="credit_customer_id" class="form-select select2">
                                 <option  value="">Open this select menu</option>
 
                                 @foreach($credit_customer as $customer)

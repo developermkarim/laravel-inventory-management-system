@@ -270,16 +270,19 @@ $paid_customer = Payment::has('customer')->where('paid_status','=','full_paid')-
 
     public function customerWisePaidReport(Request $request)
     {
-       $customer = Payment::where('customer_id',$request->paid_customer_id)->where('paid_status','=','full_paid')->first();
-       dd($customer);
-        return view('backend.customer.customer_wise_paid_report');
+       $payment = Payment::where('customer_id',$request->paid_customer_id)->first();
+    //    dd($customer);
+        // $payment = $customer;
+        // dd($payment);
+        return view('backend.customer.customer_wise_paid_report',compact('payment'));
     }
 
     public function customerWiseCreditReport(Request $request)
     {
-       $customer = Payment::where('customer_id',$request->paid_customer_id)->whereIn('paid_status',['full_due','partial_paid'])->first();
-       dd($customer);
-        return view('backend.customer.customer_wise_paid_report');
+       $payment = Payment::where('customer_id',$request->credit_customer_id)->first();
+        // $payment = $customer;
+    //    dd($customer->invoice_id);
+        return view('backend.customer.customer_wise_credit_report',compact('payment'));
     }
 
 

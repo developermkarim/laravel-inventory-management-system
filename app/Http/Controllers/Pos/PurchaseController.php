@@ -8,7 +8,10 @@ use App\Models\Product;
 use App\Models\Purchase;
 use App\Models\Supplier;
 use App\Models\Unit;
+use App\Models\User;
+use App\Notifications\PurchaseComplete;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
 
 class PurchaseController extends Controller
@@ -56,6 +59,10 @@ class PurchaseController extends Controller
                 'message' => 'Data Save Successfully',
                 'alert-type' => 'success'
             );
+
+            /* To send Notification in admin notice board after purchase */
+            $user = User::where('username','admin')->get();
+            // Notification::send($user,new PurchaseComplete());
             return redirect()->route('purchase.all')->with($notification);
         }
     }

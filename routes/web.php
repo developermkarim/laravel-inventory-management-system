@@ -93,7 +93,7 @@ Route::controller(CustomerController::class)->group(function(){
     Route::get('customerWiseCreditPaid/','customerWiseCreditPaid')->name('customer.wise.credit.paid');
 
     Route::get('customerWisePaid/report','customerWisePaidReport')->name('customer.wise.paid.report');
-    
+
     Route::get('customerWiseCredit/report','customerWiseCreditReport')->name('customer.wise.credit.report');
 
 Route::get('customerInvoiceDetails/pdf/{invoice_id}','customerInvoiceDetailsPdf')->name('customer.invoice.details.pdf');
@@ -144,7 +144,7 @@ Route::post('addProducts/', 'productStore')->name('product.store');
 
 Route::get('productEdit/{id}','productEdit')->name('product.edit');
 
-Route::put('updateproducts/', 'productUpdate')->name('product.update');
+Route::put('updateproducts/{update:id}', 'productUpdate')->name('product.update');
 Route::get('deleteProducts/{id}', 'productDelete')->name('product.delete');
 
 Route::get('product/status/{status}/{id}','status')->name('product.status');

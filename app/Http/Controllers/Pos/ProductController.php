@@ -11,23 +11,43 @@ use App\Models\Unit;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    public function storeOrUpdate($request)
+    public function imageStoreOrUpdate($requestImage)
     {
-             $data = [
-            'name' => $request->name,
-            'supplier_id' => $request->supplier_id,
-            'unit_id' => $request->unit_id,
-            'category_id' => $request->category_id,
-            'quantity' => '0',
-            'created_by' => Auth::user()->id,
-            'created_at' => Carbon::now(), 
-        ];
-        return $data;
+        if($requestImage->hasFile('product_image')){
+            $extension = $requestImage->file('product_image')->extension();
+            $imageName = 'product-' . mt_rand(1000,9999) . '.'. $extension;
+            $imagePath = $requestImage->product_image->storeAs('product/',$imageName,'public');
+            $image_uri = env('APP_URL') . '/storage/' . $imagePath;
+            return ['image'=>$imageName,'image_uri'=>$image_uri];
+            }
     }
-    
+    public function storeOrUpdate($model,$request)
+    {
+        $image = $this->imageStoreOrUpdate($request);
+
+                $model->name = $request->name;
+                $model->supplier_id = $request->supplier_id;
+                 $model->unit_id = $request->unit_id;
+                $model->category_id = $request->category_id;
+                 $model->quantity = '0';
+                 if($request->hasFile('product_image')){
+                
+                    $model->image= $image['image'];
+                    $model->image_uri= $image['image_uri'];
+                 }
+
+                
+                $model->created_by = Auth::user()->id;
+                $model->created_at = Carbon::now();
+
+           
+           
+        }
+   
 
     public function productAll()
     {
@@ -49,12 +69,12 @@ class ProductController extends Controller
 
 public function productStore(Request $request)
 {
-    // $product_id = $request->id;
-    $storeData = $this->storeOrUpdate($request);
+    $product = new Product();
+    // $storeData =;
 
-    $products = Product::insert($storeData);
+    $this->storeOrUpdate($product,$request);
 
-    if($products){
+    if($product->save()){
         $notice = [
             'alert-type'=>'success',
             'message'=>'Product Data Insterted Successfully',
@@ -83,14 +103,40 @@ public function productEdit($id)
 
 }
 
-public function productUpdate(Request $request)
+public function productUpdate(Request $request,Product $update)
 {
-    $product_id = $request->id;
-    $storeData = $this->storeOrUpdate($request);
+  
+    $model = $update;
+ 
+//    dd($model);
 
-    $products = Product::findOrFail($product_id)->update($storeData);
+    $model->name = $request->name;
+    $model->supplier_id = $request->supplier_id;
+     $model->unit_id = $request->unit_id;
+    $model->category_id = $request->category_id;
+    $model->quantity = '0';
+    $oldImage = $request->old_image;
+    $path = 'product/' . $oldImage;
+    // $image = $this->imageStoreOrUpdate($request);
+     if($request->hasFile('product_image')){
+    
+        if(Storage::disk('public')->exists($path)){
+        Storage::disk('public')->delete($path);
+        }
 
-    if($products){
+        $extension = $request->file('product_image')->extension();
+        $imageName = 'product-' . mt_rand(1000,9999) . '.'. $extension;
+        $imagePath = $request->product_image->storeAs('product/',$imageName,'public');
+        $image_uri = env('APP_URL') . '/storage/' . $imagePath;
+      $model->image = $imageName;
+      $model->image_uri = $image_uri;
+    }
+   
+
+    $model->created_by = Auth::user()->id;
+    $model->updated_at = Carbon::now();
+// dd($model);
+    if($model->save()){
         $notice = [
             'alert-type'=>'success',
             'message'=>'Product Data Updated Successfully',
@@ -111,6 +157,13 @@ public function productUpdate(Request $request)
 public function productDelete($id)
 {
     $productModel = Product::findOrFail($id);
+// dd($oldImage);
+$oldImage = Product::select('image')->where('id',$id)->first();
+$path = 'product/' . $oldImage->image;
+//  dd($path);
+    if(Storage::disk('public')->exists($path)){
+    Storage::disk('public')->delete($path);
+    }
 
     $isDelete = $productModel->delete();
     if($isDelete){

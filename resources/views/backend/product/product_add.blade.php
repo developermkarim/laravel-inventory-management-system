@@ -14,7 +14,7 @@
 
   @if (!isset($editProducts))
 
- <form method="post" action="{{ route('product.store') }}" id="myForm" >
+ <form method="post" action="{{ route('product.store') }}" id="myForm" enctype="multipart/form-data" >
                 @csrf
 
             <div class="row mb-3">
@@ -71,7 +71,7 @@
         <label class="col-sm-2 col-form-label"> Product Image</label>
         <div class="col-sm-6">
         <div class="image-upload">
-        <input type="file">
+        <input name="product_image" onchange="thunmbnail_Url(this)" id="product_file" type="file">
         <div class="image-uploads">
             <i class="fa fa-upload" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-upload" aria-label="fa fa-upload"></i>
         {{-- <img src="{{ asset('backend/assets/img/icons/upload.svg') }}" height="20" alt="img"> --}}
@@ -79,7 +79,12 @@
        
         </div>
         </div>
+        </div> 
+
+        <div class="col-sm-2">
+            <img  id="mainThmb" src="" >
         </div>
+
     </div>
   <!-- end row -->
 
@@ -95,11 +100,12 @@
 
            @else
 
-           <form method="post" action="{{ route('product.update') }}" id="myForm" >
+        <form method="post" action="{{ route('product.update',$editProducts->id) }}" id="myForm" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
             <input type="hidden" name="id" value="{{ $editProducts->id }}">
+            <input type="hidden" name="old_image" value="{{ $editProducts->image}}">
         <div class="row mb-3">
             <label for="example-text-input" class="col-sm-2 col-form-label">Product Name </label>
             <div class="form-group col-sm-10">
@@ -149,7 +155,32 @@
     </div>
 </div>
 <!-- end row -->
+<div class="row mb-3">
 
+    <label class="col-sm-2 col-form-label"> Product Image</label>
+    <div class="col-sm-6">
+    <div class="image-upload">
+    <input name="product_image" onchange="thunmbnail_Url(this)" id="product_file" type="file">
+    <div class="image-uploads">
+        <i class="fa fa-upload" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-upload" aria-label="fa fa-upload"></i>
+    {{-- <img src="{{ asset('backend/assets/img/icons/upload.svg') }}" height="20" alt="img"> --}}
+    <h4>Drag and drop a file to upload</h4>
+   
+    </div>
+    </div>
+    </div> 
+
+    <div class="col-sm-2">
+        <img  id="mainThmb" src="{{ $editProducts->image_uri }}" >
+    </div>
+
+</div>
+<!-- end row -->
+
+
+  
+
+</div>
 
 <div class="col-lg-12">
 <label class="col-sm-2 col-form-label"> </label>
@@ -172,6 +203,20 @@
 </div>
 </div>
 
+        
+        <script type="text/javascript">
+function thunmbnail_Url(input){
+  if (input.files && input.files[0]){
+    var reader = new FileReader();
+    reader.onload = function(e){
+      $('#mainThmb').attr('src',e.target.result).width(80).height(80);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+
+        
 <script type="text/javascript">
     $(document).ready(function (){
         $('#myForm').validate({

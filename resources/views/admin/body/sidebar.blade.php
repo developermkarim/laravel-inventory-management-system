@@ -15,10 +15,10 @@
                         <li><a class="{{ Request::routeis('product.add') ? 'active':''}}"  href="{{ route('product.all') }}">Product List</a></li>
                         <li><a  class="{{ Request::routeis('product.add') ? 'active':'' }}"  href="{{ route('product.add') }}">Add Product</a></li>
 
-                        <li><a href="brandlist.html">Brand List</a></li>
+                       {{--  <li><a href="brandlist.html">Brand List</a></li>
                         <li><a href="addbrand.html">Add Brand</a></li>
                         <li><a href="importproduct.html">Import Products</a></li>
-                        <li><a href="barcode.html">Print Barcode</a></li>
+                        <li><a href="barcode.html">Print Barcode</a></li> --}}
                     </ul>
                 </li>
                 <li class="submenu">
@@ -30,10 +30,10 @@
                         <li><a class="{{ Request::routeis('supplier.add') ? 'active':'' }}"  href="{{ route('supplier.add') }}">Add Supplier</a></li>
 
 
-                        <li><a href="pos.html">POS</a></li>
+                       {{--  <li><a href="pos.html">POS</a></li>
                         <li><a href="pos.html">New Sales</a></li>
                         <li><a href="salesreturnlists.html">Sales Return List</a></li>
-                        <li><a href="createsalesreturns.html">New Sales Return</a></li>
+                        <li><a href="createsalesreturns.html">New Sales Return</a></li> --}}
                     </ul>
                 </li>
                 <li class="submenu">
@@ -58,8 +58,8 @@
                         <li><a class="{{ Request::routeis('unit.all') ? 'active':'' }}"  href="{{ route('unit.all') }}">Unit List</a></li>
 
                         <li><a class="{{ Request::routeis('unit.add') ? 'active':'' }}"  href="{{ route('unit.add') }}">Add Supplier</a></li>
-                        <li><a  {{-- {{ Request::routeis('') ? 'active':'' }} --}}href="#">POS</a></li>
-                        <li><a href="pos.html">New Sales</a></li>
+                      {{--   <li><a  {{ Request::routeis('') ? 'active':'' }}href="#">POS</a></li>
+                        <li><a href="pos.html">New Sales</a></li> --}}
 
 
                     </ul>
@@ -72,10 +72,10 @@
                         <li><a class="{{ Request::routeis('category.all') ? 'active':'' }}"  href="{{ url('allCategories/') }}">Category List</a></li>
 
                         <li><a class="{{ Request::routeis('category.add') ? 'active':'' }}"  href="{{ route('category.add') }}">Add Category</a></li>
-                        <li><a href="pos.html">POS</a></li>
+                      {{--   <li><a href="pos.html">POS</a></li>
                         <li><a href="pos.html">New Sales</a></li>
                         <li><a href="salesreturnlists.html">Sales Return List</a></li>
-                        <li><a href="createsalesreturns.html"></a></li>
+                        <li><a href="createsalesreturns.html"></a></li> --}}
                     </ul>
                 </li>
 
@@ -107,9 +107,9 @@
                         <li><a class="{{ Request::routeis('invoice.daily.report') ? 'active':'' }}"  href="{{ route('invoice.daily.report') }}">Print Daily Invoice</a></li>
 
                         {{-- <li><a href="">POS</a></li> --}}
-                        <li><a href="">New Sales</a></li>
+                       {{--  <li><a href="">New Sales</a></li>
                         <li><a href="salesreturnlists.html">Sales Return List</a></li>
-                        <li><a href="createsalesreturns.html">New Sales Return</a></li>
+                        <li><a href="createsalesreturns.html">New Sales Return</a></li> --}}
                     </ul>
                 </li>
 
@@ -119,18 +119,18 @@
                     <ul>
                         <li><a class="{{ Request::routeis('stock.report') ? 'active':'' }}" href="{{ route('stock.report') }}">Stock Report</a></li>
                         <li><a class="{{ Request::routeis('stock.supplier.wise') ? 'active':'' }}" href="{{ route('stock.supplier.wise') }}">Spplier/Product Wise Report</a></li>
-                        <li><a href="expensecategory.html">Expense Category</a></li>
+                      {{--   <li><a href="expensecategory.html">Expense Category</a></li> --}}
                     </ul>
                 </li>
-                <li class="submenu">
+              {{--   <li class="submenu">
                     <a href="javascript:void(0);"><img src="assets/img/icons/quotation1.svg" alt="img"><span>
                             Quotation</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="quotationList.html">Quotation List</a></li>
                         <li><a href="addquotation.html">Add Quotation</a></li>
                     </ul>
-                </li>
-                <li class="submenu">
+                </li> --}}
+               {{--  <li class="submenu">
                     <a href="javascript:void(0);"><img src="assets/img/icons/transfer1.svg" alt="img"><span>
                             Transfer</span> <span class="menu-arrow"></span></a>
                     <ul>
@@ -138,8 +138,8 @@
                         <li><a href="addtransfer.html">Add Transfer </a></li>
                         <li><a href="importtransfer.html">Import Transfer </a></li>
                     </ul>
-                </li>
-                <li class="submenu">
+                </li> --}}
+               {{--  <li class="submenu">
                     <a href="javascript:void(0);"><img src="assets/img/icons/return1.svg" alt="img"><span>
                             Return</span> <span class="menu-arrow"></span></a>
                     <ul>
@@ -148,8 +148,8 @@
                         <li><a href="purchasereturnlist.html">Purchase Return List</a></li>
                         <li><a href="createpurchasereturn.html">Add Purchase Return </a></li>
                     </ul>
-                </li>
-                <li class="submenu">
+                </li> --}}
+               {{--  <li class="submenu">
                     <a href="javascript:void(0);"><img src="assets/img/icons/users1.svg" alt="img"><span>
                             People</span> <span class="menu-arrow"></span></a>
                     <ul>
@@ -162,8 +162,8 @@
                         <li><a href="storelist.html">Store List</a></li>
                         <li><a href="addstore.html">Add Store</a></li>
                     </ul>
-                </li>
-                <li class="submenu">
+                </li> --}}
+                {{-- <li class="submenu">
                     <a href="javascript:void(0);"><img src="assets/img/icons/places.svg" alt="img"><span>
                             Places</span> <span class="menu-arrow"></span></a>
                     <ul>
@@ -172,22 +172,22 @@
                         <li><a href="newstate.html">New State </a></li>
                         <li><a href="statelist.html">State list</a></li>
                     </ul>
-                </li>
-                <li>
+                </li> --}}
+               {{--  <li>
                     <a href="components.html"><i data-feather="layers"></i><span> Components</span> </a>
-                </li>
-                <li>
+                </li> --}}
+            {{--     <li>
                     <a href="blankpage.html"><i data-feather="file"></i><span> Blank Page</span> </a>
-                </li>
-                <li class="submenu">
+                </li> --}}
+            {{--     <li class="submenu">
                     <a href="javascript:void(0);"><i data-feather="alert-octagon"></i> <span> Error Pages
                         </span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="error-404.html">404 Error </a></li>
                         <li><a href="error-500.html">500 Error </a></li>
                     </ul>
-                </li>
-                <li class="submenu">
+                </li> --}}
+               {{--  <li class="submenu">
                     <a href="javascript:void(0);"><i data-feather="box"></i> <span>Elements </span> <span
                             class="menu-arrow"></span></a>
                     <ul>
@@ -210,8 +210,8 @@
                         <li><a href="timeline.html">Timeline</a></li>
                         <li><a href="form-wizard.html">Form Wizard</a></li>
                     </ul>
-                </li>
-                <li class="submenu">
+                </li> --}}
+                {{-- <li class="submenu">
                     <a href="javascript:void(0);"><i data-feather="bar-chart-2"></i> <span> Charts </span> <span
                             class="menu-arrow"></span></a>
                     <ul>
@@ -221,8 +221,8 @@
                         <li><a href="chart-flot.html">Flot Charts</a></li>
                         <li><a href="chart-peity.html">Peity Charts</a></li>
                     </ul>
-                </li>
-                <li class="submenu">
+                </li> --}}
+              {{--   <li class="submenu">
                     <a href="javascript:void(0);"><i data-feather="award"></i><span> Icons </span> <span
                             class="menu-arrow"></span></a>
                     <ul>
@@ -301,7 +301,7 @@
                         <li><a href="grouppermissions.html">Group Permissions</a></li>
                         <li><a href="taxrates.html">Tax Rates</a></li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

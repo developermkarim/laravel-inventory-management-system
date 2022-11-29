@@ -153,10 +153,10 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li>
-                                <a href="productlist.html" class="dropdown-item">Product List</a>
+                                <a href="{{ route('product.all') }}" class="dropdown-item">Product List</a>
                             </li>
                             <li>
-                                <a href="addproduct.html" class="dropdown-item">Product Add</a>
+                                <a href="{{ route('product.add') }}" class="dropdown-item">Product Add</a>
                             </li>
                         </ul>
                     </div>
@@ -178,24 +178,15 @@
                                 <tr>
                                     <td>1</td>
                                     <td class="productimgname">
-                                        <a href="productlist.html" class="product-img">
-                                            <img src="{{ asset('backend/assets/img/product/product22.jpg') }}" alt="product">
+                                        <a href="{{ route('product.all') }}" class="product-img">
+                                            <img width="50" height="50" src="{{ asset('storage/product/'. $product->image) }}" alt="{{ $product->name  }}" title="{{ $product->name }}">
                                         </a>
-                                        <a href="productlist.html">{{ $product->name }}</a>
+                                        <a href="{{ route('product.all') }}">{{ $product->name }}</a>
                                     </td>
-                                    <td>${{ $product->purchase->buying_price }}</td>
+                                    <td>BDT {{ number_format($product->purchase->buying_price,0)  }}</td>
                                 </tr>
                                 @endforeach
-                                <tr>
-                                    <td>2</td>
-                                    <td class="productimgname">
-                                        <a href="productlist.html" class="product-img">
-                                            <img src="{{ asset('backend/assets/img/product/product23.jpg') }}" alt="product">
-                                        </a>
-                                        <a href="productlist.html">iPhone 11</a>
-                                    </td>
-                                    <td>$668.51</td>
-                                </tr>
+                              
 
 
                             </tbody>

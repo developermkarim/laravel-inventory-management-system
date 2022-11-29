@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2022 at 03:21 AM
+-- Generation Time: Nov 28, 2022 at 03:26 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.0.23
 
@@ -43,10 +43,11 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `name`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (2, 'Electronics', 1, 1, NULL, '2022-11-05 13:43:42', '2022-11-06 08:50:01'),
-(3, 'Technology', 1, 1, NULL, '2022-11-06 08:37:20', '2022-11-06 08:48:34'),
+(3, 'Technology', 1, 1, NULL, '2022-11-06 08:37:20', '2022-11-18 08:57:27'),
 (4, 'Groceries', 1, 1, NULL, '2022-11-08 08:37:52', NULL),
 (5, 'Fruits', 1, 1, NULL, '2022-11-08 08:39:46', NULL),
-(6, 'Foods', 1, 1, NULL, '2022-11-08 09:02:09', NULL);
+(6, 'Foods', 1, 1, NULL, '2022-11-08 09:02:09', NULL),
+(7, 'PRAN Foods', 1, 1, 1, '2022-11-18 08:56:34', '2022-11-18 08:57:08');
 
 -- --------------------------------------------------------
 
@@ -76,9 +77,12 @@ CREATE TABLE `customers` (
 INSERT INTO `customers` (`id`, `name`, `customer_image`, `customer_img_uri`, `mobile_no`, `email`, `address`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (41, 'Mahmodul Karim', 'customer-1667667638.png', 'http://127.0.0.1:8000/storage/customer//customer-1667667638.png', '01647113581', 'm.karimcu@gmail.com', 'Panthpath, Dhaka, Bangladesh', 1, 1, 1, '2022-11-05 11:00:00', '2022-11-05 11:00:38'),
 (42, 'Juliya Shuhi', 'customer-1667670891.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1667670891.jpg', '017854854', 'juliya@gmail.com', 'Komilla, Chittagong', 1, 1, NULL, '2022-11-05 11:54:52', NULL),
-(43, 'Riad Rio', 'customer-1667670954.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1667670954.jpg', '018754541454', 'riad@gmail.com', 'Bikram Puri,Dhaka', 0, 1, 1, '2022-11-05 11:55:40', '2022-11-06 09:23:48'),
+(43, 'Riad Rio', 'customer-1667670954.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1667670954.jpg', '018754541454', 'riad@gmail.com', 'Bikram Puri,Dhaka', 1, 1, 1, '2022-11-05 11:55:40', '2022-11-18 04:51:47'),
 (47, 'Md Mahmodul Karim', 'customer-1668266180.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1668266180.jpg', '01647113581', 'm.karimcu@gmail.com', 'Panthpath, Dhaka, Bangladesh', 1, NULL, NULL, '2022-11-12 09:16:20', '2022-11-12 09:16:20'),
-(48, 'Abdur Razzak', 'customer-1668280661.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1668280661.jpg', '012445352', 'abdurrazzak12@gmail.com', 'Agrabad,Chittagong,Bangladesh', 1, NULL, NULL, '2022-11-12 13:17:42', '2022-11-12 13:17:42');
+(48, 'Abdur Razzak', 'customer-1668280661.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1668280661.jpg', '012445352', 'abdurrazzak12@gmail.com', 'Agrabad,Chittagong,Bangladesh', 1, NULL, NULL, '2022-11-12 13:17:42', '2022-11-12 13:17:42'),
+(49, 'Taneem Rahman', 'customer-1668697910.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1668697910.jpg', '01983432453', 'taneem@gmial.com', 'MuhammadPur, Mirpur,Dhaka', 1, NULL, NULL, '2022-11-17 09:11:50', '2022-11-17 09:11:50'),
+(50, 'Shifa Akter', 'customer-1668768600.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1668768600.jpg', '019834754', 'shifaakter@gmail.com', 'New Market,MirPur Road,Dhaka', 1, 1, NULL, '2022-11-18 04:50:01', NULL),
+(51, 'Jahedul Islam', 'customer-1668779415.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1668779415.jpg', '0179874671', 'jahedul@gmail.com', 'Habiganj,Sylhet,Bangladesh', 1, NULL, NULL, '2022-11-18 07:50:15', '2022-11-18 07:50:15');
 
 -- --------------------------------------------------------
 
@@ -119,11 +123,12 @@ CREATE TABLE `invoices` (
 --
 
 INSERT INTO `invoices` (`id`, `invoice_no`, `date`, `description`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, '1', '2022-11-12', 'do', 0, 1, NULL, '2022-11-12 07:19:17', '2022-11-12 07:19:17'),
-(2, '1', '2022-11-12', 'do', 0, 1, NULL, '2022-11-12 07:28:43', '2022-11-12 07:28:43'),
+(1, '1', '2022-11-12', 'do', 1, 1, 1, '2022-11-12 07:19:17', '2022-11-13 10:00:47'),
 (3, '1', '2022-11-12', 'test', 1, 1, NULL, '2022-11-12 07:30:02', '2022-11-12 07:30:02'),
-(13, '4', '2022-11-12', NULL, 0, 1, NULL, '2022-11-12 13:15:22', '2022-11-12 13:15:22'),
-(14, '4', '2022-11-12', NULL, 1, 1, NULL, '2022-11-12 13:17:41', '2022-11-12 13:17:41');
+(14, '4', '2022-11-12', NULL, 1, 1, NULL, '2022-11-12 13:17:41', '2022-11-12 13:17:41'),
+(15, '5', '2022-11-17', NULL, 1, 1, 1, '2022-11-17 09:11:49', '2022-11-17 09:46:32'),
+(16, '6', '2022-11-18', NULL, 1, 1, 1, '2022-11-18 07:50:15', '2022-11-18 07:51:42'),
+(18, '7', '2022-11-18', NULL, 1, 1, 1, '2022-11-18 09:05:05', '2022-11-18 09:05:20');
 
 -- --------------------------------------------------------
 
@@ -150,8 +155,7 @@ CREATE TABLE `invoice_details` (
 --
 
 INSERT INTO `invoice_details` (`id`, `date`, `invoice_id`, `category_id`, `product_id`, `selling_qty`, `unit_price`, `selling_price`, `status`, `created_at`, `updated_at`) VALUES
-(1, '2022-11-12', 1, 6, 11, NULL, NULL, NULL, 0, '2022-11-12 07:19:17', '2022-11-12 07:19:17'),
-(2, '2022-11-12', 2, 6, 11, NULL, NULL, NULL, 0, '2022-11-12 07:28:43', '2022-11-12 07:28:43'),
+(1, '2022-11-12', 1, 6, 11, 4, 75, 457, 0, '2022-11-12 07:19:17', '2022-11-12 07:19:17'),
 (3, '2022-11-12', 3, 5, 4, 4, 45, 180, 0, '2022-11-12 07:30:02', '2022-11-12 07:30:02'),
 (4, '2022-11-12', 4, 2, 6, 4, 45, 180, 0, '2022-11-12 07:32:00', '2022-11-12 07:32:00'),
 (7, '2022-11-12', 7, 6, 11, 2, 451, 902, 0, '2022-11-12 08:53:55', '2022-11-12 08:53:55'),
@@ -159,8 +163,11 @@ INSERT INTO `invoice_details` (`id`, `date`, `invoice_id`, `category_id`, `produ
 (9, '2022-11-12', 8, 6, 11, 2, 451, 902, 0, '2022-11-12 08:55:42', '2022-11-12 08:55:42'),
 (10, '2022-11-12', 8, 5, 4, 3, 74, 222, 0, '2022-11-12 08:55:42', '2022-11-12 08:55:42'),
 (13, '2022-11-12', 11, 5, 4, 4, 45, 180, 0, '2022-11-12 09:16:20', '2022-11-12 09:16:20'),
-(14, '2022-11-12', 13, 4, 10, 2, 34, 68, 0, '2022-11-12 13:15:23', '2022-11-12 13:15:23'),
-(15, '2022-11-12', 14, 6, 11, 2, 47, 94, 0, '2022-11-12 13:17:41', '2022-11-12 13:17:41');
+(15, '2022-11-12', 14, 6, 11, 2, 47, 94, 0, '2022-11-12 13:17:41', '2022-11-12 13:17:41'),
+(16, '2022-11-17', 15, 6, 11, 2, 45, 90, 0, '2022-11-17 09:11:50', '2022-11-17 09:11:50'),
+(17, '2022-11-18', 16, 4, 12, 1, 75, 75, 1, '2022-11-18 07:50:15', '2022-11-18 07:51:42'),
+(18, '2022-11-18', 16, 6, 9, 5, 75, 375, 1, '2022-11-18 07:50:15', '2022-11-18 07:51:42'),
+(20, '2022-11-18', 18, 7, 13, 2, 105, 210, 1, '2022-11-18 09:05:05', '2022-11-18 09:05:20');
 
 -- --------------------------------------------------------
 
@@ -230,14 +237,15 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `invoice_id`, `customer_id`, `paid_status`, `paid_amount`, `due_amount`, `total_amount`, `discount_amount`, `created_at`, `updated_at`) VALUES
-(1, 1, 42, '', 0, 0, 0, 0, '2022-11-12 07:19:17', '2022-11-12 07:19:17'),
-(2, 2, 42, 'full_paid', 0, 0, 0, 0, '2022-11-12 07:28:43', '2022-11-12 07:28:43'),
+(1, 1, 42, 'partial_paid', 50, 20, 80, 56, '2022-11-12 07:19:17', '2022-11-27 02:09:08'),
 (4, 4, 42, 'partial_paid', 145, 5, 150, 30, '2022-11-12 07:32:00', '2022-11-12 07:32:00'),
 (5, 7, 44, 'partial_paid', 500, 546, 1046, 78, '2022-11-12 08:53:55', '2022-11-12 08:53:55'),
 (6, 8, 45, 'partial_paid', 500, 546, 1046, 78, '2022-11-12 08:55:42', '2022-11-12 08:55:42'),
 (8, 11, 47, 'full_paid', 180, 0, 180, 0, '2022-11-12 09:16:20', '2022-11-12 09:16:20'),
-(9, 13, 41, 'full_paid', 28, 0, 28, 40, '2022-11-12 13:15:23', '2022-11-12 13:15:23'),
-(10, 14, 48, 'partial_paid', 45, 47, 92, 2, '2022-11-12 13:17:42', '2022-11-12 13:17:42');
+(10, 14, 48, 'partial_paid', 45, 47, 92, 2, '2022-11-12 13:17:42', '2022-11-12 13:17:42'),
+(11, 15, 49, 'full_paid', 80, 0, 80, 10, '2022-11-17 09:11:50', '2022-11-17 09:11:50'),
+(12, 16, 51, 'full_paid', 660, 0, 660, 20, '2022-11-18 07:50:15', '2022-11-27 08:19:16'),
+(14, 18, 50, 'full_paid', 200, 0, 200, 10, '2022-11-18 09:05:05', '2022-11-18 09:05:05');
 
 -- --------------------------------------------------------
 
@@ -261,13 +269,17 @@ CREATE TABLE `payment_details` (
 
 INSERT INTO `payment_details` (`id`, `invoice_id`, `current_paid_amount`, `date`, `updated_by`, `created_at`, `updated_at`) VALUES
 (1, 1, 0, '2022-11-12', NULL, '2022-11-12 07:19:18', '2022-11-12 07:19:18'),
-(2, 2, 0, '2022-11-12', NULL, '2022-11-12 07:28:43', '2022-11-12 07:28:43'),
 (4, 4, 145, '2022-11-12', NULL, '2022-11-12 07:32:00', '2022-11-12 07:32:00'),
 (5, 7, 500, '2022-11-12', NULL, '2022-11-12 08:53:55', '2022-11-12 08:53:55'),
 (6, 8, 500, '2022-11-12', NULL, '2022-11-12 08:55:42', '2022-11-12 08:55:42'),
 (8, 11, 180, '2022-11-12', NULL, '2022-11-12 09:16:20', '2022-11-12 09:16:20'),
-(9, 13, 28, '2022-11-12', NULL, '2022-11-12 13:15:23', '2022-11-12 13:15:23'),
-(10, 14, 45, '2022-11-12', NULL, '2022-11-12 13:17:42', '2022-11-12 13:17:42');
+(10, 14, 45, '2022-11-12', NULL, '2022-11-12 13:17:42', '2022-11-12 13:17:42'),
+(11, 14, 80, '2022-11-17', NULL, '2022-11-17 09:11:50', '2022-11-17 09:11:50'),
+(12, 16, NULL, '2022-11-18', NULL, '2022-11-18 07:50:15', '2022-11-18 07:50:15'),
+(14, 18, 200, '2022-11-18', NULL, '2022-11-18 09:05:06', '2022-11-18 09:05:06'),
+(15, 16, 30, '2022-11-26', NULL, '2022-11-27 08:05:34', '2022-11-27 08:05:34'),
+(16, 16, 50, '2022-11-27', NULL, '2022-11-27 08:13:48', '2022-11-27 08:13:48'),
+(17, 16, 280, '2022-11-30', NULL, '2022-11-27 08:19:17', '2022-11-27 08:19:17');
 
 -- --------------------------------------------------------
 
@@ -313,15 +325,17 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `supplier_id`, `category_id`, `unit_id`, `name`, `quantity`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(3, 3, 2, 1, 'wire', 0, 1, 1, NULL, '2022-11-06 09:50:38', '2022-11-08 08:48:34'),
-(4, 9, 5, 1, 'Mango', 0, 1, 1, NULL, '2022-11-08 08:40:18', NULL),
+(3, 3, 2, 1, 'wire', 10, 1, 1, NULL, '2022-11-06 09:50:38', '2022-11-08 08:48:34'),
+(4, 9, 5, 1, 'Mango', 10, 1, 1, NULL, '2022-11-08 08:40:18', NULL),
 (5, 5, 3, 4, 'Apple 8', 1, 1, 1, NULL, '2022-11-08 08:41:01', '2022-11-10 18:34:06'),
 (6, 3, 2, 4, 'Ceiling Fan', 0, 1, 1, NULL, '2022-11-08 08:46:17', '2022-11-08 08:46:17'),
 (7, 8, 3, 4, 'HP EliteBook G10', 2, 1, 1, NULL, '2022-11-08 08:45:57', '2022-11-10 11:24:52'),
 (8, 9, 4, 3, 'Danu Milk', 0, 1, 1, NULL, '2022-11-08 08:47:27', NULL),
-(9, 9, 6, 1, 'Rice', 10, 1, 1, NULL, '2022-11-08 09:06:17', '2022-11-10 20:01:35'),
-(10, 9, 4, 3, 'Oil', 0, 1, 1, NULL, '2022-11-08 09:06:43', NULL),
-(11, 9, 6, 1, 'Onion', 5, 1, 1, NULL, '2022-11-08 09:08:02', '2022-11-10 11:15:33');
+(9, 9, 6, 1, 'Rice', 5, 1, 1, NULL, '2022-11-08 09:06:17', '2022-11-18 07:51:42'),
+(10, 9, 4, 3, 'Oil', 1, 1, 1, NULL, '2022-11-08 09:06:43', '2022-11-18 07:41:42'),
+(11, 9, 6, 1, 'Onion', 3, 1, 1, NULL, '2022-11-08 09:08:02', '2022-11-18 06:45:31'),
+(12, 9, 4, 2, 'Pran Chili Powder 200gram', 1, 1, 1, NULL, '2022-11-18 07:28:09', '2022-11-18 07:51:42'),
+(13, 8, 7, 6, 'Mango Juice', 5, 1, 1, NULL, '2022-11-18 08:58:14', '2022-11-18 09:05:20');
 
 -- --------------------------------------------------------
 
@@ -356,7 +370,9 @@ INSERT INTO `purchases` (`id`, `supplier_id`, `category_id`, `product_id`, `purc
 (2, 5, 3, 7, '23FDJKQ4', '2022-11-29', NULL, 1, 78520, 78520, 1, 1, NULL, '2022-11-10 07:58:10', '2022-11-10 11:24:53'),
 (4, 8, 3, 5, 'KS45KFQPLT', '2022-11-25', 'SOLD OUT', 1, 17900, 17900, 1, 1, NULL, '2022-11-10 11:42:08', '2022-11-10 18:34:06'),
 (5, 9, 6, 9, 'FDT678QN', '2022-11-26', '10 KG RICE', 10, 85, 850, 1, 1, NULL, '2022-11-10 19:39:15', '2022-11-10 20:01:36'),
-(6, 9, 4, 10, 'YWE54LD5', '2022-11-30', '2 LITRE OIL', 2, 190, 380, 0, 1, NULL, '2022-11-10 19:39:15', '2022-11-10 19:39:15');
+(7, 9, 4, 12, 'SFDJ69QT', '2022-11-04', '2 packet 200 gram', 3, 78, 156, 1, 1, NULL, '2022-11-18 07:41:00', '2022-11-18 07:41:47'),
+(8, 9, 4, 10, 'SFDJ69QT', '2022-11-04', '1 kilo oil', 5, 190, 190, 1, 1, NULL, '2022-11-18 07:41:01', '2022-11-18 07:41:42'),
+(9, 8, 7, 13, 'TR234KTQ', '2022-11-10', '7L Juice Purchased', 7, 85, 595, 1, 1, NULL, '2022-11-18 09:01:28', '2022-11-18 09:03:47');
 
 -- --------------------------------------------------------
 
@@ -411,7 +427,9 @@ INSERT INTO `units` (`id`, `name`, `status`, `created_by`, `updated_by`, `create
 (1, 'KG', 1, 1, NULL, '2022-11-05 13:19:47', '2022-11-06 08:59:36'),
 (2, 'Gram', 1, 1, NULL, '2022-11-05 13:20:10', NULL),
 (3, 'KL', 1, 1, NULL, '2022-11-05 13:21:18', '2022-11-08 08:37:11'),
-(4, 'Piece', 1, 1, NULL, '2022-11-08 08:37:01', NULL);
+(4, 'Piece', 1, 1, NULL, '2022-11-08 08:37:01', NULL),
+(5, 'ml', 1, 1, NULL, '2022-11-18 07:30:36', NULL),
+(6, 'Liter', 1, 1, NULL, '2022-11-18 07:35:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -424,6 +442,7 @@ CREATE TABLE `users` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `profile_image` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -435,8 +454,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `username`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'mahmodul Karim', 'm.karimcu@gmail.com', 'admin', '2022-11-03 12:05:44', '$2y$10$vjjdgVnSrk8EL0WG9jc1IOGMqwQmBYZzB3G/WByiZh2KT98g29wdu', NULL, '2022-11-03 12:04:24', '2022-11-03 12:05:44');
+INSERT INTO `users` (`id`, `name`, `email`, `username`, `profile_image`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'mahmodul Karim', 'm.karimcu@gmail.com', 'admin', 'profile-2022-11-19-0040.png', '2022-11-03 12:05:44', '$2y$10$vjjdgVnSrk8EL0WG9jc1IOGMqwQmBYZzB3G/WByiZh2KT98g29wdu', NULL, '2022-11-03 12:04:24', '2022-11-18 18:40:52');
 
 --
 -- Indexes for dumped tables
@@ -545,13 +564,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -563,13 +582,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `invoice_details`
 --
 ALTER TABLE `invoice_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -581,13 +600,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `payment_details`
 --
 ALTER TABLE `payment_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -599,13 +618,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
@@ -617,7 +636,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `units`
 --
 ALTER TABLE `units`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`

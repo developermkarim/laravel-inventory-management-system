@@ -45,12 +45,13 @@
                             <tr>
                                 <th>Sl</th>
                                 <th>Name</th>
+                                <th>Feature</th>
                                 <th>Supplier Name </th>
                                 <th>Unit</th>
                                 <th>Category</th>
                                 <th>Status</th>
 
-                                <th>Action</th>
+                                <th colspan="3">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -59,6 +60,8 @@
                             <tr>
                                 <td> {{ $key+1}} </td>
                                 <td> {{ $item->name }} </td>
+                                <td> <img src="{{ asset('storage/product/' . $item->image) }}" alt="{{ $item->name }}" title="{{ $item->name }}" width="50" height="50"> <td>
+
                                 <td>{{ $item['supplier']['name'] }} </td>
                                 <td> {{ $item['unit']['name'] }}</td>
                                 <td> {{ $item['category']['name'] }} </td>
@@ -68,7 +71,7 @@
                                     <span>{{ $item->status == 1 ? '✔️':'❌' }}</span>
                                 </td>
 
-                                <td>
+                                <td colspan="2">
                                     <a href="{{ route('product.edit',$item->id) }}" class="btn text-success sm"
                                         title="Edit Data"> <i class="fas fa-edit"></i> </a>
 
