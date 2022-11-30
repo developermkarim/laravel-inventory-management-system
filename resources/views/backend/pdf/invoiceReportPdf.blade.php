@@ -33,7 +33,8 @@
 <div class="invoice-title">
 
 <h3 class="text-center">
-    <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo" height="24"/> Easy Shopping Mall
+    
+    <img src="{{ asset('backend/assets/img/logo.png') }}" alt="logo" width="80" height="80"/> <span>GROCERY STORE</span> 
 </h3>
 </div>
 <hr>
@@ -41,7 +42,7 @@
 <div class="row">
 <div class="col-8 mt-4">
     <address>
-        <strong>Easy Shopping Mall:</strong><br>
+        <strong>GROCERY STORE:</strong><br>
         Purana Palton Dhaka<br>
         support@easylearningbd.com
     </address>

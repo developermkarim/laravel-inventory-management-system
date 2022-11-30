@@ -44,6 +44,15 @@ class DashboardController extends Controller
         $result['products'] = Product::has('purchase')->orderBy('created_at','desc')->where('status','1')->get();
         // dd($result['products']);
 
+        // $todaySales = Invoice
+        $date = date('Y-m-d');
+        $result['todayPurchase'] = Purchase::where('date',$date)->sum('buying_price');
+     
+        // $test = Purchase::select('created_at')->get();
+
+        // $ConvertDate = Carbon::parse('2022-11-10 13:58:10')->format('Y-d-m');
+        // dd(strtotime($ConvertDate));
+
 
 
        return view('admin.index',$result);

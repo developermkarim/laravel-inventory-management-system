@@ -85,7 +85,7 @@
                             
                      
                         <li class="notification-message">
-                            <a href="#">
+                            <a href="">
                                 <div class="media d-flex">
                                     <span class="avatar flex-shrink-0">
                                         <img alt="" src="{{asset('backend/assets/img/profiles/avatar-02.jpg')}}">

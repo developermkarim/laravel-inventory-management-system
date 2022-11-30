@@ -4963,7 +4963,10 @@ span.select2-container.select2-container--default.select2-container--open {
 .nosidebar .sidebar {
     left: -350px
 }
-
+.page-content{
+    margin-top: 30px;
+   padding: 5px 15px;
+}
 .nosidebar .page-wrapper {
     margin: 0
 }

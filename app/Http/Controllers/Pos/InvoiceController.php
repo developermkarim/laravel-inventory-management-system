@@ -10,12 +10,15 @@ use App\Models\InvoiceDetail;
 use App\Models\Payment;
 use App\Models\PaymentDetail;
 use App\Models\Product;
-use Illuminate\Notifications\Notification;
+// use Illuminate\Notifications\Notification;
 use App\Models\Supplier;
 use App\Models\Unit;
+use App\Models\User;
+use App\Notifications\SalesNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 
 class InvoiceController extends Controller
 {
@@ -261,6 +264,11 @@ public function invoiceApproveStore(Request $request,$id)
         } // End Foreach Loop
         $invoice->save();
         
+      /*   $user = User::where('username','admin')->get();
+        Notification::send($user,new PurchaseComplete($request->product_name)); */
+        // $invoiceNo = $invoice->id;
+        $user = User::where('username','admin')->get();
+        Notification::send($user,new SalesNotification($product->name));
     });
     $notification = array(
         'message' => 'Invoice Approve Successfully', 

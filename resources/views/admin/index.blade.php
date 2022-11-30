@@ -11,8 +11,8 @@
                     <span><img src="{{ asset('backend/assets/img/icons/dash1.svg') }}" alt="img"></span>
                 </div>
                 <div class="dash-widgetcontent">
-                    <h5>$<span class="counters" data-count="{{ $purchase->sum('buying_price') }}">$ {{ $purchase->sum('buying_price') }}</span></h5>
-                    <h6>Total Purchase not due</h6>
+                    <h5>৳<span class="counters" data-count="{{ $todayPurchase  }}"> ৳ {{ number_format($todayPurchase,2)  }}</span></h5>
+                    <h6>Today Purchase</h6>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
                     <span><img src="{{ asset('backend/assets/img/icons/dash2.svg') }}" alt="img"></span>
                 </div>
                 <div class="dash-widgetcontent">
-                    <h5>$<span class="counters" data-count="{{ $customerPayment->sum('due_amount') }}">${{ $customerPayment->sum('due_amount') }}</span></h5>
+                    <h5>৳<span class="counters" data-count="{{ $customerPayment->sum('due_amount') }}">৳{{ $customerPayment->sum('due_amount') }}</span></h5>
                     <h6>Total Sales Due</h6>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="dash-widgetcontent">
 
-                    <h5>$<span class="counters" data-count="{{ $customerPayment->sum('paid_amount') }}">$ {{ $customerPayment->sum('paid_amount') }}</span></h5>
+                    <h5> ৳ <span class="counters" data-count="{{ $customerPayment->sum('paid_amount') }}">৳{{ $customerPayment->sum('paid_amount') }}</span></h5>
                    {{--  <h5>$<span class="counters" data-count="{{ $customerPayment->sum('paid_amount') }}">{{ $customerPayment->sum('paid_amount') }}</span></h5> --}}
 
                     <h6>Total Sale Amount</h6>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="dash-widgetcontent">
 
-                    <h5>$<span class="counters" data-count="{{ $purchase->sum('buying_price') }}">$ {{ $purchase->sum('buying_price') }}</span></h5>
+                    <h5>৳ <span class="counters" data-count="{{ $purchase->sum('buying_price') }}">৳ {{ $purchase->sum('buying_price') }}</span></h5>
                    {{--  <h5>$<span class="counters" data-count="{{ $purchase->sum('buying_price') }}">{{ $purchase->sum('buying_price') }}</span></h5>
  --}}
                     <p style="font-size: 12px;">Total Purchase Amount</p>

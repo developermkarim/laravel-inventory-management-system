@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="col-6 mt-4">
                     <address>
-                        <strong>Easy Shopping Mall:</strong><br>
+                        <strong>GROCERY STORE:</strong><br>
                         Purana Palton Dhaka<br>
                         support@easylearningbd.com
                     </address>
