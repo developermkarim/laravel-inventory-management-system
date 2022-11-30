@@ -12,7 +12,7 @@
                     <a href="javascript:void(0);"><img src="{{asset('backend/assets/img/icons/product.svg')}}" alt="img"><span>
                             Product</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a class="{{ Request::routeis('product.add') ? 'active':''}}"  href="{{ route('product.all') }}">Product List</a></li>
+                        <li><a class="{{ Request::routeis('product.all') ? 'active':''}}"  href="{{ route('product.all') }}">Product List</a></li>
                         <li><a  class="{{ Request::routeis('product.add') ? 'active':'' }}"  href="{{ route('product.add') }}">Add Product</a></li>
 
                        {{--  <li><a href="brandlist.html">Brand List</a></li>
