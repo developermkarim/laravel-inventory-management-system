@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2022 at 02:23 AM
+-- Generation Time: Nov 30, 2022 at 02:47 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.0.23
 
@@ -75,14 +75,14 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `customer_image`, `customer_img_uri`, `mobile_no`, `email`, `address`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(41, 'Mahmodul Karim', 'customer-1667667638.png', 'http://127.0.0.1:8000/storage/customer//customer-1667667638.png', '01647113581', 'm.karimcu@gmail.com', 'Panthpath, Dhaka, Bangladesh', 1, 1, 1, '2022-11-05 11:00:00', '2022-11-05 11:00:38'),
 (42, 'Juliya Shuhi', 'customer-1667670891.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1667670891.jpg', '017854854', 'juliya@gmail.com', 'Komilla, Chittagong', 1, 1, NULL, '2022-11-05 11:54:52', NULL),
 (43, 'Riad Rio', 'customer-1667670954.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1667670954.jpg', '018754541454', 'riad@gmail.com', 'Bikram Puri,Dhaka', 1, 1, 1, '2022-11-05 11:55:40', '2022-11-18 04:51:47'),
 (47, 'Md Mahmodul Karim', 'customer-1668266180.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1668266180.jpg', '01647113581', 'm.karimcu@gmail.com', 'Panthpath, Dhaka, Bangladesh', 1, NULL, NULL, '2022-11-12 09:16:20', '2022-11-12 09:16:20'),
 (48, 'Abdur Razzak', 'customer-1668280661.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1668280661.jpg', '012445352', 'abdurrazzak12@gmail.com', 'Agrabad,Chittagong,Bangladesh', 1, NULL, NULL, '2022-11-12 13:17:42', '2022-11-12 13:17:42'),
 (49, 'Taneem Rahman', 'customer-1668697910.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1668697910.jpg', '01983432453', 'taneem@gmial.com', 'MuhammadPur, Mirpur,Dhaka', 1, NULL, NULL, '2022-11-17 09:11:50', '2022-11-17 09:11:50'),
 (50, 'Shifa Akter', 'customer-1668768600.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1668768600.jpg', '019834754', 'shifaakter@gmail.com', 'New Market,MirPur Road,Dhaka', 1, 1, NULL, '2022-11-18 04:50:01', NULL),
-(51, 'Jahedul Islam', 'customer-1668779415.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1668779415.jpg', '0179874671', 'jahedul@gmail.com', 'Habiganj,Sylhet,Bangladesh', 1, NULL, NULL, '2022-11-18 07:50:15', '2022-11-18 07:50:15');
+(51, 'Jahedul Islam', 'customer-1668779415.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1668779415.jpg', '0179874671', 'jahedul@gmail.com', 'Habiganj,Sylhet,Bangladesh', 1, NULL, NULL, '2022-11-18 07:50:15', '2022-11-18 07:50:15'),
+(52, 'Shariful Islam', 'customer-1669737317.jpg', 'http://127.0.0.1:8000/storage/customer//customer-1669737317.jpg', '017845425', 'shariful@gmail.com', 'Tangail, Rajshahi,Bangladesh', 1, NULL, NULL, '2022-11-29 09:55:18', '2022-11-29 09:55:18');
 
 -- --------------------------------------------------------
 
@@ -128,7 +128,8 @@ INSERT INTO `invoices` (`id`, `invoice_no`, `date`, `description`, `status`, `cr
 (14, '4', '2022-11-12', NULL, 1, 1, NULL, '2022-11-12 13:17:41', '2022-11-12 13:17:41'),
 (15, '5', '2022-11-17', NULL, 1, 1, 1, '2022-11-17 09:11:49', '2022-11-17 09:46:32'),
 (16, '6', '2022-11-18', NULL, 1, 1, 1, '2022-11-18 07:50:15', '2022-11-18 07:51:42'),
-(18, '7', '2022-11-18', NULL, 1, 1, 1, '2022-11-18 09:05:05', '2022-11-18 09:05:20');
+(18, '7', '2022-11-18', NULL, 1, 1, 1, '2022-11-18 09:05:05', '2022-11-18 09:05:20'),
+(21, '8', '1990-09-28', 'Et placeat dolor in', 1, 1, 1, '2022-11-29 10:11:48', '2022-11-29 10:12:04');
 
 -- --------------------------------------------------------
 
@@ -167,7 +168,8 @@ INSERT INTO `invoice_details` (`id`, `date`, `invoice_id`, `category_id`, `produ
 (16, '2022-11-17', 15, 6, 11, 2, 45, 90, 0, '2022-11-17 09:11:50', '2022-11-17 09:11:50'),
 (17, '2022-11-18', 16, 4, 12, 1, 75, 75, 1, '2022-11-18 07:50:15', '2022-11-18 07:51:42'),
 (18, '2022-11-18', 16, 6, 9, 5, 75, 375, 1, '2022-11-18 07:50:15', '2022-11-18 07:51:42'),
-(20, '2022-11-18', 18, 7, 13, 2, 105, 210, 1, '2022-11-18 09:05:05', '2022-11-18 09:05:20');
+(20, '2022-11-18', 18, 7, 13, 2, 105, 210, 1, '2022-11-18 09:05:05', '2022-11-18 09:05:20'),
+(25, '1990-09-28', 21, 2, 3, 5, 40, 200, 1, '2022-11-29 10:11:48', '2022-11-29 10:12:04');
 
 -- --------------------------------------------------------
 
@@ -199,7 +201,35 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2022_11_11_020957_create_invoices_table', 8),
 (16, '2022_11_11_021559_create_invoice_details_table', 8),
 (17, '2022_11_11_021634_create_payments_table', 8),
-(18, '2022_11_11_021755_create_payment_details_table', 8);
+(18, '2022_11_11_021755_create_payment_details_table', 8),
+(19, '2022_11_29_110754_create_notifications_table', 9);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_id` bigint(20) UNSIGNED NOT NULL,
+  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `read_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `data`, `read_at`, `created_at`, `updated_at`) VALUES
+('44524797-c03a-4caa-85f5-4f56b2b58a8d', 'App\\Notifications\\PurchaseComplete', 'App\\Models\\User', 1, '{\"message\":\"New Purchase added In Shop\"}', NULL, '2022-11-29 09:08:10', '2022-11-29 09:08:10'),
+('4dcdb1df-fa1f-4015-91eb-0692633cdb5c', 'App\\Notifications\\PurchaseComplete', 'App\\Models\\User', 1, '{\"message\":\"New Purchase added In Shop\"}', NULL, '2022-11-29 09:08:11', '2022-11-29 09:08:11'),
+('9bdf864a-0263-49a9-b5f4-3bff65007fce', 'App\\Notifications\\PurchaseComplete', 'App\\Models\\User', 1, '{\"message\":\"New Purchase added In Shop\"}', NULL, '2022-11-29 08:40:50', '2022-11-29 08:40:52'),
+('b25e3016-16fc-4815-b4cd-8a6447d25298', 'App\\Notifications\\SalesNotification', 'App\\Models\\User', 1, '{\"message\":\"Product sales is pending in Invoice,Plz,Check\"}', NULL, '2022-11-29 10:12:04', '2022-11-29 10:12:04');
 
 -- --------------------------------------------------------
 
@@ -237,15 +267,16 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `invoice_id`, `customer_id`, `paid_status`, `paid_amount`, `due_amount`, `total_amount`, `discount_amount`, `created_at`, `updated_at`) VALUES
-(1, 1, 42, 'partial_paid', 784, 150, 926, 56, '2022-11-12 07:19:17', '2022-11-12 07:19:17'),
-(4, 4, 42, 'partial_paid', 145, 5, 150, 30, '2022-11-12 07:32:00', '2022-11-12 07:32:00'),
+(1, 1, 42, 'partial_paid', 50, 20, 80, 56, '2022-11-12 07:19:17', '2022-11-27 02:09:08'),
+(4, 4, 40, 'partial_paid', 145, 5, 150, 30, '2022-11-12 07:32:00', '2022-11-12 07:32:00'),
 (5, 7, 44, 'partial_paid', 500, 546, 1046, 78, '2022-11-12 08:53:55', '2022-11-12 08:53:55'),
 (6, 8, 45, 'partial_paid', 500, 546, 1046, 78, '2022-11-12 08:55:42', '2022-11-12 08:55:42'),
 (8, 11, 47, 'full_paid', 180, 0, 180, 0, '2022-11-12 09:16:20', '2022-11-12 09:16:20'),
 (10, 14, 48, 'partial_paid', 45, 47, 92, 2, '2022-11-12 13:17:42', '2022-11-12 13:17:42'),
 (11, 15, 49, 'full_paid', 80, 0, 80, 10, '2022-11-17 09:11:50', '2022-11-17 09:11:50'),
-(12, 16, 51, 'partial_paid', NULL, 430, 430, 20, '2022-11-18 07:50:15', '2022-11-18 07:50:15'),
-(14, 18, 50, 'full_paid', 200, 0, 200, 10, '2022-11-18 09:05:05', '2022-11-18 09:05:05');
+(12, 16, 51, 'full_paid', 660, 0, 660, 20, '2022-11-18 07:50:15', '2022-11-27 08:19:16'),
+(14, 18, 50, 'full_paid', 200, 0, 200, 10, '2022-11-18 09:05:05', '2022-11-18 09:05:05'),
+(17, 21, 48, 'partial_paid', 45, 115, 160, 40, '2022-11-29 10:11:48', '2022-11-29 10:11:48');
 
 -- --------------------------------------------------------
 
@@ -274,9 +305,13 @@ INSERT INTO `payment_details` (`id`, `invoice_id`, `current_paid_amount`, `date`
 (6, 8, 500, '2022-11-12', NULL, '2022-11-12 08:55:42', '2022-11-12 08:55:42'),
 (8, 11, 180, '2022-11-12', NULL, '2022-11-12 09:16:20', '2022-11-12 09:16:20'),
 (10, 14, 45, '2022-11-12', NULL, '2022-11-12 13:17:42', '2022-11-12 13:17:42'),
-(11, 15, 80, '2022-11-17', NULL, '2022-11-17 09:11:50', '2022-11-17 09:11:50'),
+(11, 14, 80, '2022-11-17', NULL, '2022-11-17 09:11:50', '2022-11-17 09:11:50'),
 (12, 16, NULL, '2022-11-18', NULL, '2022-11-18 07:50:15', '2022-11-18 07:50:15'),
-(14, 18, 200, '2022-11-18', NULL, '2022-11-18 09:05:06', '2022-11-18 09:05:06');
+(14, 18, 200, '2022-11-18', NULL, '2022-11-18 09:05:06', '2022-11-18 09:05:06'),
+(15, 16, 30, '2022-11-26', NULL, '2022-11-27 08:05:34', '2022-11-27 08:05:34'),
+(16, 16, 50, '2022-11-27', NULL, '2022-11-27 08:13:48', '2022-11-27 08:13:48'),
+(17, 16, 280, '2022-11-30', NULL, '2022-11-27 08:19:17', '2022-11-27 08:19:17'),
+(20, 21, 45, '1990-09-28', NULL, '2022-11-29 10:11:48', '2022-11-29 10:11:48');
 
 -- --------------------------------------------------------
 
@@ -311,6 +346,8 @@ CREATE TABLE `products` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `quantity` double NOT NULL DEFAULT 0,
   `status` tinyint(4) NOT NULL DEFAULT 1,
+  `image` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_uri` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -321,18 +358,20 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `supplier_id`, `category_id`, `unit_id`, `name`, `quantity`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(3, 3, 2, 1, 'wire', 10, 1, 1, NULL, '2022-11-06 09:50:38', '2022-11-08 08:48:34'),
-(4, 9, 5, 1, 'Mango', 10, 1, 1, NULL, '2022-11-08 08:40:18', NULL),
-(5, 5, 3, 4, 'Apple 8', 1, 1, 1, NULL, '2022-11-08 08:41:01', '2022-11-10 18:34:06'),
-(6, 3, 2, 4, 'Ceiling Fan', 0, 1, 1, NULL, '2022-11-08 08:46:17', '2022-11-08 08:46:17'),
-(7, 8, 3, 4, 'HP EliteBook G10', 2, 1, 1, NULL, '2022-11-08 08:45:57', '2022-11-10 11:24:52'),
-(8, 9, 4, 3, 'Danu Milk', 0, 1, 1, NULL, '2022-11-08 08:47:27', NULL),
-(9, 9, 6, 1, 'Rice', 5, 1, 1, NULL, '2022-11-08 09:06:17', '2022-11-18 07:51:42'),
-(10, 9, 4, 3, 'Oil', 1, 1, 1, NULL, '2022-11-08 09:06:43', '2022-11-18 07:41:42'),
-(11, 9, 6, 1, 'Onion', 3, 1, 1, NULL, '2022-11-08 09:08:02', '2022-11-18 06:45:31'),
-(12, 9, 4, 2, 'Pran Chili Powder 200gram', 1, 1, 1, NULL, '2022-11-18 07:28:09', '2022-11-18 07:51:42'),
-(13, 8, 7, 6, 'Mango Juice', 5, 1, 1, NULL, '2022-11-18 08:58:14', '2022-11-18 09:05:20');
+INSERT INTO `products` (`id`, `supplier_id`, `category_id`, `unit_id`, `name`, `quantity`, `status`, `image`, `image_uri`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(3, 3, 2, 1, 'wire', 5, 1, NULL, NULL, 1, NULL, '2022-11-06 09:50:38', '2022-11-29 10:12:04'),
+(4, 9, 5, 1, 'Mango', 10, 1, NULL, NULL, 1, NULL, '2022-11-08 08:40:18', NULL),
+(5, 5, 3, 4, 'Apple 8', 1, 1, NULL, NULL, 1, NULL, '2022-11-08 08:41:01', '2022-11-10 18:34:06'),
+(6, 3, 2, 4, 'Ceiling Fan', 0, 1, NULL, NULL, 1, NULL, '2022-11-08 08:46:17', '2022-11-08 08:46:17'),
+(7, 8, 3, 4, 'HP EliteBook G10', 2, 1, NULL, NULL, 1, NULL, '2022-11-08 08:45:57', '2022-11-10 11:24:52'),
+(8, 9, 4, 3, 'Danu Milk', 0, 1, NULL, NULL, 1, NULL, '2022-11-08 08:47:27', NULL),
+(9, 9, 6, 1, 'Rice', 5, 1, NULL, NULL, 1, NULL, '2022-11-08 09:06:17', '2022-11-18 07:51:42'),
+(10, 9, 4, 3, 'Oil', 1, 1, NULL, NULL, 1, NULL, '2022-11-08 09:06:43', '2022-11-18 07:41:42'),
+(11, 9, 6, 1, 'Onion', 0, 1, 'product-3630.jpg', 'http://127.0.0.1:8000/storage/product//product-3630.jpg', 1, NULL, '2022-11-08 09:08:02', '2022-11-29 19:10:57'),
+(12, 9, 4, 2, 'Mashur Dal', 0, 1, 'product-4643.webp', 'http://127.0.0.1:8000/storage/product//product-4643.webp', 1, NULL, '2022-11-18 07:28:09', '2022-11-29 19:08:13'),
+(13, 8, 7, 6, 'fruit Drinks', 30, 1, 'product-7793.png', 'http://127.0.0.1:8000/storage/product//product-7793.png', 1, NULL, '2022-11-28 12:24:48', '2022-11-29 09:51:59'),
+(14, 9, 4, 1, 'Potatos', 100, 1, 'product-6993.png', 'http://127.0.0.1:8000/storage/product//product-6993.png', 1, NULL, '2022-11-28 12:23:23', '2022-11-29 09:51:54'),
+(17, 3, 4, 4, 'Halim', 0, 1, 'product-6549.webp', 'http://127.0.0.1:8000/storage/product//product-6549.webp', 1, NULL, '2022-11-28 12:21:59', '2022-11-29 19:05:36');
 
 -- --------------------------------------------------------
 
@@ -369,7 +408,10 @@ INSERT INTO `purchases` (`id`, `supplier_id`, `category_id`, `product_id`, `purc
 (5, 9, 6, 9, 'FDT678QN', '2022-11-26', '10 KG RICE', 10, 85, 850, 1, 1, NULL, '2022-11-10 19:39:15', '2022-11-10 20:01:36'),
 (7, 9, 4, 12, 'SFDJ69QT', '2022-11-04', '2 packet 200 gram', 3, 78, 156, 1, 1, NULL, '2022-11-18 07:41:00', '2022-11-18 07:41:47'),
 (8, 9, 4, 10, 'SFDJ69QT', '2022-11-04', '1 kilo oil', 5, 190, 190, 1, 1, NULL, '2022-11-18 07:41:01', '2022-11-18 07:41:42'),
-(9, 8, 7, 13, 'TR234KTQ', '2022-11-10', '7L Juice Purchased', 7, 85, 595, 1, 1, NULL, '2022-11-18 09:01:28', '2022-11-18 09:03:47');
+(9, 8, 7, 13, 'TR234KTQ', '2022-11-10', '7L Juice Purchased', 7, 85, 595, 1, 1, NULL, '2022-11-18 09:01:28', '2022-11-18 09:03:47'),
+(10, 9, 4, 14, 'TRY54QP', '2022-11-29', '10 kg potatos', 50, 45, 2250, 1, 1, NULL, '2022-11-29 07:50:16', '2022-11-29 09:51:49'),
+(11, 9, 4, 14, 'TRY54QP', '2022-11-29', '10 kg potatos', 50, 45, 2250, 1, 1, NULL, '2022-11-29 08:40:51', '2022-11-29 09:51:54'),
+(13, 8, 7, 13, 'GTR46QT', '2022-11-29', '30 kg Drinks', 30, 80, 2400, 1, 1, NULL, '2022-11-29 09:08:10', '2022-11-29 09:51:59');
 
 -- --------------------------------------------------------
 
@@ -496,6 +538,13 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `notifications_notifiable_type_notifiable_id_index` (`notifiable_type`,`notifiable_id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -567,7 +616,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -579,31 +628,31 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `invoice_details`
 --
 ALTER TABLE `invoice_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `payment_details`
 --
 ALTER TABLE `payment_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -615,13 +664,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
